@@ -1,0 +1,54 @@
+﻿*/databases/eicore/folder.03. staging views/folder.sap/folder.sql/views/stg_sap_pra_state_codes.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.wellmaster/views/b_warehouse_edw_wellmaster_wellcompletion.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.sap/views/b_warehouse_edw_sap_pra_state_codes.vql
+*/databases/eicore/folder.02. base views/folder.wellview/folder.02. sold wells/views/b_wellview_wv100_sold_wvwellheader.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/folder.stg_prodvols_well_completion_header/views/stg_prodvols_well_completion_header_99_final.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.avm/folder.stm views/views/stg_avm_stm_well_item_pbase.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/folder.stg_prodvols_pra_network/views/stg_prodvols_pra_network_99_final.vql
+*/databases/eicore/folder.03. staging views/folder.sap/views/stg_sap_project.vql
+*/databases/eicore/folder.03. staging views/folder.sap/folder.sql/views/stg_sap_pra_delivery_network.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.avm/folder.stm views/views/stg_avm_stm_well_item_info_pbase.vql
+*/databases/eicore/folder.03. staging views/folder.canonical/folder.stg_sm_well_completion_header/views/stg_sm_well_completion_header_01_avm.vql
+*/databases/eicore/folder.03. staging views/folder.operations/folder.wellview/folder.03. sold wells/views/stg_wellview_sold_wells_well_header_99_final.vql
+*/databases/eicore/folder.03. staging views/folder.operations/folder.wellview/folder.01. all wells/folder.stg_wellview_all_wells_well_header/views/stg_wellview_all_wells_well_header_99_final.vql
+*/databases/eicore/folder.03. staging views/folder.sap/folder.sql/views/stg_sap_pra_delivery_network_calc_method.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/folder.stg_prodvols_pra_network/views/stg_prodvols_pra_network_01_major_product_water.vql
+*/databases/eicore/folder.02. base views/folder.avm/folder.productionvolumes/views/b_productionvolumes_well_daily_volumes.vql
+*/databases/eicore/folder.03. staging views/folder.operations/folder.wellview/folder.02. active wells/views/stg_wellview_active_wells_well_header_99_final.vql
+*/databases/eicore/folder.03. staging views/folder.canonical/folder.stg_sm_well_completion_header/views/stg_sm_well_completion_header_99_final.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.sap/views/b_warehouse_edw_sap_pra_delivery_network_variable_data.vql
+*/databases/eicore/folder.03. staging views/folder.sap/folder.sql/views/stg_sap_pra_delivery_network_variable_data.vql
+*/databases/eicore/folder.03. staging views/folder.sap/folder.sql/views/stg_sap_pra_delivery_network_node.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.sap/views/b_warehouse_edw_sap_project.vql
+*/databases/eicore/folder.02. base views/folder.avm/folder.stm/views/b_avm_stm_well_item_info.vql
+*/databases/eicore/folder.03. staging views/folder.reserves/folder.incoming interfaces/views/stg_aries_interface_incoming_ac_daily_99_final.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.sap/views/b_warehouse_edw_sap_pra_counties_per_state.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.sap/views/b_warehouse_edw_sap_pra_delivery_network.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.sap/views/b_warehouse_edw_sap_pra_delivery_network_node_well_completion.vql
+*/databases/eicore/folder.03. staging views/folder.canonical/folder.stg_sm_well_completion_header/views/stg_sm_well_completion_header_01_avm_onstream_date.vql
+*/databases/eicore/folder.02. base views/folder.avm/folder.stm/views/b_avm_stm_well_item_pbase.vql
+*/databases/eicore/folder.02. base views/folder.aries/folder.ariesmaster/views/b_aries_ariesmaster_ac_property.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/folder.stg_prodvols_well_daily_volumes/views/stg_prodvols_well_daily_volumes_01_base.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.sap/views/b_warehouse_edw_sap_pra_delivery_network_links.vql
+*/databases/eicore/folder.03. staging views/folder.sap/folder.sql/views/stg_sap_pra_delivery_network_node_well_completion.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/folder.stg_prodvols_pra_network/views/stg_prodvols_pra_network_01_major_product_code.vql
+*/databases/eicore/folder.02. base views/folder.wellview/views/b_wellview_wv103calcunitsus_wvwellheader.vql
+*/databases/eicore/folder.03. staging views/folder.sap/folder.sql/views/stg_sap_pra_delivery_network_links.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.sap/views/b_warehouse_edw_sap_pra_delivery_network_calc_method.vql
+*/databases/eicore/folder.03. staging views/folder.canonical/folder.stg_sm_well_completion_header/views/stg_sm_well_completion_header_01_sap_soe.vql
+*/databases/eicore/folder.03. staging views/folder.reserves/folder.incoming interfaces/views/stg_aries_interface_incoming_effective_start_dates_99_final.vql
+*/databases/eicore/folder.03. staging views/folder.canonical/folder.stg_sm_well_completion_header/views/stg_sm_well_completion_header_01_sap_loe.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/folder.stg_prodvols_well_daily_volumes/views/stg_prodvols_well_daily_volumes_99_final.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/folder.stg_prodvols_pra_network/views/stg_prodvols_pra_network_01_major_product_oil.vql
+*/databases/eicore/folder.04. published views/folder.reserves/folder.incoming interfaces/views/aries_interface_incoming_ac_daily.vql
+*/databases/eicore/folder.03. staging views/folder.wellmaster/folder.stg_warehouse_edw_wellmaster_wellcompletion/views/stg_warehouse_edw_wellmaster_wellcompletion_99_final.vql
+*/databases/eicore/folder.03. staging views/folder.reserves/views/stg_aries_all_ac_property_99_final.vql
+*/databases/eicore/folder.03. staging views/folder.operations/folder.wellview/folder.01. all wells/folder.stg_wellview_all_wells_well_header/views/stg_wellview_all_wells_well_header_01_union.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.sap/views/b_warehouse_edw_sap_pra_delivery_network_node.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/folder.stg_prodvols_pra_network/views/stg_prodvols_pra_network_01_major_product_gas.vql
+*/databases/eicore/folder.03. staging views/folder.canonical/folder.stg_sm_well_completion_header/views/stg_sm_well_completion_header_01_aries.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/folder.stg_prodvols_pra_network/views/stg_prodvols_pra_network_01_variable_data_de.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.avm/folder.stm views/views/stg_avm_stm_well_item_info.vql
+*/databases/eicore/folder.03. staging views/folder.sap/folder.sql/views/stg_sap_pra_counties_per_state.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/folder.stg_prodvols_well_completion_header/views/stg_prodvols_well_completion_header_01_network.vql
+*/databases/eicore/folder.03. staging views/folder.canonical/folder.stg_sm_well_completion_header/views/stg_sm_well_completion_header_01_wv.vql
