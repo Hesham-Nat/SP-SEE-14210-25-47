@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW stg_sm_well_completion_header_01_avm_onstream_date FOLDER = '/03. staging views/canonical/stg_sm_well_completion_header' AS SELECT stg_prodvols_well_daily_volumes_01_base.well_completion_ekey, stg_prodvols_well_daily_volumes_01_base.prod_dt AS onstream_dt FROM stg_prodvols_well_daily_volumes_01_base WHERE (stat_days_of_gas_or_oil_prod = 1 AND getyear(prod_dt) = getyear(current_date()));
+
+ALTER VIEW stg_sm_well_completion_header_01_avm_onstream_date
+ LAYOUT (stg_prodvols_well_daily_volumes_01_base = [20, 20, 310, 689]);
+

@@ -1,0 +1,598 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC b_aries_ariesmaster_ac_property
+    FOLDER = '/02. base views/aries/ariesmaster'
+    DATASOURCENAME=ds_aries
+    CATALOGNAME='${databases.eicore.folder.02.. base views.folder.aries.folder.ariesmaster.views.jdbc.b_aries_ariesmaster_ac_property.CATALOGNAME}' 
+    SCHEMANAME='${databases.eicore.folder.02.. base views.folder.aries.folder.ariesmaster.views.jdbc.b_aries_ariesmaster_ac_property.SCHEMANAME}' 
+    RELATIONNAME='AC_PROPERTY' 
+    OUTPUTSCHEMA (
+        dbskey = 'DBSKEY' :'java.lang.String' (OPT) (sourcetypesize='12', sourcetypeid='12', sourcetypename='varchar')  NOT NULL SORTABLE,
+        propnum = 'PROPNUM' :'java.lang.String' (OPT) (sourcetypesize='12', sourcetypeid='12', sourcetypename='varchar')  NOT NULL SORTABLE,
+        interface = 'INTERFACE' :'java.lang.String' (OPT) (sourcetypesize='1', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        seqnum = 'SEQNUM' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        lease = 'LEASE' :'java.lang.String' (OPT) (sourcetypesize='70', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        field = 'FIELD' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        county = 'COUNTY' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        state = 'STATE' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        location = 'LOCATION' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        section = 'SECTION' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  ESCAPE SORTABLE,
+        township = 'TOWNSHIP' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        range = 'RANGE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  ESCAPE SORTABLE,
+        proj_code = 'PROJ_CODE' :'java.lang.String' (OPT) (sourcetypesize='2', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        recon_proj_code = 'RECON_PROJ_CODE' :'java.lang.String' (OPT) (sourcetypesize='12', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region_name = 'REGION_NAME' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellcompname = 'WELLCOMPNAME' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellcompid = 'WELLCOMPID' :'java.lang.String' (OPT) (sourcetypesize='12', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellid = 'WELLID' :'java.lang.String' (OPT) (sourcetypesize='8', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        costcenterid = 'COSTCENTERID' :'java.lang.String' (OPT) (sourcetypesize='7', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        costcentercategory = 'COSTCENTERCATEGORY' :'java.lang.String' (OPT) (sourcetypesize='1', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        taxid = 'TAXID' :'java.lang.String' (OPT) (sourcetypesize='15', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        rsv_cat = 'RSV_CAT' :'java.lang.String' (OPT) (sourcetypesize='8', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        rsv_class = 'RSV_CLASS' :'java.lang.String' (OPT) (sourcetypesize='6', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        tech_pud_flag = 'TECH_PUD_FLAG' :'java.lang.String' (OPT) (sourcetypesize='10', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        reservoir = 'RESERVOIR' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        major = 'MAJOR' :'java.lang.String' (OPT) (sourcetypesize='4', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        operator = 'OPERATOR' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        op_nonop = 'OP_NONOP' :'java.lang.String' (OPT) (sourcetypesize='6', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        api = 'API' :'java.lang.String' (OPT) (sourcetypesize='14', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        dw_code = 'DW_CODE' :'java.lang.String' (OPT) (sourcetypesize='30', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        prospect = 'PROSPECT' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        well_num = 'WELL_NUM' :'java.lang.String' (OPT) (sourcetypesize='6', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        status = 'STATUS' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        team = 'TEAM' :'java.lang.String' (OPT) (sourcetypesize='7', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        acq_code = 'ACQ_CODE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        divest_code = 'DIVEST_CODE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        deplcd = 'DEPLCD' :'java.lang.String' (OPT) (sourcetypesize='10', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        depldesc = 'DEPLDESC' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        nt_profit = 'NT_PROFIT' :'java.lang.String' (OPT) (sourcetypesize='10', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        rsv_yr = 'RSV_YR' :'java.lang.String' (OPT) (sourcetypesize='5', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        budget_node = 'BUDGET_NODE' :'java.lang.String' (OPT) (sourcetypesize='35', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        resource_model_code = 'RESOURCE_MODEL_CODE' :'java.lang.String' (OPT) (sourcetypesize='25', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        district = 'DISTRICT' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        zone = 'ZONE' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  ESCAPE SORTABLE,
+        sub_zone = 'SUB_ZONE' :'java.lang.String' (OPT) (sourcetypesize='30', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        type_curve_region = 'TYPE_CURVE_REGION' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        type_curve_subregion = 'TYPE_CURVE_SUBREGION' :'java.lang.String' (OPT) (sourcetypesize='70', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        inventory_flag = 'INVENTORY_FLAG' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        well_spacing_in_zone = 'WELL_SPACING_IN_ZONE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        well_spacing_plan_view = 'WELL_SPACING_PLAN_VIEW' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        frac_design = 'FRAC_DESIGN' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        eia = 'EIA' :'java.lang.String' (OPT) (sourcetypesize='38', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        basket_payout = 'BASKET_PAYOUT' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        comp_type = 'COMP_TYPE' :'java.lang.String' (OPT) (sourcetypesize='7', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        art_lift_type = 'ART_LIFT_TYPE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        pad_name = 'PAD_NAME' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        pad_group_name = 'PAD_GROUP_NAME' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        flows_to = 'FLOWS_TO' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        pad_id = 'PAD_ID' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        facility_id = 'FACILITY_ID' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        dsu_name = 'DSU_NAME' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        mortgaged = 'MORTGAGED' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        loe = 'LOE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        woe = 'WOE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        copas = 'COPAS' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        flovhd = 'FLOVHD' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        salv = 'SALV' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        abdn = 'ABDN' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        oil_dif = 'OIL_DIF' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        oil_dif2 = 'OIL_DIF2' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        oil_dif_per = 'OIL_DIF_PER' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        oil_dif_per2 = 'OIL_DIF_PER2' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        oil_dif_date = 'OIL_DIF_DATE' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        basis_dif_dry = 'BASIS_DIF_DRY' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        basis_dif_per_dry = 'BASIS_DIF_PER_DRY' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        basis_dif_wet = 'BASIS_DIF_WET' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        basis_dif_per_wet = 'BASIS_DIF_PER_WET' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        basis_fee_dry = 'BASIS_FEE_DRY' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        basis_fee_wet = 'BASIS_FEE_WET' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        basis_fee_ngl = 'BASIS_FEE_NGL' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        ngl_dif = 'NGL_DIF' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        ngl_dif_per = 'NGL_DIF_PER' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        ngl_yield = 'NGL_YIELD' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        trans_dif_wet = 'TRANS_DIF_WET' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        trans_dif_dry = 'TRANS_DIF_DRY' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        trans_dif_oil = 'TRANS_DIF_OIL' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        trans_factor = 'TRANS_FACTOR' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        btu_adj = 'BTU_ADJ' :'java.lang.String' (OPT) (sourcetypesize='5', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        mkt_shrink_dry = 'MKT_SHRINK_DRY' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        mkt_shrink_wet = 'MKT_SHRINK_WET' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        wh_price_adj = 'WH_PRICE_ADJ' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        cond_yield = 'COND_YIELD' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='6', sourcetyperadix='10', sourcetypesize='18', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        oil_loe1 = 'OIL_LOE1' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        oil_loe2 = 'OIL_LOE2' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        wtr_loe1 = 'WTR_LOE1' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        wtr_loe2 = 'WTR_LOE2' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        rr_date = 'RR_DATE' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        date_comp = 'DATE_COMP' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        first_prod = 'FIRST_PROD' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        pa_date = 'PA_DATE' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        depth = 'DEPTH' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='5', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        pb_depth = 'PB_DEPTH' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='5', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        tv_depth = 'TV_DEPTH' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='5', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        upr_perf = 'UPR_PERF' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        lwr_perf = 'LWR_PERF' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        upr_oh = 'UPR_OH' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        lwr_oh = 'LWR_OH' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        eff_lat = 'EFF_LAT' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        prior_oil = 'PRIOR_OIL' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        prior_gas = 'PRIOR_GAS' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        prior_wtr = 'PRIOR_WTR' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        prior_ye_rsv_cat = 'PRIOR_YE_RSV_CAT' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        recon_cat_1p = 'RECON_CAT_1P' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        recon_cat_3p = 'RECON_CAT_3P' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        corp_ryder = 'CORP_RYDER' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        corp1 = 'CORP1' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        corp2 = 'CORP2' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        corp3 = 'CORP3' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        corp4 = 'CORP4' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        corp5 = 'CORP5' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        corp6 = 'CORP6' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        corp7 = 'CORP7' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        corp8 = 'CORP8' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        corp9 = 'CORP9' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        corp10 = 'CORP10' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region1 = 'REGION1' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region2 = 'REGION2' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region3 = 'REGION3' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region4 = 'REGION4' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        region5 = 'REGION5' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        region6 = 'REGION6' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        region7 = 'REGION7' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        region8 = 'REGION8' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        region9 = 'REGION9' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region10 = 'REGION10' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region11 = 'REGION11' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region12 = 'REGION12' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region13 = 'REGION13' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region14 = 'REGION14' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region15 = 'REGION15' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region16 = 'REGION16' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region17 = 'REGION17' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region18 = 'REGION18' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        asset_engineer = 'ASSET_ENGINEER' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        well_spacing_in_reservoir = 'WELL_SPACING_IN_RESERVOIR' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        bounded_reservoir = 'BOUNDED_RESERVOIR' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        bounded_zone = 'BOUNDED_ZONE' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        voil_gas = 'VOIL_GAS' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        csg_risk = 'CSG_RISK' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        lat_risk = 'LAT_RISK' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        capital_lookup_id = 'CAPITAL_LOOKUP_ID' :'java.lang.String' (OPT) (sourcetypesize='30', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        capital_tc_area = 'CAPITAL_TC_AREA' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        in_master_schedule = 'IN_MASTER_SCHEDULE' :'java.lang.String' (OPT) (sourcetypesize='10', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        pipeline = 'PIPELINE' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        oil_code = 'OIL_CODE' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        monthly_rpt_stat = 'MONTHLY_RPT_STAT' :'java.lang.String' (OPT) (sourcetypesize='7', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        afe_status = 'AFE_STATUS' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        offset_0 = 'OFFSET' :'java.lang.String' (OPT) (sourcetypesize='40', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        corpcall_dec = 'CORPCALL_DEC' :'java.lang.String' (OPT) (sourcetypesize='40', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        budget_cap_type = 'BUDGET_CAP_TYPE' :'java.lang.String' (OPT) (sourcetypesize='25', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        budget_year = 'BUDGET_YEAR' :'java.lang.String' (OPT) (sourcetypesize='5', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        behind_pipe = 'BEHIND_PIPE' :'java.lang.String' (OPT) (sourcetypesize='2', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lat_long_datum = 'LAT_LONG_DATUM' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        latitude = 'LATITUDE' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='9', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        longitude = 'LONGITUDE' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='9', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        latitude_heel = 'LATITUDE_HEEL' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='9', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        longitude_heel = 'LONGITUDE_HEEL' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='9', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        latitude_bh = 'LATITUDE_BH' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='9', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        longitude_bh = 'LONGITUDE_BH' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='9', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        tax_state = 'TAX_STATE' :'java.lang.String' (OPT) (sourcetypesize='6', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        tax_credit = 'TAX_CREDIT' :'java.lang.String' (OPT) (sourcetypesize='25', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        oil_inc_rate = 'OIL_INC_RATE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        oil_sev_rate = 'OIL_SEV_RATE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        gas_inc_rate = 'GAS_INC_RATE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        gas_sev_rate = 'GAS_SEV_RATE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        ngl_inc_rate = 'NGL_INC_RATE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        ngl_sev_rate = 'NGL_SEV_RATE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        inc_end_date = 'INC_END_DATE' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        prop_spud = 'PROP_SPUD' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        prop_cmpl = 'PROP_CMPL' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        prop_sales = 'PROP_SALES' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        prop_al = 'PROP_AL' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        prop_al2 = 'PROP_AL2' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        tan_drl = 'TAN_DRL' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        intan_drl = 'INTAN_DRL' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        tan_cmpl = 'TAN_CMPL' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        intan_cmpl = 'INTAN_CMPL' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        capex_al = 'CAPEX_AL' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        capex_al2 = 'CAPEX_AL2' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE
+    )
+    CONSTRAINT 'PK__AC_PROPERTY__DBSKEY__PROPNUM' PRIMARY KEY ( 'DBSKEY' , 'PROPNUM' )
+    INDEX 'PK__AC_PROPERTY__DBSKEY__PROPNUM' CLUSTER UNIQUE PRIMARY ( 'DBSKEY' , 'PROPNUM' )
+    INDEX 'IX__AC_PROPERTY__DBSKEY' OTHER ( 'DBSKEY' )
+    INDEX 'IX__AC_PROPERTY__FIELD__DBSKEY' OTHER ( 'FIELD' , 'DBSKEY' )
+    INDEX 'IX__AC_PROPERTY__OP_NONOP__DBSKEY' OTHER ( 'OP_NONOP' , 'DBSKEY' )
+    INDEX 'IX__AC_PROPERTY__PROJ_CODE__DBSKEY' OTHER ( 'PROJ_CODE' , 'DBSKEY' );
+
+CREATE OR REPLACE TABLE b_aries_ariesmaster_ac_property I18N us_mst_mdt (
+        dbskey:text (notnull, sourcetypeid = '12', sourcetypesize = '12'),
+        propnum:text (notnull, sourcetypeid = '12', sourcetypesize = '12'),
+        interface:text (sourcetypeid = '12', sourcetypesize = '1'),
+        seqnum:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        lease:text (sourcetypeid = '12', sourcetypesize = '70'),
+        field:text (sourcetypeid = '12', sourcetypesize = '255'),
+        county:text (sourcetypeid = '12', sourcetypesize = '255'),
+        state:text (sourcetypeid = '12', sourcetypesize = '255'),
+        location:text (sourcetypeid = '12', sourcetypesize = '255'),
+        section:text (sourcetypeid = '12', sourcetypesize = '50'),
+        township:text (sourcetypeid = '12', sourcetypesize = '50'),
+        range:text (sourcetypeid = '12', sourcetypesize = '50'),
+        proj_code:text (sourcetypeid = '12', sourcetypesize = '2'),
+        recon_proj_code:text (sourcetypeid = '12', sourcetypesize = '12'),
+        region_name:text (sourcetypeid = '12', sourcetypesize = '255'),
+        wellcompname:text (sourcetypeid = '12', sourcetypesize = '255'),
+        wellcompid:text (sourcetypeid = '12', sourcetypesize = '12'),
+        wellid:text (sourcetypeid = '12', sourcetypesize = '8'),
+        costcenterid:text (sourcetypeid = '12', sourcetypesize = '7'),
+        costcentercategory:text (sourcetypeid = '12', sourcetypesize = '1'),
+        taxid:text (sourcetypeid = '12', sourcetypesize = '15'),
+        rsv_cat:text (sourcetypeid = '12', sourcetypesize = '8'),
+        rsv_class:text (sourcetypeid = '12', sourcetypesize = '6'),
+        tech_pud_flag:text (sourcetypeid = '12', sourcetypesize = '10'),
+        reservoir:text (sourcetypeid = '12', sourcetypesize = '32'),
+        major:text (sourcetypeid = '12', sourcetypesize = '4'),
+        operator:text (sourcetypeid = '12', sourcetypesize = '255'),
+        op_nonop:text (sourcetypeid = '12', sourcetypesize = '6'),
+        api:text (sourcetypeid = '12', sourcetypesize = '14'),
+        dw_code:text (sourcetypeid = '12', sourcetypesize = '30'),
+        prospect:text (sourcetypeid = '12', sourcetypesize = '255'),
+        well_num:text (sourcetypeid = '12', sourcetypesize = '6'),
+        status:text (sourcetypeid = '12', sourcetypesize = '20'),
+        team:text (sourcetypeid = '12', sourcetypesize = '7'),
+        acq_code:text (sourcetypeid = '12', sourcetypesize = '50'),
+        divest_code:text (sourcetypeid = '12', sourcetypesize = '50'),
+        deplcd:text (sourcetypeid = '12', sourcetypesize = '10'),
+        depldesc:text (sourcetypeid = '12', sourcetypesize = '100'),
+        nt_profit:text (sourcetypeid = '12', sourcetypesize = '10'),
+        rsv_yr:text (sourcetypeid = '12', sourcetypesize = '5'),
+        budget_node:text (sourcetypeid = '12', sourcetypesize = '35'),
+        resource_model_code:text (sourcetypeid = '12', sourcetypesize = '25'),
+        district:text (sourcetypeid = '12', sourcetypesize = '32'),
+        zone:text (sourcetypeid = '12', sourcetypesize = '32'),
+        sub_zone:text (sourcetypeid = '12', sourcetypesize = '30'),
+        type_curve_region:text (sourcetypeid = '12', sourcetypesize = '50'),
+        type_curve_subregion:text (sourcetypeid = '12', sourcetypesize = '70'),
+        inventory_flag:text (sourcetypeid = '12', sourcetypesize = '50'),
+        well_spacing_in_zone:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        well_spacing_plan_view:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        frac_design:text (sourcetypeid = '12', sourcetypesize = '32'),
+        eia:text (sourcetypeid = '12', sourcetypesize = '38'),
+        basket_payout:text (sourcetypeid = '12', sourcetypesize = '50'),
+        comp_type:text (sourcetypeid = '12', sourcetypesize = '7'),
+        art_lift_type:text (sourcetypeid = '12', sourcetypesize = '50'),
+        pad_name:text (sourcetypeid = '12', sourcetypesize = '50'),
+        pad_group_name:text (sourcetypeid = '12', sourcetypesize = '50'),
+        flows_to:text (sourcetypeid = '12', sourcetypesize = '50'),
+        pad_id:text (sourcetypeid = '12', sourcetypesize = '50'),
+        facility_id:text (sourcetypeid = '12', sourcetypesize = '50'),
+        dsu_name:text (sourcetypeid = '12', sourcetypesize = '50'),
+        mortgaged:text (sourcetypeid = '12', sourcetypesize = '20'),
+        loe:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        woe:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        copas:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        flovhd:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        salv:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        abdn:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        oil_dif:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        oil_dif2:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        oil_dif_per:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        oil_dif_per2:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        oil_dif_date:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        basis_dif_dry:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        basis_dif_per_dry:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        basis_dif_wet:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        basis_dif_per_wet:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        basis_fee_dry:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        basis_fee_wet:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        basis_fee_ngl:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        ngl_dif:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        ngl_dif_per:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        ngl_yield:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        trans_dif_wet:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        trans_dif_dry:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        trans_dif_oil:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        trans_factor:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        btu_adj:text (sourcetypeid = '12', sourcetypesize = '5'),
+        mkt_shrink_dry:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        mkt_shrink_wet:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        wh_price_adj:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        cond_yield:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '6', sourcetypesize = '18'),
+        oil_loe1:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        oil_loe2:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        wtr_loe1:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        wtr_loe2:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        rr_date:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        date_comp:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        first_prod:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        pa_date:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        depth:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '5', sourcetypesize = '19'),
+        pb_depth:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '5', sourcetypesize = '19'),
+        tv_depth:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '5', sourcetypesize = '19'),
+        upr_perf:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        lwr_perf:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        upr_oh:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        lwr_oh:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        eff_lat:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        prior_oil:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        prior_gas:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        prior_wtr:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        prior_ye_rsv_cat:text (sourcetypeid = '12', sourcetypesize = '32'),
+        recon_cat_1p:text (sourcetypeid = '12', sourcetypesize = '32'),
+        recon_cat_3p:text (sourcetypeid = '12', sourcetypesize = '32'),
+        corp_ryder:text (sourcetypeid = '12', sourcetypesize = '32'),
+        corp1:text (sourcetypeid = '12', sourcetypesize = '32'),
+        corp2:text (sourcetypeid = '12', sourcetypesize = '32'),
+        corp3:text (sourcetypeid = '12', sourcetypesize = '32'),
+        corp4:text (sourcetypeid = '12', sourcetypesize = '32'),
+        corp5:text (sourcetypeid = '12', sourcetypesize = '32'),
+        corp6:text (sourcetypeid = '12', sourcetypesize = '32'),
+        corp7:text (sourcetypeid = '12', sourcetypesize = '32'),
+        corp8:text (sourcetypeid = '12', sourcetypesize = '32'),
+        corp9:text (sourcetypeid = '12', sourcetypesize = '32'),
+        corp10:text (sourcetypeid = '12', sourcetypesize = '32'),
+        region1:text (sourcetypeid = '12', sourcetypesize = '32'),
+        region2:text (sourcetypeid = '12', sourcetypesize = '32'),
+        region3:text (sourcetypeid = '12', sourcetypesize = '32'),
+        region4:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        region5:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        region6:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        region7:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        region8:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        region9:text (sourcetypeid = '12', sourcetypesize = '32'),
+        region10:text (sourcetypeid = '12', sourcetypesize = '32'),
+        region11:text (sourcetypeid = '12', sourcetypesize = '32'),
+        region12:text (sourcetypeid = '12', sourcetypesize = '32'),
+        region13:text (sourcetypeid = '12', sourcetypesize = '32'),
+        region14:text (sourcetypeid = '12', sourcetypesize = '32'),
+        region15:text (sourcetypeid = '12', sourcetypesize = '32'),
+        region16:text (sourcetypeid = '12', sourcetypesize = '32'),
+        region17:text (sourcetypeid = '12', sourcetypesize = '32'),
+        region18:text (sourcetypeid = '12', sourcetypesize = '32'),
+        asset_engineer:text (sourcetypeid = '12', sourcetypesize = '32'),
+        well_spacing_in_reservoir:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        bounded_reservoir:text (sourcetypeid = '12', sourcetypesize = '32'),
+        bounded_zone:text (sourcetypeid = '12', sourcetypesize = '32'),
+        voil_gas:text (sourcetypeid = '12', sourcetypesize = '32'),
+        csg_risk:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        lat_risk:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        capital_lookup_id:text (sourcetypeid = '12', sourcetypesize = '30'),
+        capital_tc_area:text (sourcetypeid = '12', sourcetypesize = '50'),
+        in_master_schedule:text (sourcetypeid = '12', sourcetypesize = '10'),
+        pipeline:text (sourcetypeid = '12', sourcetypesize = '32'),
+        oil_code:text (sourcetypeid = '12', sourcetypesize = '32'),
+        monthly_rpt_stat:text (sourcetypeid = '12', sourcetypesize = '7'),
+        afe_status:text (sourcetypeid = '12', sourcetypesize = '20'),
+        offset_0:text (sourcetypeid = '12', sourcetypesize = '40'),
+        corpcall_dec:text (sourcetypeid = '12', sourcetypesize = '40'),
+        budget_cap_type:text (sourcetypeid = '12', sourcetypesize = '25'),
+        budget_year:text (sourcetypeid = '12', sourcetypesize = '5'),
+        behind_pipe:text (sourcetypeid = '12', sourcetypesize = '2'),
+        lat_long_datum:text (sourcetypeid = '12', sourcetypesize = '20'),
+        latitude:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '9', sourcetypesize = '19'),
+        longitude:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '9', sourcetypesize = '19'),
+        latitude_heel:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '9', sourcetypesize = '19'),
+        longitude_heel:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '9', sourcetypesize = '19'),
+        latitude_bh:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '9', sourcetypesize = '19'),
+        longitude_bh:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '9', sourcetypesize = '19'),
+        tax_state:text (sourcetypeid = '12', sourcetypesize = '6'),
+        tax_credit:text (sourcetypeid = '12', sourcetypesize = '25'),
+        oil_inc_rate:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        oil_sev_rate:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        gas_inc_rate:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        gas_sev_rate:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        ngl_inc_rate:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        ngl_sev_rate:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        inc_end_date:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        prop_spud:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        prop_cmpl:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        prop_sales:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        prop_al:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        prop_al2:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        tan_drl:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        intan_drl:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        tan_cmpl:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        intan_cmpl:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        capex_al:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        capex_al2:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53')
+    )
+    FOLDER = '/02. base views/aries/ariesmaster'
+    PRIMARY KEY ( 'dbskey' , 'propnum' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD b_aries_ariesmaster_ac_property(
+        I18N us_mst_mdt
+        CONSTRAINTS (
+             ADD dbskey (any) OPT ANY
+             ADD propnum (any) OPT ANY
+             ADD interface (any) OPT ANY
+             ADD seqnum (any) OPT ANY
+             ADD lease (any) OPT ANY
+             ADD field (any) OPT ANY
+             ADD county (any) OPT ANY
+             ADD state (any) OPT ANY
+             ADD location (any) OPT ANY
+             ADD section (any) OPT ANY
+             ADD township (any) OPT ANY
+             ADD range (any) OPT ANY
+             ADD proj_code (any) OPT ANY
+             ADD recon_proj_code (any) OPT ANY
+             ADD region_name (any) OPT ANY
+             ADD wellcompname (any) OPT ANY
+             ADD wellcompid (any) OPT ANY
+             ADD wellid (any) OPT ANY
+             ADD costcenterid (any) OPT ANY
+             ADD costcentercategory (any) OPT ANY
+             ADD taxid (any) OPT ANY
+             ADD rsv_cat (any) OPT ANY
+             ADD rsv_class (any) OPT ANY
+             ADD tech_pud_flag (any) OPT ANY
+             ADD reservoir (any) OPT ANY
+             ADD major (any) OPT ANY
+             ADD operator (any) OPT ANY
+             ADD op_nonop (any) OPT ANY
+             ADD api (any) OPT ANY
+             ADD dw_code (any) OPT ANY
+             ADD prospect (any) OPT ANY
+             ADD well_num (any) OPT ANY
+             ADD status (any) OPT ANY
+             ADD team (any) OPT ANY
+             ADD acq_code (any) OPT ANY
+             ADD divest_code (any) OPT ANY
+             ADD deplcd (any) OPT ANY
+             ADD depldesc (any) OPT ANY
+             ADD nt_profit (any) OPT ANY
+             ADD rsv_yr (any) OPT ANY
+             ADD budget_node (any) OPT ANY
+             ADD resource_model_code (any) OPT ANY
+             ADD district (any) OPT ANY
+             ADD zone (any) OPT ANY
+             ADD sub_zone (any) OPT ANY
+             ADD type_curve_region (any) OPT ANY
+             ADD type_curve_subregion (any) OPT ANY
+             ADD inventory_flag (any) OPT ANY
+             ADD well_spacing_in_zone (any) OPT ANY
+             ADD well_spacing_plan_view (any) OPT ANY
+             ADD frac_design (any) OPT ANY
+             ADD eia (any) OPT ANY
+             ADD basket_payout (any) OPT ANY
+             ADD comp_type (any) OPT ANY
+             ADD art_lift_type (any) OPT ANY
+             ADD pad_name (any) OPT ANY
+             ADD pad_group_name (any) OPT ANY
+             ADD flows_to (any) OPT ANY
+             ADD pad_id (any) OPT ANY
+             ADD facility_id (any) OPT ANY
+             ADD dsu_name (any) OPT ANY
+             ADD mortgaged (any) OPT ANY
+             ADD loe (any) OPT ANY
+             ADD woe (any) OPT ANY
+             ADD copas (any) OPT ANY
+             ADD flovhd (any) OPT ANY
+             ADD salv (any) OPT ANY
+             ADD abdn (any) OPT ANY
+             ADD oil_dif (any) OPT ANY
+             ADD oil_dif2 (any) OPT ANY
+             ADD oil_dif_per (any) OPT ANY
+             ADD oil_dif_per2 (any) OPT ANY
+             ADD oil_dif_date (any) OPT ANY
+             ADD basis_dif_dry (any) OPT ANY
+             ADD basis_dif_per_dry (any) OPT ANY
+             ADD basis_dif_wet (any) OPT ANY
+             ADD basis_dif_per_wet (any) OPT ANY
+             ADD basis_fee_dry (any) OPT ANY
+             ADD basis_fee_wet (any) OPT ANY
+             ADD basis_fee_ngl (any) OPT ANY
+             ADD ngl_dif (any) OPT ANY
+             ADD ngl_dif_per (any) OPT ANY
+             ADD ngl_yield (any) OPT ANY
+             ADD trans_dif_wet (any) OPT ANY
+             ADD trans_dif_dry (any) OPT ANY
+             ADD trans_dif_oil (any) OPT ANY
+             ADD trans_factor (any) OPT ANY
+             ADD btu_adj (any) OPT ANY
+             ADD mkt_shrink_dry (any) OPT ANY
+             ADD mkt_shrink_wet (any) OPT ANY
+             ADD wh_price_adj (any) OPT ANY
+             ADD cond_yield (any) OPT ANY
+             ADD oil_loe1 (any) OPT ANY
+             ADD oil_loe2 (any) OPT ANY
+             ADD wtr_loe1 (any) OPT ANY
+             ADD wtr_loe2 (any) OPT ANY
+             ADD rr_date (any) OPT ANY
+             ADD date_comp (any) OPT ANY
+             ADD first_prod (any) OPT ANY
+             ADD pa_date (any) OPT ANY
+             ADD depth (any) OPT ANY
+             ADD pb_depth (any) OPT ANY
+             ADD tv_depth (any) OPT ANY
+             ADD upr_perf (any) OPT ANY
+             ADD lwr_perf (any) OPT ANY
+             ADD upr_oh (any) OPT ANY
+             ADD lwr_oh (any) OPT ANY
+             ADD eff_lat (any) OPT ANY
+             ADD prior_oil (any) OPT ANY
+             ADD prior_gas (any) OPT ANY
+             ADD prior_wtr (any) OPT ANY
+             ADD prior_ye_rsv_cat (any) OPT ANY
+             ADD recon_cat_1p (any) OPT ANY
+             ADD recon_cat_3p (any) OPT ANY
+             ADD corp_ryder (any) OPT ANY
+             ADD corp1 (any) OPT ANY
+             ADD corp2 (any) OPT ANY
+             ADD corp3 (any) OPT ANY
+             ADD corp4 (any) OPT ANY
+             ADD corp5 (any) OPT ANY
+             ADD corp6 (any) OPT ANY
+             ADD corp7 (any) OPT ANY
+             ADD corp8 (any) OPT ANY
+             ADD corp9 (any) OPT ANY
+             ADD corp10 (any) OPT ANY
+             ADD region1 (any) OPT ANY
+             ADD region2 (any) OPT ANY
+             ADD region3 (any) OPT ANY
+             ADD region4 (any) OPT ANY
+             ADD region5 (any) OPT ANY
+             ADD region6 (any) OPT ANY
+             ADD region7 (any) OPT ANY
+             ADD region8 (any) OPT ANY
+             ADD region9 (any) OPT ANY
+             ADD region10 (any) OPT ANY
+             ADD region11 (any) OPT ANY
+             ADD region12 (any) OPT ANY
+             ADD region13 (any) OPT ANY
+             ADD region14 (any) OPT ANY
+             ADD region15 (any) OPT ANY
+             ADD region16 (any) OPT ANY
+             ADD region17 (any) OPT ANY
+             ADD region18 (any) OPT ANY
+             ADD asset_engineer (any) OPT ANY
+             ADD well_spacing_in_reservoir (any) OPT ANY
+             ADD bounded_reservoir (any) OPT ANY
+             ADD bounded_zone (any) OPT ANY
+             ADD voil_gas (any) OPT ANY
+             ADD csg_risk (any) OPT ANY
+             ADD lat_risk (any) OPT ANY
+             ADD capital_lookup_id (any) OPT ANY
+             ADD capital_tc_area (any) OPT ANY
+             ADD in_master_schedule (any) OPT ANY
+             ADD pipeline (any) OPT ANY
+             ADD oil_code (any) OPT ANY
+             ADD monthly_rpt_stat (any) OPT ANY
+             ADD afe_status (any) OPT ANY
+             ADD offset_0 (any) OPT ANY
+             ADD corpcall_dec (any) OPT ANY
+             ADD budget_cap_type (any) OPT ANY
+             ADD budget_year (any) OPT ANY
+             ADD behind_pipe (any) OPT ANY
+             ADD lat_long_datum (any) OPT ANY
+             ADD latitude (any) OPT ANY
+             ADD longitude (any) OPT ANY
+             ADD latitude_heel (any) OPT ANY
+             ADD longitude_heel (any) OPT ANY
+             ADD latitude_bh (any) OPT ANY
+             ADD longitude_bh (any) OPT ANY
+             ADD tax_state (any) OPT ANY
+             ADD tax_credit (any) OPT ANY
+             ADD oil_inc_rate (any) OPT ANY
+             ADD oil_sev_rate (any) OPT ANY
+             ADD gas_inc_rate (any) OPT ANY
+             ADD gas_sev_rate (any) OPT ANY
+             ADD ngl_inc_rate (any) OPT ANY
+             ADD ngl_sev_rate (any) OPT ANY
+             ADD inc_end_date (any) OPT ANY
+             ADD prop_spud (any) OPT ANY
+             ADD prop_cmpl (any) OPT ANY
+             ADD prop_sales (any) OPT ANY
+             ADD prop_al (any) OPT ANY
+             ADD prop_al2 (any) OPT ANY
+             ADD tan_drl (any) OPT ANY
+             ADD intan_drl (any) OPT ANY
+             ADD tan_cmpl (any) OPT ANY
+             ADD intan_cmpl (any) OPT ANY
+             ADD capex_al (any) OPT ANY
+             ADD capex_al2 (any) OPT ANY
+        )
+        OUTPUTLIST (abdn, acq_code, afe_status, api, art_lift_type, asset_engineer, basis_dif_dry, basis_dif_per_dry, basis_dif_per_wet, basis_dif_wet, basis_fee_dry, basis_fee_ngl, basis_fee_wet, basket_payout, behind_pipe, bounded_reservoir, bounded_zone, btu_adj, budget_cap_type, budget_node, budget_year, capex_al, capex_al2, capital_lookup_id, capital_tc_area, comp_type, cond_yield, copas, corp1, corp10, corp2, corp3, corp4, corp5, corp6, corp7, corp8, corp9, corp_ryder, corpcall_dec, costcentercategory, costcenterid, county, csg_risk, date_comp, dbskey, deplcd, depldesc, depth, district, divest_code, dsu_name, dw_code, eff_lat, eia, facility_id, field, first_prod, flovhd, flows_to, frac_design, gas_inc_rate, gas_sev_rate, in_master_schedule, inc_end_date, intan_cmpl, intan_drl, interface, inventory_flag, lat_long_datum, lat_risk, latitude, latitude_bh, latitude_heel, lease, location, loe, longitude, longitude_bh, longitude_heel, lwr_oh, lwr_perf, major, mkt_shrink_dry, mkt_shrink_wet, monthly_rpt_stat, mortgaged, ngl_dif, ngl_dif_per, ngl_inc_rate, ngl_sev_rate, ngl_yield, nt_profit, offset_0, oil_code, oil_dif, oil_dif2, oil_dif_date, oil_dif_per, oil_dif_per2, oil_inc_rate, oil_loe1, oil_loe2, oil_sev_rate, op_nonop, operator, pa_date, pad_group_name, pad_id, pad_name, pb_depth, pipeline, prior_gas, prior_oil, prior_wtr, prior_ye_rsv_cat, proj_code, prop_al, prop_al2, prop_cmpl, prop_sales, prop_spud, propnum, prospect, range, recon_cat_1p, recon_cat_3p, recon_proj_code, region1, region10, region11, region12, region13, region14, region15, region16, region17, region18, region2, region3, region4, region5, region6, region7, region8, region9, region_name, reservoir, resource_model_code, rr_date, rsv_cat, rsv_class, rsv_yr, salv, section, seqnum, state, status, sub_zone, tan_cmpl, tan_drl, tax_credit, tax_state, taxid, team, tech_pud_flag, township, trans_dif_dry, trans_dif_oil, trans_dif_wet, trans_factor, tv_depth, type_curve_region, type_curve_subregion, upr_oh, upr_perf, voil_gas, well_num, well_spacing_in_reservoir, well_spacing_in_zone, well_spacing_plan_view, wellcompid, wellcompname, wellid, wh_price_adj, woe, wtr_loe1, wtr_loe2, zone
+        )
+        WRAPPER (jdbc b_aries_ariesmaster_ac_property)
+    );
+

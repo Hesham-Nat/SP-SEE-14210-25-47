@@ -1,0 +1,400 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC b_avm_stm_well_item_info
+    FOLDER = '/02. base views/avm/stm'
+    DATASOURCENAME=ds_avm
+    CATALOGNAME='${databases.eicore.folder.02.. base views.folder.avm.folder.stm.views.jdbc.b_avm_stm_well_item_info.CATALOGNAME}' 
+    SCHEMANAME='${databases.eicore.folder.02.. base views.folder.avm.folder.stm.views.jdbc.b_avm_stm_well_item_info.SCHEMANAME}' 
+    RELATIONNAME='WELL_ITEM_INFO' 
+    OUTPUTSCHEMA (
+        item_id = 'ITEM_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  NOT NULL SORTABLE,
+        item_type = 'ITEM_TYPE' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='14')  NOT NULL SORTABLE,
+        item_name = 'ITEM_NAME' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        item_num = 'ITEM_NUM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        item_leaf = 'ITEM_LEAF' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='1')  NOT NULL SORTABLE,
+        comp_id = 'COMP_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  SORTABLE,
+        zone_id = 'ZONE_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  SORTABLE,
+        wellcomp_name = 'WELLCOMP_NAME' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        wellcomp_num = 'WELLCOMP_NUM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        wellcomp_api_no = 'WELLCOMP_API_NO' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        wellzone_name = 'WELLZONE_NAME' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        wellzone_num = 'WELLZONE_NUM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        wellzone_api_no = 'WELLZONE_API_NO' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        active = 'ACTIVE' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        has_zone = 'HAS_ZONE' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='1')  NOT NULL SORTABLE,
+        bus_area_nm = 'BUS_AREA_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        completion_dt = 'COMPLETION_DT' :'java.sql.Timestamp' (OPT) (sourcetyperadix='0', sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  SORTABLE,
+        completion_type = 'COMPLETION_TYPE' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        confidential = 'CONFIDENTIAL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        county = 'COUNTY' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        county_nm = 'COUNTY_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='100')  SORTABLE,
+        disp_type = 'DISP_TYPE' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        facility_nm = 'FACILITY_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        fdc_id = 'FDC_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        field_geol = 'FIELD_GEOL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        fin_bud_lvl = 'FIN_BUD_LVL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='5')  SORTABLE,
+        fin_bud_cd = 'FIN_BUD_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='30')  SORTABLE,
+        fin_bud_nm = 'FIN_BUD_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='50')  SORTABLE,
+        fin_bud_ent_cd = 'FIN_BUD_ENT_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='60')  SORTABLE,
+        first_prod_dt = 'FIRST_PROD_DT' :'java.sql.Timestamp' (OPT) (sourcetyperadix='0', sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  SORTABLE,
+        first_sale_dt = 'FIRST_SALE_DT' :'java.sql.Timestamp' (OPT) (sourcetyperadix='0', sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  SORTABLE,
+        first_sale_dt_gas = 'FIRST_SALE_DT_GAS' :'java.sql.Timestamp' (OPT) (sourcetyperadix='0', sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  SORTABLE,
+        first_sale_dt_oil = 'FIRST_SALE_DT_OIL' :'java.sql.Timestamp' (OPT) (sourcetyperadix='0', sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  SORTABLE,
+        formation = 'FORMATION' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        geo_fld_lvl = 'GEO_FLD_LVL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='3')  SORTABLE,
+        geo_fld_cd = 'GEO_FLD_CD' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='int', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  SORTABLE,
+        geo_fld_nm = 'GEO_FLD_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        geo_fld_ent_cd = 'GEO_FLD_ENT_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='204')  SORTABLE,
+        lease = 'LEASE' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        latitude = 'LATITUDE' :'java.math.BigDecimal' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='8', sourcetypesize='12')  SORTABLE,
+        longitude = 'LONGITUDE' :'java.math.BigDecimal' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='8', sourcetypesize='12')  SORTABLE,
+        bot_latitude = 'BOT_LATITUDE' :'java.math.BigDecimal' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='2', sourcetypesize='11')  SORTABLE,
+        bot_longitude = 'BOT_LONGITUDE' :'java.math.BigDecimal' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='2', sourcetypesize='11')  SORTABLE,
+        legacy_id = 'LEGACY_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        lift_type_curr = 'LIFT_TYPE_CURR' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        lift_type_descr_curr = 'LIFT_TYPE_DESCR_CURR' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='100')  SORTABLE,
+        lift_type_dt = 'LIFT_TYPE_DT' :'java.sql.Timestamp' (OPT) (sourcetyperadix='0', sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  SORTABLE,
+        network_id = 'NETWORK_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  SORTABLE,
+        network_nm = 'NETWORK_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        operated = 'OPERATED' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        operator = 'OPERATOR' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        ops_rgn_lvl = 'OPS_RGN_LVL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='3')  SORTABLE,
+        ops_rgn_cd = 'OPS_RGN_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        ops_rgn_nm = 'OPS_RGN_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        ops_rgn_ent_cd = 'OPS_RGN_ENT_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='204')  SORTABLE,
+        ops_rgn_id = 'OPS_RGN_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  SORTABLE,
+        ops_area_lvl = 'OPS_AREA_LVL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='2')  SORTABLE,
+        ops_area_cd = 'OPS_AREA_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        ops_area_nm = 'OPS_AREA_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        ops_area_ent_cd = 'OPS_AREA_ENT_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='203')  SORTABLE,
+        ops_area_id = 'OPS_AREA_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  SORTABLE,
+        ops_btry_lvl = 'OPS_BTRY_LVL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='4')  SORTABLE,
+        ops_btry_cd = 'OPS_BTRY_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        ops_btry_nm = 'OPS_BTRY_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        ops_btry_ent_cd = 'OPS_BTRY_ENT_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='205')  SORTABLE,
+        ops_btry_id = 'OPS_BTRY_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  SORTABLE,
+        ops_wc_lvl = 'OPS_WC_LVL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='2')  NOT NULL SORTABLE,
+        ops_wc_cd = 'OPS_WC_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        ops_wc_nm = 'OPS_WC_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        ops_wc_ent_cd = 'OPS_WC_ENT_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='203')  SORTABLE,
+        ops_wc_id = 'OPS_WC_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  SORTABLE,
+        primary_product = 'PRIMARY_PRODUCT' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        prod_status_cd_curr = 'PROD_STATUS_CD_CURR' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        prod_status_descr_curr = 'PROD_STATUS_DESCR_CURR' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='100')  SORTABLE,
+        prod_status_dt = 'PROD_STATUS_DT' :'java.sql.Timestamp' (OPT) (sourcetyperadix='0', sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  SORTABLE,
+        prospect = 'PROSPECT' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        reg_state_lease_no = 'REG_STATE_LEASE_NO' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        reg_mms_fed_id = 'REG_MMS_FED_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        region_nm_ops = 'REGION_NM_OPS' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        reservoir = 'RESERVOIR' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        resp_rgn_lvl = 'RESP_RGN_LVL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='3')  SORTABLE,
+        resp_rgn_cd = 'RESP_RGN_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        resp_rgn_nm = 'RESP_RGN_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        resp_rgn_ent_cd = 'RESP_RGN_ENT_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='204')  SORTABLE,
+        resp_rgn_id = 'RESP_RGN_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  SORTABLE,
+        resp_pmgr_lvl = 'RESP_PMGR_LVL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='4')  SORTABLE,
+        resp_pmgr_cd = 'RESP_PMGR_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        resp_pmgr_nm = 'RESP_PMGR_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        resp_pmgr_ent_cd = 'RESP_PMGR_ENT_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='205')  SORTABLE,
+        resp_pmgr_id = 'RESP_PMGR_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  SORTABLE,
+        resp_supt_lvl = 'RESP_SUPT_LVL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='4')  SORTABLE,
+        resp_supt_cd = 'RESP_SUPT_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        resp_supt_nm = 'RESP_SUPT_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        resp_supt_ent_cd = 'RESP_SUPT_ENT_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='205')  SORTABLE,
+        resp_supt_id = 'RESP_SUPT_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  SORTABLE,
+        resp_frmn_lvl = 'RESP_FRMN_LVL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='4')  SORTABLE,
+        resp_frmn_cd = 'RESP_FRMN_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        resp_frmn_nm = 'RESP_FRMN_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        resp_frmn_ent_cd = 'RESP_FRMN_ENT_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='205')  SORTABLE,
+        resp_frmn_id = 'RESP_FRMN_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  SORTABLE,
+        resp_lsop_lvl = 'RESP_LSOP_LVL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='4')  SORTABLE,
+        resp_lsop_cd = 'RESP_LSOP_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        resp_lsop_nm = 'RESP_LSOP_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        resp_lsop_ent_cd = 'RESP_LSOP_ENT_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='205')  SORTABLE,
+        resp_lsop_id = 'RESP_LSOP_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  SORTABLE,
+        resp_wc_lvl = 'RESP_WC_LVL' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='2')  NOT NULL SORTABLE,
+        resp_wc_cd = 'RESP_WC_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        resp_wc_nm = 'RESP_WC_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        resp_wc_ent_cd = 'RESP_WC_ENT_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='203')  SORTABLE,
+        resp_wc_id = 'RESP_WC_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  SORTABLE,
+        route_stop_name = 'ROUTE_STOP_NAME' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        route_name = 'ROUTE_NAME' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        spud_dt = 'SPUD_DT' :'java.sql.Timestamp' (OPT) (sourcetyperadix='0', sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  SORTABLE,
+        state_cd = 'STATE_CD' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        state_nm = 'STATE_NM' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='100')  SORTABLE,
+        township = 'TOWNSHIP' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        unit_id = 'UNIT_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        unit_name = 'UNIT_NAME' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        well_of_int = 'WELL_OF_INT' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='10')  SORTABLE,
+        well_config = 'WELL_CONFIG' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        zone_top_tvd = 'ZONE_TOP_TVD' :'java.math.BigDecimal' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='3', sourcetypesize='11')  SORTABLE,
+        zone_bottom_tvd = 'ZONE_BOTTOM_TVD' :'java.math.BigDecimal' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='3', sourcetypesize='11')  SORTABLE,
+        zone_top_md = 'ZONE_TOP_MD' :'java.math.BigDecimal' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='3', sourcetypesize='11')  SORTABLE,
+        zone_bottom_md = 'ZONE_BOTTOM_MD' :'java.math.BigDecimal' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='3', sourcetypesize='11')  SORTABLE
+    );
+
+CREATE OR REPLACE TABLE b_avm_stm_well_item_info I18N us_mst_mdt (
+        item_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        item_type:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '14'),
+        item_name:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        item_num:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        item_leaf:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '1'),
+        comp_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        zone_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        wellcomp_name:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        wellcomp_num:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        wellcomp_api_no:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        wellzone_name:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        wellzone_num:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        wellzone_api_no:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        active:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        has_zone:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '1'),
+        bus_area_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        completion_dt:date (sourcetypeid = '93', sourcetyperadix = '0', sourcetypedecimals = '3', sourcetypesize = '23'),
+        completion_type:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        confidential:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        county:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        county_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '100'),
+        disp_type:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        facility_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        fdc_id:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        field_geol:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        fin_bud_lvl:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '5'),
+        fin_bud_cd:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '30'),
+        fin_bud_nm:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '50'),
+        fin_bud_ent_cd:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '60'),
+        first_prod_dt:date (sourcetypeid = '93', sourcetyperadix = '0', sourcetypedecimals = '3', sourcetypesize = '23'),
+        first_sale_dt:date (sourcetypeid = '93', sourcetyperadix = '0', sourcetypedecimals = '3', sourcetypesize = '23'),
+        first_sale_dt_gas:date (sourcetypeid = '93', sourcetyperadix = '0', sourcetypedecimals = '3', sourcetypesize = '23'),
+        first_sale_dt_oil:date (sourcetypeid = '93', sourcetyperadix = '0', sourcetypedecimals = '3', sourcetypesize = '23'),
+        formation:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        geo_fld_lvl:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '3'),
+        geo_fld_cd:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        geo_fld_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        geo_fld_ent_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '204'),
+        lease:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        latitude:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '8', sourcetypesize = '12'),
+        longitude:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '8', sourcetypesize = '12'),
+        bot_latitude:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '11'),
+        bot_longitude:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '11'),
+        legacy_id:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        lift_type_curr:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        lift_type_descr_curr:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '100'),
+        lift_type_dt:date (sourcetypeid = '93', sourcetyperadix = '0', sourcetypedecimals = '3', sourcetypesize = '23'),
+        network_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        network_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        operated:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        operator:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        ops_rgn_lvl:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '3'),
+        ops_rgn_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        ops_rgn_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        ops_rgn_ent_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '204'),
+        ops_rgn_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        ops_area_lvl:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '2'),
+        ops_area_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        ops_area_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        ops_area_ent_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '203'),
+        ops_area_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        ops_btry_lvl:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '4'),
+        ops_btry_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        ops_btry_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        ops_btry_ent_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '205'),
+        ops_btry_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        ops_wc_lvl:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '2'),
+        ops_wc_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        ops_wc_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        ops_wc_ent_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '203'),
+        ops_wc_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        primary_product:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        prod_status_cd_curr:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        prod_status_descr_curr:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '100'),
+        prod_status_dt:date (sourcetypeid = '93', sourcetyperadix = '0', sourcetypedecimals = '3', sourcetypesize = '23'),
+        prospect:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        reg_state_lease_no:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        reg_mms_fed_id:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        region_nm_ops:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        reservoir:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        resp_rgn_lvl:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '3'),
+        resp_rgn_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        resp_rgn_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        resp_rgn_ent_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '204'),
+        resp_rgn_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        resp_pmgr_lvl:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '4'),
+        resp_pmgr_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        resp_pmgr_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        resp_pmgr_ent_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '205'),
+        resp_pmgr_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        resp_supt_lvl:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '4'),
+        resp_supt_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        resp_supt_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        resp_supt_ent_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '205'),
+        resp_supt_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        resp_frmn_lvl:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '4'),
+        resp_frmn_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        resp_frmn_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        resp_frmn_ent_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '205'),
+        resp_frmn_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        resp_lsop_lvl:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '4'),
+        resp_lsop_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        resp_lsop_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        resp_lsop_ent_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '205'),
+        resp_lsop_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        resp_wc_lvl:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '2'),
+        resp_wc_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        resp_wc_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        resp_wc_ent_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '203'),
+        resp_wc_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        route_stop_name:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        route_name:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        spud_dt:date (sourcetypeid = '93', sourcetyperadix = '0', sourcetypedecimals = '3', sourcetypesize = '23'),
+        state_cd:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        state_nm:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '100'),
+        township:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        unit_id:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        unit_name:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        well_of_int:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '10'),
+        well_config:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        zone_top_tvd:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '11'),
+        zone_bottom_tvd:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '11'),
+        zone_top_md:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '11'),
+        zone_bottom_md:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '11')
+    )
+    FOLDER = '/02. base views/avm/stm'
+    PRIMARY KEY ( 'item_id' )
+    CACHE OFF
+    BATCHSIZEINCACHE DEFAULT
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD b_avm_stm_well_item_info(
+        I18N us_mst_mdt
+        CONSTRAINTS (
+             ADD item_id (any) OPT ANY
+             ADD item_type (any) OPT ANY
+             ADD item_name (any) OPT ANY
+             ADD item_num (any) OPT ANY
+             ADD item_leaf (any) OPT ANY
+             ADD comp_id (any) OPT ANY
+             ADD zone_id (any) OPT ANY
+             ADD wellcomp_name (any) OPT ANY
+             ADD wellcomp_num (any) OPT ANY
+             ADD wellcomp_api_no (any) OPT ANY
+             ADD wellzone_name (any) OPT ANY
+             ADD wellzone_num (any) OPT ANY
+             ADD wellzone_api_no (any) OPT ANY
+             ADD active (any) OPT ANY
+             ADD has_zone (any) OPT ANY
+             ADD bus_area_nm (any) OPT ANY
+             ADD completion_dt (any) OPT ANY
+             ADD completion_type (any) OPT ANY
+             ADD confidential (any) OPT ANY
+             ADD county (any) OPT ANY
+             ADD county_nm (any) OPT ANY
+             ADD disp_type (any) OPT ANY
+             ADD facility_nm (any) OPT ANY
+             ADD fdc_id (any) OPT ANY
+             ADD field_geol (any) OPT ANY
+             ADD fin_bud_lvl (any) OPT ANY
+             ADD fin_bud_cd (any) OPT ANY
+             ADD fin_bud_nm (any) OPT ANY
+             ADD fin_bud_ent_cd (any) OPT ANY
+             ADD first_prod_dt (any) OPT ANY
+             ADD first_sale_dt (any) OPT ANY
+             ADD first_sale_dt_gas (any) OPT ANY
+             ADD first_sale_dt_oil (any) OPT ANY
+             ADD formation (any) OPT ANY
+             ADD geo_fld_lvl (any) OPT ANY
+             ADD geo_fld_cd (any) OPT ANY
+             ADD geo_fld_nm (any) OPT ANY
+             ADD geo_fld_ent_cd (any) OPT ANY
+             ADD lease (any) OPT ANY
+             ADD latitude (any) OPT ANY
+             ADD longitude (any) OPT ANY
+             ADD bot_latitude (any) OPT ANY
+             ADD bot_longitude (any) OPT ANY
+             ADD legacy_id (any) OPT ANY
+             ADD lift_type_curr (any) OPT ANY
+             ADD lift_type_descr_curr (any) OPT ANY
+             ADD lift_type_dt (any) OPT ANY
+             ADD network_id (any) OPT ANY
+             ADD network_nm (any) OPT ANY
+             ADD operated (any) OPT ANY
+             ADD operator (any) OPT ANY
+             ADD ops_rgn_lvl (any) OPT ANY
+             ADD ops_rgn_cd (any) OPT ANY
+             ADD ops_rgn_nm (any) OPT ANY
+             ADD ops_rgn_ent_cd (any) OPT ANY
+             ADD ops_rgn_id (any) OPT ANY
+             ADD ops_area_lvl (any) OPT ANY
+             ADD ops_area_cd (any) OPT ANY
+             ADD ops_area_nm (any) OPT ANY
+             ADD ops_area_ent_cd (any) OPT ANY
+             ADD ops_area_id (any) OPT ANY
+             ADD ops_btry_lvl (any) OPT ANY
+             ADD ops_btry_cd (any) OPT ANY
+             ADD ops_btry_nm (any) OPT ANY
+             ADD ops_btry_ent_cd (any) OPT ANY
+             ADD ops_btry_id (any) OPT ANY
+             ADD ops_wc_lvl (any) OPT ANY
+             ADD ops_wc_cd (any) OPT ANY
+             ADD ops_wc_nm (any) OPT ANY
+             ADD ops_wc_ent_cd (any) OPT ANY
+             ADD ops_wc_id (any) OPT ANY
+             ADD primary_product (any) OPT ANY
+             ADD prod_status_cd_curr (any) OPT ANY
+             ADD prod_status_descr_curr (any) OPT ANY
+             ADD prod_status_dt (any) OPT ANY
+             ADD prospect (any) OPT ANY
+             ADD reg_state_lease_no (any) OPT ANY
+             ADD reg_mms_fed_id (any) OPT ANY
+             ADD region_nm_ops (any) OPT ANY
+             ADD reservoir (any) OPT ANY
+             ADD resp_rgn_lvl (any) OPT ANY
+             ADD resp_rgn_cd (any) OPT ANY
+             ADD resp_rgn_nm (any) OPT ANY
+             ADD resp_rgn_ent_cd (any) OPT ANY
+             ADD resp_rgn_id (any) OPT ANY
+             ADD resp_pmgr_lvl (any) OPT ANY
+             ADD resp_pmgr_cd (any) OPT ANY
+             ADD resp_pmgr_nm (any) OPT ANY
+             ADD resp_pmgr_ent_cd (any) OPT ANY
+             ADD resp_pmgr_id (any) OPT ANY
+             ADD resp_supt_lvl (any) OPT ANY
+             ADD resp_supt_cd (any) OPT ANY
+             ADD resp_supt_nm (any) OPT ANY
+             ADD resp_supt_ent_cd (any) OPT ANY
+             ADD resp_supt_id (any) OPT ANY
+             ADD resp_frmn_lvl (any) OPT ANY
+             ADD resp_frmn_cd (any) OPT ANY
+             ADD resp_frmn_nm (any) OPT ANY
+             ADD resp_frmn_ent_cd (any) OPT ANY
+             ADD resp_frmn_id (any) OPT ANY
+             ADD resp_lsop_lvl (any) OPT ANY
+             ADD resp_lsop_cd (any) OPT ANY
+             ADD resp_lsop_nm (any) OPT ANY
+             ADD resp_lsop_ent_cd (any) OPT ANY
+             ADD resp_lsop_id (any) OPT ANY
+             ADD resp_wc_lvl (any) OPT ANY
+             ADD resp_wc_cd (any) OPT ANY
+             ADD resp_wc_nm (any) OPT ANY
+             ADD resp_wc_ent_cd (any) OPT ANY
+             ADD resp_wc_id (any) OPT ANY
+             ADD route_stop_name (any) OPT ANY
+             ADD route_name (any) OPT ANY
+             ADD spud_dt (any) OPT ANY
+             ADD state_cd (any) OPT ANY
+             ADD state_nm (any) OPT ANY
+             ADD township (any) OPT ANY
+             ADD unit_id (any) OPT ANY
+             ADD unit_name (any) OPT ANY
+             ADD well_of_int (any) OPT ANY
+             ADD well_config (any) OPT ANY
+             ADD zone_top_tvd (any) OPT ANY
+             ADD zone_bottom_tvd (any) OPT ANY
+             ADD zone_top_md (any) OPT ANY
+             ADD zone_bottom_md (any) OPT ANY
+        )
+        OUTPUTLIST (active, bot_latitude, bot_longitude, bus_area_nm, comp_id, completion_dt, completion_type, confidential, county, county_nm, disp_type, facility_nm, fdc_id, field_geol, fin_bud_cd, fin_bud_ent_cd, fin_bud_lvl, fin_bud_nm, first_prod_dt, first_sale_dt, first_sale_dt_gas, first_sale_dt_oil, formation, geo_fld_cd, geo_fld_ent_cd, geo_fld_lvl, geo_fld_nm, has_zone, item_id, item_leaf, item_name, item_num, item_type, latitude, lease, legacy_id, lift_type_curr, lift_type_descr_curr, lift_type_dt, longitude, network_id, network_nm, operated, operator, ops_area_cd, ops_area_ent_cd, ops_area_id, ops_area_lvl, ops_area_nm, ops_btry_cd, ops_btry_ent_cd, ops_btry_id, ops_btry_lvl, ops_btry_nm, ops_rgn_cd, ops_rgn_ent_cd, ops_rgn_id, ops_rgn_lvl, ops_rgn_nm, ops_wc_cd, ops_wc_ent_cd, ops_wc_id, ops_wc_lvl, ops_wc_nm, primary_product, prod_status_cd_curr, prod_status_descr_curr, prod_status_dt, prospect, reg_mms_fed_id, reg_state_lease_no, region_nm_ops, reservoir, resp_frmn_cd, resp_frmn_ent_cd, resp_frmn_id, resp_frmn_lvl, resp_frmn_nm, resp_lsop_cd, resp_lsop_ent_cd, resp_lsop_id, resp_lsop_lvl, resp_lsop_nm, resp_pmgr_cd, resp_pmgr_ent_cd, resp_pmgr_id, resp_pmgr_lvl, resp_pmgr_nm, resp_rgn_cd, resp_rgn_ent_cd, resp_rgn_id, resp_rgn_lvl, resp_rgn_nm, resp_supt_cd, resp_supt_ent_cd, resp_supt_id, resp_supt_lvl, resp_supt_nm, resp_wc_cd, resp_wc_ent_cd, resp_wc_id, resp_wc_lvl, resp_wc_nm, route_name, route_stop_name, spud_dt, state_cd, state_nm, township, unit_id, unit_name, well_config, well_of_int, wellcomp_api_no, wellcomp_name, wellcomp_num, wellzone_api_no, wellzone_name, wellzone_num, zone_bottom_md, zone_bottom_tvd, zone_id, zone_top_md, zone_top_tvd
+        )
+        WRAPPER (jdbc b_avm_stm_well_item_info)
+    )
+    DECLARE VIEW CLUSTER INDEX ndx_legacy_id ON (legacy_id ASC)
+    SMART_THEN_ATSOURCE_THROUGH_VDP;
+

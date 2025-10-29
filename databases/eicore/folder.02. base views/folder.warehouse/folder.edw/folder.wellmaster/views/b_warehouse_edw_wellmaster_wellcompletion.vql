@@ -1,0 +1,493 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC b_warehouse_edw_wellmaster_wellcompletion
+    FOLDER = '/02. base views/warehouse/edw/wellmaster'
+    DATASOURCENAME=ds_warehouse
+    CATALOGNAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.wellmaster.views.jdbc.b_warehouse_edw_wellmaster_wellcompletion.CATALOGNAME}' 
+    SCHEMANAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.wellmaster.views.jdbc.b_warehouse_edw_wellmaster_wellcompletion.SCHEMANAME}' 
+    RELATIONNAME='WellCompletion' 
+    OUTPUTSCHEMA (
+        wellcompletionkey = 'WellCompletionKey' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int identity')  SORTABLE IS_AUTOINCREMENT,
+        wellcompletionekey = 'WellCompletionEKey' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        activeindicator = 'ActiveIndicator' :'java.lang.String' (OPT) (sourcetypesize='1', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        acquisitioncode = 'AcquisitionCode' :'java.lang.String' (OPT) (sourcetypesize='1024', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        acquisitioneffdate = 'AcquisitionEffDate' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        acquisitionseller = 'AcquisitionSeller' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        ahfseffdate = 'AHFSEffDate' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        ahfsflag = 'AHFSFlag' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        ahfspackageid = 'AHFSPackageID' :'java.lang.String' (OPT) (sourcetypesize='1024', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        api = 'API' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        assetunderconstructionassetnum = 'AssetUnderConstructionAssetNum' :'java.lang.String' (OPT) (sourcetypesize='40', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        bottomholelatitude = 'BottomHoleLatitude' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='9', sourcetyperadix='10', sourcetypesize='14', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        bottomholelongitude = 'BottomHoleLongitude' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='9', sourcetyperadix='10', sourcetypesize='14', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        budgetnode = 'BudgetNode' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        budgetnodecode = 'BudgetNodeCode' :'java.lang.String' (OPT) (sourcetypesize='40', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        businessintention = 'BusinessIntention' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        businessinterest = 'BusinessInterest' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        company = 'Company' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        companynum = 'CompanyNum' :'java.lang.String' (OPT) (sourcetypesize='40', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        completiondate = 'CompletionDate' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        costcenternum = 'CostCenterNum' :'java.lang.String' (OPT) (sourcetypesize='40', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        countrycode = 'CountryCode' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        countryname = 'CountryName' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        countycode = 'CountyCode' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        countyname = 'CountyName' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        currentgwi = 'CurrentGWI' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentgwigas = 'CurrentGWIGas' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentgwingl = 'CurrentGWINGL' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentgwioil = 'CurrentGWIOil' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentnri = 'CurrentNRI' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentnrigas = 'CurrentNRIGas' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentnringl = 'CurrentNRINGL' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentnrioil = 'CurrentNRIOil' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentnwi = 'CurrentNWI' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentnwigas = 'CurrentNWIGas' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentnwingl = 'CurrentNWINGL' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentnwioil = 'CurrentNWIOil' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentorri = 'CurrentORRI' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentorrigas = 'CurrentORRIGas' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentorringl = 'CurrentORRINGL' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentorrioil = 'CurrentORRIOil' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentri = 'CurrentRI' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentrigas = 'CurrentRIGas' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentringl = 'CurrentRINGL' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        currentrioil = 'CurrentRIOil' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='12', sourcetyperadix='10', sourcetypesize='15', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        divestiturebuyer = 'DivestitureBuyer' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        divestitureclosedate = 'DivestitureCloseDate' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        divestiturecode = 'DivestitureCode' :'java.lang.String' (OPT) (sourcetypesize='1024', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        divestitureeffdate = 'DivestitureEffDate' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        drillingpermitnum = 'DrillingPermitNum' :'java.lang.String' (OPT) (sourcetypesize='30', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        dsuland = 'DSULand' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        dsupooled = 'DSUPooled' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        equitygroupnum = 'EquityGroupNum' :'java.lang.String' (OPT) (sourcetypesize='40', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        federalstateflag = 'FederalStateFlag' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        fieldname = 'FieldName' :'java.lang.String' (OPT) (sourcetypesize='60', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        firstproductiondate = 'FirstProductionDate' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        firstsaledate = 'FirstSaleDate' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        latlongdatum = 'LatLongDatum' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        legacyexcalcode = 'LegacyExcalCode' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescabstract = 'LglDescAbstract' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescarea = 'LglDescArea' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescblock = 'LglDescBlock' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholeabstract = 'LglDescBottomHoleAbstract' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholearea = 'LglDescBottomHoleArea' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholeblock = 'LglDescBottomHoleBlock' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholefootageew = 'LglDescBottomHoleFootageEW' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='7', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        lgldescbottomholefootageewdirection = 'LglDescBottomHoleFootageEWDirection' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholefootageewstartline = 'LglDescBottomHoleFootageEWStartLine' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholefootagens = 'LglDescBottomHoleFootageNS' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='7', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        lgldescbottomholefootagensdirection = 'LglDescBottomHoleFootageNSDirection' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholefootagensstartline = 'LglDescBottomHoleFootageNSStartLine' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholelabor = 'LglDescBottomHoleLabor' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholeleague = 'LglDescBottomHoleLeague' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholeparcel = 'LglDescBottomHoleParcel' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholeqtrqtr = 'LglDescBottomHoleQtrQtr' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholerange = 'LglDescBottomHoleRange' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholesection = 'LglDescBottomHoleSection' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholesurvey = 'LglDescBottomHoleSurvey' :'java.lang.String' (OPT) (sourcetypesize='60', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholetownship = 'LglDescBottomHoleTownship' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholewellspot = 'LglDescBottomHoleWellSpot' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholewellspotcongress = 'LglDescBottomHoleWellSpotCongress' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholewellspotnortheast = 'LglDescBottomHoleWellSpotNortheast' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholewellspotoffshore = 'LglDescBottomHoleWellSpotOffshore' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescbottomholewellspottexas = 'LglDescBottomHoleWellSpotTexas' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescfootageew = 'LglDescFootageEW' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='7', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        lgldescfootageewdirection = 'LglDescFootageEWDirection' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescfootageewstartline = 'LglDescFootageEWStartLine' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescfootagens = 'LglDescFootageNS' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='7', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        lgldescfootagensdirection = 'LglDescFootageNSDirection' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescfootagensstartline = 'LglDescFootageNSStartLine' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldesclabor = 'LglDescLabor' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescleague = 'LglDescLeague' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescparcel = 'LglDescParcel' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescqtrqtr = 'LglDescQtrQtr' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescrange = 'LglDescRange' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescsection = 'LglDescSection' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescsurvey = 'LglDescSurvey' :'java.lang.String' (OPT) (sourcetypesize='60', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldesctownship = 'LglDescTownship' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldesctype = 'LglDescType' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescwellspot = 'LglDescWellSpot' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescwellspotcongress = 'LglDescWellSpotCongress' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescwellspotnortheast = 'LglDescWellSpotNortheast' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescwellspotoffshore = 'LglDescWellSpotOffshore' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lgldescwellspottexas = 'LglDescWellSpotTexas' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        measureddepth = 'MeasuredDepth' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='5', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        mmsfedid = 'MMSFedID' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        mortgagecode = 'MortgageCode' :'java.lang.String' (OPT) (sourcetypesize='40', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        offshoreflag = 'OffshoreFlag' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        operated = 'Operated' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        operatoreffectivedate = 'OperatorEffectiveDate' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        operatorname = 'OperatorName' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        operatornum = 'OperatorNum' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        padate = 'PADate' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        plugbackdepth = 'PlugBackDepth' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='5', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        primaryproduct = 'PrimaryProduct' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        productionmethod = 'ProductionMethod' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        profitcenternum = 'ProfitCenterNum' :'java.lang.String' (OPT) (sourcetypesize='40', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        propnum = 'PropNum' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        prospectname = 'ProspectName' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        prospectnum = 'ProspectNum' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        provedpropertiesassetnum = 'ProvedPropertiesAssetNum' :'java.lang.String' (OPT) (sourcetypesize='40', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        region = 'Region' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        reservoirname = 'ReservoirName' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        rigreleasedate = 'RigReleaseDate' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        role = 'Role' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        sapwellcompletionnum = 'SAPWellCompletionNum' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        sapwellnum = 'SAPWellNum' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        soldflag = 'SoldFlag' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        spacingdescription = 'SpacingDescription' :'java.lang.String' (OPT) (sourcetypesize='1024', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        spuddate = 'SpudDate' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        statecode = 'StateCode' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        statename = 'StateName' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        stateproductionleasenum = 'StateProductionLeaseNum' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        surfacelatitude = 'SurfaceLatitude' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='9', sourcetyperadix='10', sourcetypesize='14', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        surfacelongitude = 'SurfaceLongitude' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='9', sourcetyperadix='10', sourcetypesize='14', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        targetmeasureddepth = 'TargetMeasuredDepth' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='5', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        targettotalverticaldepth = 'TargetTotalVerticalDepth' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='5', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        totalverticaldepth = 'TotalVerticalDepth' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='5', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='2', sourcetypename='numeric')  SORTABLE,
+        trajectorytype = 'TrajectoryType' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        unitacres = 'UnitAcres' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        venturenumber = 'VentureNumber' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wasurl = 'WASURL' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellclass = 'WellClass' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellcompletioninterval = 'WellCompletionInterval' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellcompletionname = 'WellCompletionName' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellcompletionstatus = 'WellCompletionStatus' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellcompletionstatuseffdate = 'WellCompletionStatusEffDate' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        wellcompletionstatusid = 'WellCompletionStatusID' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellentitytype = 'WellEntityType' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellleveltype = 'WellLevelType' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellviewregion = 'WellViewRegion' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellviewwellid = 'WellViewWellID' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        zonename = 'ZoneName' :'java.lang.String' (OPT) (sourcetypesize='20', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        dmdatecreated = 'dmDateCreated' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        dmdateupdated = 'dmDateUpdated' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE
+    )
+    CONSTRAINT 'PK1_WellMaster_WellCompletion' PRIMARY KEY ( 'WellCompletionKey' )
+    INDEX 'PK1_WellMaster_WellCompletion' CLUSTER UNIQUE PRIMARY ( 'WellCompletionKey' )
+    INDEX 'AK1_WellMaster_WellCompletion' OTHER UNIQUE ( 'WellCompletionEKey' );
+
+CREATE OR REPLACE TABLE b_warehouse_edw_wellmaster_wellcompletion I18N us_mst_mdt (
+        wellcompletionkey:int (autoincrement, sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        wellcompletionekey:text (sourcetypeid = '12', sourcetypesize = '20'),
+        activeindicator:text (sourcetypeid = '12', sourcetypesize = '1'),
+        acquisitioncode:text (sourcetypeid = '12', sourcetypesize = '1024'),
+        acquisitioneffdate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        acquisitionseller:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        ahfseffdate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        ahfsflag:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        ahfspackageid:text (sourcetypeid = '12', sourcetypesize = '1024'),
+        api:text (sourcetypeid = '12', sourcetypesize = '20'),
+        assetunderconstructionassetnum:text (sourcetypeid = '12', sourcetypesize = '40'),
+        bottomholelatitude:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '9', sourcetypesize = '14'),
+        bottomholelongitude:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '9', sourcetypesize = '14'),
+        budgetnode:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        budgetnodecode:text (sourcetypeid = '12', sourcetypesize = '40'),
+        businessintention:text (sourcetypeid = '12', sourcetypesize = '20'),
+        businessinterest:text (sourcetypeid = '12', sourcetypesize = '20'),
+        company:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        companynum:text (sourcetypeid = '12', sourcetypesize = '40'),
+        completiondate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        costcenternum:text (sourcetypeid = '12', sourcetypesize = '40'),
+        countrycode:text (sourcetypeid = '12', sourcetypesize = '20'),
+        countryname:text (sourcetypeid = '12', sourcetypesize = '255'),
+        countycode:text (sourcetypeid = '12', sourcetypesize = '20'),
+        countyname:text (sourcetypeid = '12', sourcetypesize = '255'),
+        currentgwi:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentgwigas:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentgwingl:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentgwioil:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentnri:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentnrigas:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentnringl:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentnrioil:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentnwi:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentnwigas:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentnwingl:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentnwioil:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentorri:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentorrigas:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentorringl:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentorrioil:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentri:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentrigas:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentringl:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        currentrioil:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '12', sourcetypesize = '15'),
+        divestiturebuyer:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        divestitureclosedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        divestiturecode:text (sourcetypeid = '12', sourcetypesize = '1024'),
+        divestitureeffdate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        drillingpermitnum:text (sourcetypeid = '12', sourcetypesize = '30'),
+        dsuland:text (sourcetypeid = '12', sourcetypesize = '255'),
+        dsupooled:text (sourcetypeid = '12', sourcetypesize = '255'),
+        equitygroupnum:text (sourcetypeid = '12', sourcetypesize = '40'),
+        federalstateflag:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        fieldname:text (sourcetypeid = '12', sourcetypesize = '60'),
+        firstproductiondate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        firstsaledate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        latlongdatum:text (sourcetypeid = '12', sourcetypesize = '20'),
+        legacyexcalcode:text (sourcetypeid = '12', sourcetypesize = '255'),
+        lgldescabstract:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescarea:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescblock:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholeabstract:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholearea:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholeblock:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholefootageew:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '7'),
+        lgldescbottomholefootageewdirection:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholefootageewstartline:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholefootagens:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '7'),
+        lgldescbottomholefootagensdirection:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholefootagensstartline:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholelabor:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholeleague:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholeparcel:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholeqtrqtr:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholerange:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholesection:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholesurvey:text (sourcetypeid = '12', sourcetypesize = '60'),
+        lgldescbottomholetownship:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescbottomholewellspot:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        lgldescbottomholewellspotcongress:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        lgldescbottomholewellspotnortheast:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        lgldescbottomholewellspotoffshore:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        lgldescbottomholewellspottexas:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        lgldescfootageew:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '7'),
+        lgldescfootageewdirection:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescfootageewstartline:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescfootagens:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '7'),
+        lgldescfootagensdirection:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescfootagensstartline:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldesclabor:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescleague:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescparcel:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescqtrqtr:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescrange:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescsection:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescsurvey:text (sourcetypeid = '12', sourcetypesize = '60'),
+        lgldesctownship:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldesctype:text (sourcetypeid = '12', sourcetypesize = '20'),
+        lgldescwellspot:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        lgldescwellspotcongress:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        lgldescwellspotnortheast:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        lgldescwellspotoffshore:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        lgldescwellspottexas:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        measureddepth:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '5', sourcetypesize = '10'),
+        mmsfedid:text (sourcetypeid = '12', sourcetypesize = '255'),
+        mortgagecode:text (sourcetypeid = '12', sourcetypesize = '40'),
+        offshoreflag:text (sourcetypeid = '12', sourcetypesize = '20'),
+        operated:text (sourcetypeid = '12', sourcetypesize = '20'),
+        operatoreffectivedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        operatorname:text (sourcetypeid = '12', sourcetypesize = '255'),
+        operatornum:text (sourcetypeid = '12', sourcetypesize = '20'),
+        padate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        plugbackdepth:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '5', sourcetypesize = '10'),
+        primaryproduct:text (sourcetypeid = '12', sourcetypesize = '20'),
+        productionmethod:text (sourcetypeid = '12', sourcetypesize = '20'),
+        profitcenternum:text (sourcetypeid = '12', sourcetypesize = '40'),
+        propnum:text (sourcetypeid = '12', sourcetypesize = '255'),
+        prospectname:text (sourcetypeid = '12', sourcetypesize = '255'),
+        prospectnum:text (sourcetypeid = '12', sourcetypesize = '20'),
+        provedpropertiesassetnum:text (sourcetypeid = '12', sourcetypesize = '40'),
+        region:text (sourcetypeid = '12', sourcetypesize = '255'),
+        reservoirname:text (sourcetypeid = '12', sourcetypesize = '20'),
+        rigreleasedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        role:text (sourcetypeid = '12', sourcetypesize = '20'),
+        sapwellcompletionnum:text (sourcetypeid = '12', sourcetypesize = '255'),
+        sapwellnum:text (sourcetypeid = '12', sourcetypesize = '255'),
+        soldflag:text (sourcetypeid = '12', sourcetypesize = '20'),
+        spacingdescription:text (sourcetypeid = '12', sourcetypesize = '1024'),
+        spuddate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        statecode:text (sourcetypeid = '12', sourcetypesize = '20'),
+        statename:text (sourcetypeid = '12', sourcetypesize = '255'),
+        stateproductionleasenum:text (sourcetypeid = '12', sourcetypesize = '20'),
+        surfacelatitude:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '9', sourcetypesize = '14'),
+        surfacelongitude:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '9', sourcetypesize = '14'),
+        targetmeasureddepth:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '5', sourcetypesize = '10'),
+        targettotalverticaldepth:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '5', sourcetypesize = '10'),
+        totalverticaldepth:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '5', sourcetypesize = '10'),
+        trajectorytype:text (sourcetypeid = '12', sourcetypesize = '20'),
+        unitacres:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        venturenumber:text (sourcetypeid = '12', sourcetypesize = '50'),
+        wasurl:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        wellclass:text (sourcetypeid = '12', sourcetypesize = '20'),
+        wellcompletioninterval:text (sourcetypeid = '12', sourcetypesize = '255'),
+        wellcompletionname:text (sourcetypeid = '12', sourcetypesize = '255'),
+        wellcompletionstatus:text (sourcetypeid = '12', sourcetypesize = '20'),
+        wellcompletionstatuseffdate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        wellcompletionstatusid:text (sourcetypeid = '12', sourcetypesize = '20'),
+        wellentitytype:text (sourcetypeid = '12', sourcetypesize = '20'),
+        wellleveltype:text (sourcetypeid = '12', sourcetypesize = '20'),
+        wellviewregion:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        wellviewwellid:text (sourcetypeid = '12', sourcetypesize = '255'),
+        zonename:text (sourcetypeid = '12', sourcetypesize = '20'),
+        dmdatecreated:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        dmdateupdated:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23')
+    )
+    FOLDER = '/02. base views/warehouse/edw/wellmaster'
+    PRIMARY KEY ( 'wellcompletionkey' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD b_warehouse_edw_wellmaster_wellcompletion(
+        I18N us_mst_mdt
+        CONSTRAINTS (
+             ADD wellcompletionkey (any) OPT ANY
+             ADD wellcompletionekey (any) OPT ANY
+             ADD activeindicator (any) OPT ANY
+             ADD acquisitioncode (any) OPT ANY
+             ADD acquisitioneffdate (any) OPT ANY
+             ADD acquisitionseller (any) OPT ANY
+             ADD ahfseffdate (any) OPT ANY
+             ADD ahfsflag (any) OPT ANY
+             ADD ahfspackageid (any) OPT ANY
+             ADD api (any) OPT ANY
+             ADD assetunderconstructionassetnum (any) OPT ANY
+             ADD bottomholelatitude (any) OPT ANY
+             ADD bottomholelongitude (any) OPT ANY
+             ADD budgetnode (any) OPT ANY
+             ADD budgetnodecode (any) OPT ANY
+             ADD businessintention (any) OPT ANY
+             ADD businessinterest (any) OPT ANY
+             ADD company (any) OPT ANY
+             ADD companynum (any) OPT ANY
+             ADD completiondate (any) OPT ANY
+             ADD costcenternum (any) OPT ANY
+             ADD countrycode (any) OPT ANY
+             ADD countryname (any) OPT ANY
+             ADD countycode (any) OPT ANY
+             ADD countyname (any) OPT ANY
+             ADD currentgwi (any) OPT ANY
+             ADD currentgwigas (any) OPT ANY
+             ADD currentgwingl (any) OPT ANY
+             ADD currentgwioil (any) OPT ANY
+             ADD currentnri (any) OPT ANY
+             ADD currentnrigas (any) OPT ANY
+             ADD currentnringl (any) OPT ANY
+             ADD currentnrioil (any) OPT ANY
+             ADD currentnwi (any) OPT ANY
+             ADD currentnwigas (any) OPT ANY
+             ADD currentnwingl (any) OPT ANY
+             ADD currentnwioil (any) OPT ANY
+             ADD currentorri (any) OPT ANY
+             ADD currentorrigas (any) OPT ANY
+             ADD currentorringl (any) OPT ANY
+             ADD currentorrioil (any) OPT ANY
+             ADD currentri (any) OPT ANY
+             ADD currentrigas (any) OPT ANY
+             ADD currentringl (any) OPT ANY
+             ADD currentrioil (any) OPT ANY
+             ADD divestiturebuyer (any) OPT ANY
+             ADD divestitureclosedate (any) OPT ANY
+             ADD divestiturecode (any) OPT ANY
+             ADD divestitureeffdate (any) OPT ANY
+             ADD drillingpermitnum (any) OPT ANY
+             ADD dsuland (any) OPT ANY
+             ADD dsupooled (any) OPT ANY
+             ADD equitygroupnum (any) OPT ANY
+             ADD federalstateflag (any) OPT ANY
+             ADD fieldname (any) OPT ANY
+             ADD firstproductiondate (any) OPT ANY
+             ADD firstsaledate (any) OPT ANY
+             ADD latlongdatum (any) OPT ANY
+             ADD legacyexcalcode (any) OPT ANY
+             ADD lgldescabstract (any) OPT ANY
+             ADD lgldescarea (any) OPT ANY
+             ADD lgldescblock (any) OPT ANY
+             ADD lgldescbottomholeabstract (any) OPT ANY
+             ADD lgldescbottomholearea (any) OPT ANY
+             ADD lgldescbottomholeblock (any) OPT ANY
+             ADD lgldescbottomholefootageew (any) OPT ANY
+             ADD lgldescbottomholefootageewdirection (any) OPT ANY
+             ADD lgldescbottomholefootageewstartline (any) OPT ANY
+             ADD lgldescbottomholefootagens (any) OPT ANY
+             ADD lgldescbottomholefootagensdirection (any) OPT ANY
+             ADD lgldescbottomholefootagensstartline (any) OPT ANY
+             ADD lgldescbottomholelabor (any) OPT ANY
+             ADD lgldescbottomholeleague (any) OPT ANY
+             ADD lgldescbottomholeparcel (any) OPT ANY
+             ADD lgldescbottomholeqtrqtr (any) OPT ANY
+             ADD lgldescbottomholerange (any) OPT ANY
+             ADD lgldescbottomholesection (any) OPT ANY
+             ADD lgldescbottomholesurvey (any) OPT ANY
+             ADD lgldescbottomholetownship (any) OPT ANY
+             ADD lgldescbottomholewellspot (any) OPT ANY
+             ADD lgldescbottomholewellspotcongress (any) OPT ANY
+             ADD lgldescbottomholewellspotnortheast (any) OPT ANY
+             ADD lgldescbottomholewellspotoffshore (any) OPT ANY
+             ADD lgldescbottomholewellspottexas (any) OPT ANY
+             ADD lgldescfootageew (any) OPT ANY
+             ADD lgldescfootageewdirection (any) OPT ANY
+             ADD lgldescfootageewstartline (any) OPT ANY
+             ADD lgldescfootagens (any) OPT ANY
+             ADD lgldescfootagensdirection (any) OPT ANY
+             ADD lgldescfootagensstartline (any) OPT ANY
+             ADD lgldesclabor (any) OPT ANY
+             ADD lgldescleague (any) OPT ANY
+             ADD lgldescparcel (any) OPT ANY
+             ADD lgldescqtrqtr (any) OPT ANY
+             ADD lgldescrange (any) OPT ANY
+             ADD lgldescsection (any) OPT ANY
+             ADD lgldescsurvey (any) OPT ANY
+             ADD lgldesctownship (any) OPT ANY
+             ADD lgldesctype (any) OPT ANY
+             ADD lgldescwellspot (any) OPT ANY
+             ADD lgldescwellspotcongress (any) OPT ANY
+             ADD lgldescwellspotnortheast (any) OPT ANY
+             ADD lgldescwellspotoffshore (any) OPT ANY
+             ADD lgldescwellspottexas (any) OPT ANY
+             ADD measureddepth (any) OPT ANY
+             ADD mmsfedid (any) OPT ANY
+             ADD mortgagecode (any) OPT ANY
+             ADD offshoreflag (any) OPT ANY
+             ADD operated (any) OPT ANY
+             ADD operatoreffectivedate (any) OPT ANY
+             ADD operatorname (any) OPT ANY
+             ADD operatornum (any) OPT ANY
+             ADD padate (any) OPT ANY
+             ADD plugbackdepth (any) OPT ANY
+             ADD primaryproduct (any) OPT ANY
+             ADD productionmethod (any) OPT ANY
+             ADD profitcenternum (any) OPT ANY
+             ADD propnum (any) OPT ANY
+             ADD prospectname (any) OPT ANY
+             ADD prospectnum (any) OPT ANY
+             ADD provedpropertiesassetnum (any) OPT ANY
+             ADD region (any) OPT ANY
+             ADD reservoirname (any) OPT ANY
+             ADD rigreleasedate (any) OPT ANY
+             ADD role (any) OPT ANY
+             ADD sapwellcompletionnum (any) OPT ANY
+             ADD sapwellnum (any) OPT ANY
+             ADD soldflag (any) OPT ANY
+             ADD spacingdescription (any) OPT ANY
+             ADD spuddate (any) OPT ANY
+             ADD statecode (any) OPT ANY
+             ADD statename (any) OPT ANY
+             ADD stateproductionleasenum (any) OPT ANY
+             ADD surfacelatitude (any) OPT ANY
+             ADD surfacelongitude (any) OPT ANY
+             ADD targetmeasureddepth (any) OPT ANY
+             ADD targettotalverticaldepth (any) OPT ANY
+             ADD totalverticaldepth (any) OPT ANY
+             ADD trajectorytype (any) OPT ANY
+             ADD unitacres (any) OPT ANY
+             ADD venturenumber (any) OPT ANY
+             ADD wasurl (any) OPT ANY
+             ADD wellclass (any) OPT ANY
+             ADD wellcompletioninterval (any) OPT ANY
+             ADD wellcompletionname (any) OPT ANY
+             ADD wellcompletionstatus (any) OPT ANY
+             ADD wellcompletionstatuseffdate (any) OPT ANY
+             ADD wellcompletionstatusid (any) OPT ANY
+             ADD wellentitytype (any) OPT ANY
+             ADD wellleveltype (any) OPT ANY
+             ADD wellviewregion (any) OPT ANY
+             ADD wellviewwellid (any) OPT ANY
+             ADD zonename (any) OPT ANY
+             ADD dmdatecreated (any) OPT ANY
+             ADD dmdateupdated (any) OPT ANY
+        )
+        OUTPUTLIST (acquisitioncode, acquisitioneffdate, acquisitionseller, activeindicator, ahfseffdate, ahfsflag, ahfspackageid, api, assetunderconstructionassetnum, bottomholelatitude, bottomholelongitude, budgetnode, budgetnodecode, businessintention, businessinterest, company, companynum, completiondate, costcenternum, countrycode, countryname, countycode, countyname, currentgwi, currentgwigas, currentgwingl, currentgwioil, currentnri, currentnrigas, currentnringl, currentnrioil, currentnwi, currentnwigas, currentnwingl, currentnwioil, currentorri, currentorrigas, currentorringl, currentorrioil, currentri, currentrigas, currentringl, currentrioil, divestiturebuyer, divestitureclosedate, divestiturecode, divestitureeffdate, dmdatecreated, dmdateupdated, drillingpermitnum, dsuland, dsupooled, equitygroupnum, federalstateflag, fieldname, firstproductiondate, firstsaledate, latlongdatum, legacyexcalcode, lgldescabstract, lgldescarea, lgldescblock, lgldescbottomholeabstract, lgldescbottomholearea, lgldescbottomholeblock, lgldescbottomholefootageew, lgldescbottomholefootageewdirection, lgldescbottomholefootageewstartline, lgldescbottomholefootagens, lgldescbottomholefootagensdirection, lgldescbottomholefootagensstartline, lgldescbottomholelabor, lgldescbottomholeleague, lgldescbottomholeparcel, lgldescbottomholeqtrqtr, lgldescbottomholerange, lgldescbottomholesection, lgldescbottomholesurvey, lgldescbottomholetownship, lgldescbottomholewellspot, lgldescbottomholewellspotcongress, lgldescbottomholewellspotnortheast, lgldescbottomholewellspotoffshore, lgldescbottomholewellspottexas, lgldescfootageew, lgldescfootageewdirection, lgldescfootageewstartline, lgldescfootagens, lgldescfootagensdirection, lgldescfootagensstartline, lgldesclabor, lgldescleague, lgldescparcel, lgldescqtrqtr, lgldescrange, lgldescsection, lgldescsurvey, lgldesctownship, lgldesctype, lgldescwellspot, lgldescwellspotcongress, lgldescwellspotnortheast, lgldescwellspotoffshore, lgldescwellspottexas, measureddepth, mmsfedid, mortgagecode, offshoreflag, operated, operatoreffectivedate, operatorname, operatornum, padate, plugbackdepth, primaryproduct, productionmethod, profitcenternum, propnum, prospectname, prospectnum, provedpropertiesassetnum, region, reservoirname, rigreleasedate, role, sapwellcompletionnum, sapwellnum, soldflag, spacingdescription, spuddate, statecode, statename, stateproductionleasenum, surfacelatitude, surfacelongitude, targetmeasureddepth, targettotalverticaldepth, totalverticaldepth, trajectorytype, unitacres, venturenumber, wasurl, wellclass, wellcompletionekey, wellcompletioninterval, wellcompletionkey, wellcompletionname, wellcompletionstatus, wellcompletionstatuseffdate, wellcompletionstatusid, wellentitytype, wellleveltype, wellviewregion, wellviewwellid, zonename
+        )
+        WRAPPER (jdbc b_warehouse_edw_wellmaster_wellcompletion)
+    );
+

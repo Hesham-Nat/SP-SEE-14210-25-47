@@ -1,0 +1,7 @@
+﻿*/databases/eicore/folder.02. base views/02. base views.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/warehouse.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/edw.vql
+1/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.wellmaster/wellmaster.vql
+*/databases/eicore/folder.01. connections/01. connections.vql
+*/databases/eicore/folder.01. connections/folder.sql/sql.vql
+1/databases/eicore/folder.01. connections/folder.sql/datasources/jdbc/ds_warehouse.vql

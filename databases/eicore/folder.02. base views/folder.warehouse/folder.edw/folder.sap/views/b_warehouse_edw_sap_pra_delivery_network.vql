@@ -1,0 +1,80 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC deliverynetwork
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    DATASOURCENAME=ds_warehouse
+    CATALOGNAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.deliverynetwork.CATALOGNAME}' 
+    SCHEMANAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.deliverynetwork.SCHEMANAME}' 
+    RELATIONNAME='DeliveryNetwork' 
+    OUTPUTSCHEMA (
+        companycode = 'CompanyCode' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='4')  SORTABLE,
+        country = 'Country' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='3')  SORTABLE,
+        dnname = 'DNName' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='35')  NOT NULL SORTABLE,
+        dnnumbergroup = 'DNNumberGroup' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='4')  SORTABLE,
+        dnnumber = 'DNNumber' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='20')  SORTABLE,
+        dnhierarchygroup = 'DNHierarchyGroup' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='15')  SORTABLE,
+        chainingnetwork = 'ChainingNetwork' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='20')  SORTABLE,
+        createdby = 'CreatedBy' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='12')  SORTABLE,
+        timestamp = 'TimeStamp' :'java.lang.Long' (OPT) (sourcetyperadix='10', sourcetypename='decimal', sourcetypeid='3', sourcetypedecimals='0', sourcetypesize='15')  ESCAPE SORTABLE,
+        statecode = 'StateCode' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='2')  SORTABLE,
+        countycode = 'CountyCode' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='3')  SORTABLE,
+        dndescription = 'DNDescription' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='35')  SORTABLE,
+        allocationtolerance = 'AllocationTolerance' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='0', sourcetypesize='3')  SORTABLE,
+        dntype = 'DNType' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        jointventure = 'JointVenture' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='6')  SORTABLE,
+        edwupdatedate = 'EDWUpdateDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE,
+        edwcreatedate = 'EDWCreateDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE
+    )
+    CONSTRAINT 'PK__SAP__DNNumber__DNName__' PRIMARY KEY ( 'DNName' )
+    INDEX 'PK__SAP__DNNumber__DNName__' CLUSTER UNIQUE PRIMARY ( 'DNName' );
+
+CREATE OR REPLACE TABLE b_warehouse_edw_sap_pra_delivery_network I18N us_mst_mdt (
+        companycode:text (sourcetypeid = '12', sourcetypesize = '4'),
+        country:text (sourcetypeid = '12', sourcetypesize = '3'),
+        dnname:text (sourcetypeid = '12', sourcetypesize = '35'),
+        dnnumbergroup:text (sourcetypeid = '12', sourcetypesize = '4'),
+        dnnumber:text (sourcetypeid = '12', sourcetypesize = '20'),
+        dnhierarchygroup:text (sourcetypeid = '12', sourcetypesize = '15'),
+        chainingnetwork:text (sourcetypeid = '12', sourcetypesize = '20'),
+        createdby:text (sourcetypeid = '12', sourcetypesize = '12'),
+        timestamp:long (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '15'),
+        statecode:text (sourcetypeid = '12', sourcetypesize = '2'),
+        countycode:text (sourcetypeid = '12', sourcetypesize = '3'),
+        dndescription:text (sourcetypeid = '12', sourcetypesize = '35'),
+        allocationtolerance:int (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '3'),
+        dntype:text (sourcetypeid = '12', sourcetypesize = '1'),
+        jointventure:text (sourcetypeid = '12', sourcetypesize = '6'),
+        edwupdatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        edwcreatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23')
+    )
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    CONSTRAINT 'PK__SAP__DNNumber__DNName__' PRIMARY KEY ( 'dnname' )
+    CACHE OFF
+    BATCHSIZEINCACHE DEFAULT
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD deliverynetwork(
+        I18N us_mst_mdt
+        CONSTRAINTS (
+             ADD companycode (any) OPT ANY
+             ADD country (any) OPT ANY
+             ADD dnname (any) OPT ANY
+             ADD dnnumbergroup (any) OPT ANY
+             ADD dnnumber (any) OPT ANY
+             ADD dnhierarchygroup (any) OPT ANY
+             ADD chainingnetwork (any) OPT ANY
+             ADD createdby (any) OPT ANY
+             ADD timestamp (any) OPT ANY
+             ADD statecode (any) OPT ANY
+             ADD countycode (any) OPT ANY
+             ADD dndescription (any) OPT ANY
+             ADD allocationtolerance (any) OPT ANY
+             ADD dntype (any) OPT ANY
+             ADD jointventure (any) OPT ANY
+             ADD edwupdatedate (any) OPT ANY
+             ADD edwcreatedate (any) OPT ANY
+        )
+        OUTPUTLIST (allocationtolerance, chainingnetwork, companycode, country, countycode, createdby, dndescription, dnhierarchygroup, dnname, dnnumber, dnnumbergroup, dntype, edwcreatedate, edwupdatedate, jointventure, statecode, timestamp
+        )
+        WRAPPER (jdbc deliverynetwork)
+    )
+    SMART_ONLY;
+

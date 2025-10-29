@@ -1,0 +1,3 @@
+﻿CREATE OR REPLACE VIEW stg_sap_pra_delivery_network_node_well_completion FOLDER = '/03. staging views/sap/sql'
+    PRIMARY KEY ( 'dn_node_number' , 'well_id' , 'well_completion' ) AS SELECT b_warehouse_edw_sap_pra_delivery_network_node_well_completion.dnnodenumber AS dn_node_number, b_warehouse_edw_sap_pra_delivery_network_node_well_completion.wellid AS well_id, b_warehouse_edw_sap_pra_delivery_network_node_well_completion.wellcompletion AS well_completion, b_warehouse_edw_sap_pra_delivery_network_node_well_completion.edwupdatedate AS edw_update_date, b_warehouse_edw_sap_pra_delivery_network_node_well_completion.edwcreatedate AS edw_create_date FROM b_warehouse_edw_sap_pra_delivery_network_node_well_completion;
+

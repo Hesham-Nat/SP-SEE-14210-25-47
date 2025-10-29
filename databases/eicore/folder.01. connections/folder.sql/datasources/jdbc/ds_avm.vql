@@ -1,0 +1,38 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE JDBC ds_avm
+    FOLDER = '/01. connections/sql'
+    DRIVERCLASSNAME = 'com.microsoft.sqlserver.jdbc.SQLServerDriver'
+    DATABASEURI = '${databases.eicore.folder.01.. connections.folder.sql.datasources.jdbc.ds_avm.DATABASEURI}'
+    USERNAME = '${databases.eicore.folder.01.. connections.folder.sql.datasources.jdbc.ds_avm.USERNAME}'
+    USERPASSWORD = ''
+    CLASSPATH = 'mssql-jdbc-6.x'
+    DATABASENAME = 'sqlserver'
+    DATABASEVERSION = '2012'
+    FETCHSIZE = 1000
+    VALIDATIONQUERY = 'Select 1'
+    INITIALSIZE = 4
+    MAXIDLE = -1
+    MINIDLE = 0
+    MAXACTIVE = 20
+    EXHAUSTEDACTION = 1
+    TESTONBORROW = true
+    TESTONRETURN = false
+    TESTWHILEIDLE = false
+    TIMEBETWEENEVICTION = -1
+    NUMTESTPEREVICTION = 3
+    MINEVICTABLETIME = 1800000
+    POOLPREPAREDSTATEMENTS = false
+    MAXOPENPREPAREDSTATEMENTS = -1
+    DATA_LOAD_CONFIGURATION (
+        USE_FOR_QUERY_OPTIMIZATION = DATA_MOVEMENT
+        BATCHINSERTSIZE = 1000
+        TARGET_CATALOG = '${databases.eicore.folder.01.. connections.folder.sql.datasources.jdbc.ds_avm.TARGET_CATALOG}'
+        TARGET_SCHEMA = '${databases.eicore.folder.01.. connections.folder.sql.datasources.jdbc.ds_avm.TARGET_SCHEMA}'
+    )
+    DESCRIPTION  = 'Avocet Volumes Management database'
+    SOURCECONFIGURATION (
+        delegateoffset = false,
+        delegate_binary_orderby_collation = 'Latin1_General_BIN',
+        delegateanalyticfunctionslist = (avg, cume_dist, dense_rank, first_value, lag, last_value, lead, max, min, ntile, percent_rank, percentile_cont, percentile_disc, rank, row_number, sum)
+    );
+

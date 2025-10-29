@@ -1,0 +1,44 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC deliverynetworknodewellcompletion
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    DATASOURCENAME=ds_warehouse
+    CATALOGNAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.deliverynetworknodewellcompletion.CATALOGNAME}' 
+    SCHEMANAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.deliverynetworknodewellcompletion.SCHEMANAME}' 
+    RELATIONNAME='DeliveryNetworkNodeWellCompletion' 
+    OUTPUTSCHEMA (
+        dnnodenumber = 'DnNodeNumber' :'java.lang.Long' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='0', sourcetypesize='12')  NOT NULL SORTABLE,
+        wellcompletion = 'WellCompletion' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='5')  SORTABLE,
+        wellid = 'WellID' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='15')  SORTABLE,
+        edwupdatedate = 'EDWUpdateDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE,
+        edwcreatedate = 'EDWCreateDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE
+    )
+    CONSTRAINT 'PK__SAP__DeliveryNetworkNodeWellCompletion__DnNodeNumber__' PRIMARY KEY ( 'DnNodeNumber' )
+    INDEX 'PK__SAP__DeliveryNetworkNodeWellCompletion__DnNodeNumber__' CLUSTER UNIQUE PRIMARY ( 'DnNodeNumber' );
+
+CREATE OR REPLACE TABLE b_warehouse_edw_sap_pra_delivery_network_node_well_completion I18N us_mst_mdt (
+        dnnodenumber:long (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '12'),
+        wellcompletion:text (sourcetypeid = '12', sourcetypesize = '5'),
+        wellid:text (sourcetypeid = '12', sourcetypesize = '15'),
+        edwupdatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        edwcreatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23')
+    )
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    CONSTRAINT 'PK__SAP__DeliveryNetworkNodeWellCompletion__DnNodeNumber__' PRIMARY KEY ( 'dnnodenumber' )
+    CACHE OFF
+    BATCHSIZEINCACHE DEFAULT
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD deliverynetworknodewellcompletion(
+        I18N us_mst_mdt
+        CONSTRAINTS (
+             ADD dnnodenumber (any) OPT ANY
+             ADD wellcompletion (any) OPT ANY
+             ADD wellid (any) OPT ANY
+             ADD edwupdatedate (any) OPT ANY
+             ADD edwcreatedate (any) OPT ANY
+        )
+        OUTPUTLIST (dnnodenumber, edwcreatedate, edwupdatedate, wellcompletion, wellid
+        )
+        WRAPPER (jdbc deliverynetworknodewellcompletion)
+    )
+    SMART_ONLY;
+

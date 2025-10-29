@@ -1,0 +1,24 @@
+﻿CREATE OR REPLACE INTERFACE VIEW aries_interface_incoming_ac_daily (
+        wellcompid:text (sourcetypesize = '12', sourcetypeid = '12'),
+        d_date:localdate (sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '91'),
+        oil:decimal (sourcetypedecimals = '2', sourcetyperadix = '10', sourcetypesize = '19', sourcetypeid = '3'),
+        gas:decimal (sourcetypedecimals = '2', sourcetyperadix = '10', sourcetypesize = '19', sourcetypeid = '3'),
+        water:decimal,
+        water_stgc_alloc:decimal,
+        water_inj:decimal (sourcetypedecimals = '2', sourcetyperadix = '10', sourcetypesize = '19', sourcetypeid = '3'),
+        casing_press:decimal (sourcetypedecimals = '3', sourcetyperadix = '10', sourcetypesize = '19', sourcetypeid = '3'),
+        tubing_press:decimal (sourcetypedecimals = '3', sourcetyperadix = '10', sourcetypesize = '19', sourcetypeid = '3'),
+        pump_intk_press:decimal (sourcetypedecimals = '3', sourcetyperadix = '10', sourcetypesize = '19', sourcetypeid = '3'),
+        choke:decimal (sourcetypedecimals = '4', sourcetyperadix = '10', sourcetypesize = '19', sourcetypeid = '3'),
+        grs_wh_gas:decimal,
+        wh_oil:decimal (sourcetypedecimals = '2', sourcetyperadix = '10', sourcetypesize = '19', sourcetypeid = '3'),
+        theoretical_oil_vol:decimal (sourcetypedecimals = '2', sourcetyperadix = '10', sourcetypesize = '19', sourcetypeid = '3'),
+        avm_update_date:timestamp,
+        prodvols_record_create_date:timestamp (sourcetypedecimals = '3', sourcetypesize = '23', sourcetypeid = '93')
+    )
+    SET IMPLEMENTATION stg_aries_interface_incoming_ac_daily_99_final
+    FOLDER = '/04. published views/reserves/incoming interfaces';
+
+ALTER VIEW aries_interface_incoming_ac_daily
+ LAYOUT (stg_aries_interface_incoming_ac_daily_99_final = [450, 20, 335, 346]);
+

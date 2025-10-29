@@ -1,0 +1,53 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC b_warehouse_edw_sap_project
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    DATASOURCENAME=ds_warehouse
+    CATALOGNAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.b_warehouse_edw_sap_project.CATALOGNAME}' 
+    SCHEMANAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.b_warehouse_edw_sap_project.SCHEMANAME}' 
+    RELATIONNAME='Project' 
+    OUTPUTSCHEMA (
+        projectkey = 'ProjectKey' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='int', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  NOT NULL SORTABLE,
+        projectid = 'ProjectID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='24')  SORTABLE,
+        loeprojectnum = 'LOEProjectNum' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='8')  SORTABLE,
+        profitcenter = 'ProfitCenter' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='7')  SORTABLE,
+        projectprofile = 'ProjectProfile' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='7')  SORTABLE,
+        projectstatusid = 'ProjectStatusID' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='int', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  SORTABLE,
+        edwupdatedate = 'EDWUpdateDate' :'java.sql.Timestamp' (OPT) (sourcetyperadix='0', sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE,
+        edwcreatedate = 'EDWCreateDate' :'java.sql.Timestamp' (OPT) (sourcetyperadix='0', sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE
+    )
+    CONSTRAINT 'PK__SAP__Project__ProjectKey' PRIMARY KEY ( 'ProjectKey' )
+    INDEX 'PK__SAP__Project__ProjectKey' CLUSTER UNIQUE PRIMARY ( 'ProjectKey' );
+
+CREATE OR REPLACE TABLE b_warehouse_edw_sap_project I18N us_mst_mdt (
+        projectkey:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        projectid:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '24'),
+        loeprojectnum:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '8'),
+        profitcenter:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '7'),
+        projectprofile:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '7'),
+        projectstatusid:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        edwupdatedate:date (sourcetypeid = '93', sourcetyperadix = '0', sourcetypedecimals = '3', sourcetypesize = '23'),
+        edwcreatedate:date (sourcetypeid = '93', sourcetyperadix = '0', sourcetypedecimals = '3', sourcetypesize = '23')
+    )
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    CONSTRAINT 'PK__SAP__Project__ProjectKey' PRIMARY KEY ( 'projectkey' )
+    CACHE OFF
+    BATCHSIZEINCACHE DEFAULT
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD b_warehouse_edw_sap_project(
+        I18N us_mst_mdt
+        CONSTRAINTS (
+             ADD projectkey (any) OPT ANY
+             ADD projectid (any) OPT ANY
+             ADD loeprojectnum (any) OPT ANY
+             ADD profitcenter (any) OPT ANY
+             ADD projectprofile (any) OPT ANY
+             ADD projectstatusid (any) OPT ANY
+             ADD edwupdatedate (any) OPT ANY
+             ADD edwcreatedate (any) OPT ANY
+        )
+        OUTPUTLIST (edwcreatedate, edwupdatedate, loeprojectnum, profitcenter, projectid, projectkey, projectprofile, projectstatusid
+        )
+        WRAPPER (jdbc b_warehouse_edw_sap_project)
+    )
+    SMART_THEN_ATSOURCE_THROUGH_VDP;
+

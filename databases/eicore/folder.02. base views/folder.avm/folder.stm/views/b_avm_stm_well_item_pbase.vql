@@ -1,0 +1,46 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC b_avm_stm_well_item_pbase
+    FOLDER = '/02. base views/avm/stm'
+    DATASOURCENAME=ds_avm
+    CATALOGNAME='${databases.eicore.folder.02.. base views.folder.avm.folder.stm.views.jdbc.b_avm_stm_well_item_pbase.CATALOGNAME}' 
+    SCHEMANAME='${databases.eicore.folder.02.. base views.folder.avm.folder.stm.views.jdbc.b_avm_stm_well_item_pbase.SCHEMANAME}' 
+    RELATIONNAME='WELL_ITEM_PBASE' 
+    OUTPUTSCHEMA (
+        item_id = 'ITEM_ID' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='char', sourcetypeid='1', sourcetypedecimals='0', sourcetypesize='32')  NOT NULL SORTABLE,
+        item_type = 'ITEM_TYPE' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='varchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='14')  NOT NULL SORTABLE,
+        state = 'STATE' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        operated = 'OPERATED' :'java.lang.String' (OPT) (sourcetyperadix='0', sourcetypename='nvarchar', sourcetypeid='12', sourcetypedecimals='0', sourcetypesize='200')  SORTABLE,
+        state_pbase = 'STATE_PBASE' :'java.math.BigDecimal' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='3', sourcetypesize='11')  NOT NULL SORTABLE,
+        state_pbase_conv = 'STATE_PBASE_CONV' :'java.math.BigDecimal' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='14', sourcetypesize='19')  SORTABLE
+    )
+    CONSTRAINT 'STM__WELL_ITEM_PBASE__ITEM_ID' PRIMARY KEY ( 'ITEM_ID' )
+    INDEX 'STM__WELL_ITEM_PBASE__ITEM_ID' CLUSTER UNIQUE PRIMARY ( 'ITEM_ID' );
+
+CREATE OR REPLACE TABLE b_avm_stm_well_item_pbase I18N us_mst_mdt (
+        item_id:text (sourcetypeid = '1', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '32'),
+        item_type:text (sourcetypeid = '12', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '14'),
+        state:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        operated:text (sourcetypeid = '-9', sourcetyperadix = '0', sourcetypedecimals = '0', sourcetypesize = '200'),
+        state_pbase:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '11'),
+        state_pbase_conv:decimal (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '14', sourcetypesize = '19')
+    )
+    FOLDER = '/02. base views/avm/stm'
+    PRIMARY KEY ( 'item_id' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD b_avm_stm_well_item_pbase(
+        I18N us_mst_mdt
+        CONSTRAINTS (
+             ADD item_id (any) OPT ANY
+             ADD item_type (any) OPT ANY
+             ADD state (any) OPT ANY
+             ADD operated (any) OPT ANY
+             ADD state_pbase (any) OPT ANY
+             ADD state_pbase_conv (any) OPT ANY
+        )
+        OUTPUTLIST (item_id, item_type, operated, state, state_pbase, state_pbase_conv
+        )
+        WRAPPER (jdbc b_avm_stm_well_item_pbase)
+    )
+    SMART_THEN_ATSOURCE_THROUGH_VDP;
+

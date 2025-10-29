@@ -1,0 +1,11 @@
+﻿*/databases/eicore/folder.03. staging views/03. staging views.vql
+*/databases/eicore/folder.03. staging views/folder.operations/operations.vql
+*/databases/eicore/folder.03. staging views/folder.operations/folder.wellview/wellview.vql
+1/databases/eicore/folder.03. staging views/folder.operations/folder.wellview/folder.02. active wells/02. active wells.vql
+*/databases/eicore/folder.02. base views/02. base views.vql
+*/databases/eicore/folder.02. base views/folder.wellview/wellview.vql
+*/databases/eicore/folder.01. connections/01. connections.vql
+*/databases/eicore/folder.01. connections/folder.sql/sql.vql
+*/databases/eicore/folder.01. connections/folder.sql/datasources/jdbc/ds_wellview.vql
+1/databases/eicore/folder.02. base views/folder.wellview/views/b_wellview_wv103calcunitsus_wvwellheader.vql
+*/databases/eicore/folder.02. base views/folder.wellview/views/b_wellview_wv103calcunitsus_wvwellheader.vql

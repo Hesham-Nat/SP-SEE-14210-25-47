@@ -1,0 +1,43 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC countiesperstate
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    DATASOURCENAME=ds_warehouse
+    CATALOGNAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.countiesperstate.CATALOGNAME}' 
+    SCHEMANAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.countiesperstate.SCHEMANAME}' 
+    RELATIONNAME='CountiesPerState' 
+    OUTPUTSCHEMA (
+        geographiclocationprimary = 'GeographicLocationPrimary' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='2')  NOT NULL SORTABLE,
+        geographiclocationsecondary = 'GeographicLocationSecondary' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='3')  NOT NULL SORTABLE,
+        geographicdescription = 'GeographicDescription' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='50')  SORTABLE,
+        edwupdatedate = 'EDWUpdateDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE,
+        edwcreatedate = 'EDWCreateDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE
+    )
+    CONSTRAINT 'PK__SAP__CountiesPerState__GeographicLocationPrimary__GeographicLocationSecondary' PRIMARY KEY ( 'GeographicLocationPrimary' , 'GeographicLocationSecondary' )
+    INDEX 'PK__SAP__CountiesPerState__GeographicLocationPrimary__GeographicLocationSecondary' CLUSTER UNIQUE PRIMARY ( 'GeographicLocationPrimary' , 'GeographicLocationSecondary' );
+
+CREATE OR REPLACE TABLE b_warehouse_edw_sap_pra_counties_per_state I18N us_mst_mdt (
+        geographiclocationprimary:text (sourcetypeid = '12', sourcetypesize = '2'),
+        geographiclocationsecondary:text (sourcetypeid = '12', sourcetypesize = '3'),
+        geographicdescription:text (sourcetypeid = '12', sourcetypesize = '50'),
+        edwupdatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        edwcreatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23')
+    )
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    CONSTRAINT 'PK__SAP__CountiesPerState__GeographicLocationPrimary__GeographicLocationSecondary' PRIMARY KEY ( 'geographiclocationprimary' , 'geographiclocationsecondary' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD countiesperstate(
+        I18N us_mst_mdt
+        CONSTRAINTS (
+             ADD geographiclocationprimary (any) OPT ANY
+             ADD geographiclocationsecondary (any) OPT ANY
+             ADD geographicdescription (any) OPT ANY
+             ADD edwupdatedate (any) OPT ANY
+             ADD edwcreatedate (any) OPT ANY
+        )
+        OUTPUTLIST (edwcreatedate, edwupdatedate, geographicdescription, geographiclocationprimary, geographiclocationsecondary
+        )
+        WRAPPER (jdbc countiesperstate)
+    )
+    SMART_ONLY;
+

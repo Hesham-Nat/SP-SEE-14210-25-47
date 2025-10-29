@@ -1,0 +1,6 @@
+﻿*/databases/eicore/folder.02. base views/02. base views.vql
+*/databases/eicore/folder.02. base views/folder.wellview/wellview.vql
+1/databases/eicore/folder.02. base views/folder.wellview/folder.02. sold wells/02. sold wells.vql
+*/databases/eicore/folder.01. connections/01. connections.vql
+*/databases/eicore/folder.01. connections/folder.sql/sql.vql
+1/databases/eicore/folder.01. connections/folder.sql/datasources/jdbc/ds_wellview.vql

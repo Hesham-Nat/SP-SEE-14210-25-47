@@ -1,0 +1,2 @@
+﻿CREATE OR REPLACE FOLDER '/03. staging views/operations/wellview/01. all wells/stg_wellview_all_wells_well_header' ;
+

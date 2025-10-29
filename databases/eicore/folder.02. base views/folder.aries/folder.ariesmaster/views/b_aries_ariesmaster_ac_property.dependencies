@@ -1,0 +1,6 @@
+﻿*/databases/eicore/folder.02. base views/02. base views.vql
+*/databases/eicore/folder.02. base views/folder.aries/aries.vql
+1/databases/eicore/folder.02. base views/folder.aries/folder.ariesmaster/ariesmaster.vql
+*/databases/eicore/folder.01. connections/01. connections.vql
+*/databases/eicore/folder.01. connections/folder.sql/sql.vql
+1/databases/eicore/folder.01. connections/folder.sql/datasources/jdbc/ds_aries.vql

@@ -1,0 +1,122 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC deliverynetworkvariabledata
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    DATASOURCENAME=ds_warehouse
+    CATALOGNAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.deliverynetworkvariabledata.CATALOGNAME}' 
+    SCHEMANAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.deliverynetworkvariabledata.SCHEMANAME}' 
+    RELATIONNAME='DeliveryNetworkVariableData' 
+    OUTPUTSCHEMA (
+        prodallocationbasis = 'ProdAllocationBasis' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        allocated = 'Allocated' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        gasallocbasis = 'GasAllocBasis' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        allocmethod = 'AllocMethod' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        tolerancepercentage = 'TolerancePercentage' :'java.math.BigDecimal' (OPT) (sourcetyperadix='10', sourcetypename='decimal', sourcetypeid='3', sourcetypedecimals='6', sourcetypesize='9')  SORTABLE,
+        assumeacr = 'AssumeACR' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        assumedoisinsimpleplant = 'AssumeDoisInSimplePlant' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        assumemktgrp = 'AssumeMktGrp' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        contractflag = 'ContractFlag' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        rlfprocessing = 'RlfProcessing' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        wetgasbalancing = 'WetGasBalancing' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        processfreq = 'ProcessFreq' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        componentlevel = 'ComponentLevel' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        entitlementonsales = 'EntitlementOnSales' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        chemanalysiscompat = 'ChemAnalysisCompat' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='4')  SORTABLE,
+        chemicalanalgroup = 'ChemicalAnalGroup' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='10')  SORTABLE,
+        dnnumber = 'DNNumber' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='20')  NOT NULL SORTABLE,
+        efffromdate = 'EffFromDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE,
+        efftodate = 'EffToDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  SORTABLE,
+        inactive = 'Inactive' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        measurementgroup = 'MeasurementGroup' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='10')  SORTABLE,
+        createdby = 'CreatedBy' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='12')  SORTABLE,
+        timestamp = 'TimeStamp' :'java.lang.Long' (OPT) (sourcetyperadix='10', sourcetypename='decimal', sourcetypeid='3', sourcetypedecimals='0', sourcetypesize='15')  ESCAPE SORTABLE,
+        pltinletcalc = 'PltinletCalc' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        saturateddrycd = 'SaturateddryCd' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        theoinflationfctr = 'TheoinflationFctr' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='0', sourcetypesize='1')  SORTABLE,
+        valuationflag = 'ValuationFlag' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        runvaluation = 'RunValuation' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        valueonvalue = 'ValueOnValue' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='1')  SORTABLE,
+        edwupdatedate = 'EDWUpdateDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE,
+        edwcreatedate = 'EDWCreateDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE
+    )
+    CONSTRAINT 'PK__SAP__DeliveryNetworkVariableData__DNNumber_EffFromDate__' PRIMARY KEY ( 'DNNumber' , 'EffFromDate' )
+    INDEX 'PK__SAP__DeliveryNetworkVariableData__DNNumber_EffFromDate__' CLUSTER UNIQUE PRIMARY ( 'DNNumber' , 'EffFromDate' );
+
+CREATE OR REPLACE TABLE b_warehouse_edw_sap_pra_delivery_network_variable_data I18N us_mst_mdt (
+        prodallocationbasis:text (sourcetypeid = '12', sourcetypesize = '1'),
+        allocated:text (sourcetypeid = '12', sourcetypesize = '1'),
+        gasallocbasis:text (sourcetypeid = '12', sourcetypesize = '1'),
+        allocmethod:text (sourcetypeid = '12', sourcetypesize = '1'),
+        tolerancepercentage:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '6', sourcetypesize = '9'),
+        assumeacr:text (sourcetypeid = '12', sourcetypesize = '1'),
+        assumedoisinsimpleplant:text (sourcetypeid = '12', sourcetypesize = '1'),
+        assumemktgrp:text (sourcetypeid = '12', sourcetypesize = '1'),
+        contractflag:text (sourcetypeid = '12', sourcetypesize = '1'),
+        rlfprocessing:text (sourcetypeid = '12', sourcetypesize = '1'),
+        wetgasbalancing:text (sourcetypeid = '12', sourcetypesize = '1'),
+        processfreq:text (sourcetypeid = '12', sourcetypesize = '1'),
+        componentlevel:text (sourcetypeid = '12', sourcetypesize = '1'),
+        entitlementonsales:text (sourcetypeid = '12', sourcetypesize = '1'),
+        chemanalysiscompat:text (sourcetypeid = '12', sourcetypesize = '4'),
+        chemicalanalgroup:text (sourcetypeid = '12', sourcetypesize = '10'),
+        dnnumber:text (sourcetypeid = '12', sourcetypesize = '20'),
+        efffromdate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        efftodate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        inactive:text (sourcetypeid = '12', sourcetypesize = '1'),
+        measurementgroup:text (sourcetypeid = '12', sourcetypesize = '10'),
+        createdby:text (sourcetypeid = '12', sourcetypesize = '12'),
+        timestamp:long (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '15'),
+        pltinletcalc:text (sourcetypeid = '12', sourcetypesize = '1'),
+        saturateddrycd:text (sourcetypeid = '12', sourcetypesize = '1'),
+        theoinflationfctr:int (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '1'),
+        valuationflag:text (sourcetypeid = '12', sourcetypesize = '1'),
+        runvaluation:text (sourcetypeid = '12', sourcetypesize = '1'),
+        valueonvalue:text (sourcetypeid = '12', sourcetypesize = '1'),
+        edwupdatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        edwcreatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23')
+    )
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    CONSTRAINT 'PK__SAP__DeliveryNetworkVariableData__DNNumber_EffFromDate__' PRIMARY KEY ( 'dnnumber' , 'efffromdate' )
+    CACHE OFF
+    BATCHSIZEINCACHE DEFAULT
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD deliverynetworkvariabledata(
+        I18N us_mst_mdt
+        CONSTRAINTS (
+             ADD prodallocationbasis (any) OPT ANY
+             ADD allocated (any) OPT ANY
+             ADD gasallocbasis (any) OPT ANY
+             ADD allocmethod (any) OPT ANY
+             ADD tolerancepercentage (any) OPT ANY
+             ADD assumeacr (any) OPT ANY
+             ADD assumedoisinsimpleplant (any) OPT ANY
+             ADD assumemktgrp (any) OPT ANY
+             ADD contractflag (any) OPT ANY
+             ADD rlfprocessing (any) OPT ANY
+             ADD wetgasbalancing (any) OPT ANY
+             ADD processfreq (any) OPT ANY
+             ADD componentlevel (any) OPT ANY
+             ADD entitlementonsales (any) OPT ANY
+             ADD chemanalysiscompat (any) OPT ANY
+             ADD chemicalanalgroup (any) OPT ANY
+             ADD dnnumber (any) OPT ANY
+             ADD efffromdate (any) OPT ANY
+             ADD efftodate (any) OPT ANY
+             ADD inactive (any) OPT ANY
+             ADD measurementgroup (any) OPT ANY
+             ADD createdby (any) OPT ANY
+             ADD timestamp (any) OPT ANY
+             ADD pltinletcalc (any) OPT ANY
+             ADD saturateddrycd (any) OPT ANY
+             ADD theoinflationfctr (any) OPT ANY
+             ADD valuationflag (any) OPT ANY
+             ADD runvaluation (any) OPT ANY
+             ADD valueonvalue (any) OPT ANY
+             ADD edwupdatedate (any) OPT ANY
+             ADD edwcreatedate (any) OPT ANY
+        )
+        OUTPUTLIST (allocated, allocmethod, assumeacr, assumedoisinsimpleplant, assumemktgrp, chemanalysiscompat, chemicalanalgroup, componentlevel, contractflag, createdby, dnnumber, edwcreatedate, edwupdatedate, efffromdate, efftodate, entitlementonsales, gasallocbasis, inactive, measurementgroup, pltinletcalc, processfreq, prodallocationbasis, rlfprocessing, runvaluation, saturateddrycd, theoinflationfctr, timestamp, tolerancepercentage, valuationflag, valueonvalue, wetgasbalancing
+        )
+        WRAPPER (jdbc deliverynetworkvariabledata)
+    )
+    SMART_ONLY;
+

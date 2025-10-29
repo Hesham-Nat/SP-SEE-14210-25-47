@@ -1,0 +1,3 @@
+﻿CREATE OR REPLACE VIEW stg_avm_stm_well_item_pbase FOLDER = '/03. staging views/production/avm/stm views'
+    PRIMARY KEY ( 'item_id' ) AS SELECT b_avm_stm_well_item_pbase.item_id AS item_id, b_avm_stm_well_item_pbase.item_type AS item_type, b_avm_stm_well_item_pbase.state AS state, b_avm_stm_well_item_pbase.operated AS operated, b_avm_stm_well_item_pbase.state_pbase AS state_pbase, b_avm_stm_well_item_pbase.state_pbase_conv AS state_pbase_conv FROM b_avm_stm_well_item_pbase;
+

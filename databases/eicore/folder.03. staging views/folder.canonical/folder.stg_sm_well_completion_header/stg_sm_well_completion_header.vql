@@ -1,0 +1,2 @@
+﻿CREATE OR REPLACE FOLDER '/03. staging views/canonical/stg_sm_well_completion_header' ;
+

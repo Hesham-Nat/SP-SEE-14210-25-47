@@ -1,0 +1,3 @@
+﻿CREATE OR REPLACE VIEW stg_sap_pra_delivery_network_node FOLDER = '/03. staging views/sap/sql'
+    PRIMARY KEY ( 'dn_number' , 'dn_node_number' ) AS SELECT b_warehouse_edw_sap_pra_delivery_network_node.dnnumber AS dn_number, b_warehouse_edw_sap_pra_delivery_network_node.dnnodenumber AS dn_node_number, b_warehouse_edw_sap_pra_delivery_network_node.edwupdatedate AS edw_updatedate, b_warehouse_edw_sap_pra_delivery_network_node.edwcreatedate AS edw_create_date FROM b_warehouse_edw_sap_pra_delivery_network_node;
+

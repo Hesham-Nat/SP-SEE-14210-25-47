@@ -1,0 +1,15 @@
+﻿*/databases/eicore/folder.03. staging views/03. staging views.vql
+*/databases/eicore/folder.03. staging views/folder.canonical/canonical.vql
+1/databases/eicore/folder.03. staging views/folder.canonical/folder.stg_sm_well_completion_header/stg_sm_well_completion_header.vql
+*/databases/eicore/folder.03. staging views/folder.production/production.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/prodvols.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/folder.stg_prodvols_well_daily_volumes/stg_prodvols_well_daily_volumes.vql
+*/databases/eicore/folder.02. base views/02. base views.vql
+*/databases/eicore/folder.02. base views/folder.avm/avm.vql
+*/databases/eicore/folder.02. base views/folder.avm/folder.productionvolumes/productionvolumes.vql
+*/databases/eicore/folder.01. connections/01. connections.vql
+*/databases/eicore/folder.01. connections/folder.sql/sql.vql
+*/databases/eicore/folder.01. connections/folder.sql/datasources/jdbc/ds_avm.vql
+*/databases/eicore/folder.02. base views/folder.avm/folder.productionvolumes/views/b_productionvolumes_well_daily_volumes.vql
+1/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/folder.stg_prodvols_well_daily_volumes/views/stg_prodvols_well_daily_volumes_01_base.vql
+*/databases/eicore/folder.03. staging views/folder.production/folder.prodvols/folder.stg_prodvols_well_daily_volumes/views/stg_prodvols_well_daily_volumes_01_base.vql

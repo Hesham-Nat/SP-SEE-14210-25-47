@@ -1,0 +1,62 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC deliverynetworklinks
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    DATASOURCENAME=ds_warehouse
+    CATALOGNAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.deliverynetworklinks.CATALOGNAME}' 
+    SCHEMANAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.deliverynetworklinks.SCHEMANAME}' 
+    RELATIONNAME='DeliveryNetworkLinks' 
+    OUTPUTSCHEMA (
+        dnnodenumber = 'DNNodeNumber' :'java.lang.Long' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='0', sourcetypesize='12')  NOT NULL SORTABLE,
+        efffromdate = 'EffFromDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE,
+        efftodate = 'EffToDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  SORTABLE,
+        fromnodenumber = 'FromNodeNumber' :'java.lang.Long' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='0', sourcetypesize='12')  NOT NULL SORTABLE,
+        fromnodetype = 'FromNodeType' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='2')  SORTABLE,
+        createdby = 'CreatedBy' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='12')  SORTABLE,
+        timestamp = 'TimeStamp' :'java.lang.Long' (OPT) (sourcetyperadix='10', sourcetypename='decimal', sourcetypeid='3', sourcetypedecimals='0', sourcetypesize='15')  ESCAPE SORTABLE,
+        tonodenumber = 'ToNodeNumber' :'java.lang.Long' (OPT) (sourcetyperadix='10', sourcetypename='numeric', sourcetypeid='2', sourcetypedecimals='0', sourcetypesize='12')  NOT NULL SORTABLE,
+        tonodetype = 'ToNodeType' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='2')  SORTABLE,
+        edwupdatedate = 'EDWUpdateDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE,
+        edwcreatedate = 'EDWCreateDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE
+    )
+    CONSTRAINT 'PK__SAP__DeliveryNetworkLinks__DNNodeNumber_EffFromDate_FromNodeNumber_ToNodeNumber__' PRIMARY KEY ( 'DNNodeNumber' , 'EffFromDate' , 'FromNodeNumber' , 'ToNodeNumber' )
+    INDEX 'PK__SAP__DeliveryNetworkLinks__DNNodeNumber_EffFromDate_FromNodeNumber_ToNodeNumber__' CLUSTER UNIQUE PRIMARY ( 'DNNodeNumber' , 'EffFromDate' , 'FromNodeNumber' , 'ToNodeNumber' );
+
+CREATE OR REPLACE TABLE b_warehouse_edw_sap_pra_delivery_network_links I18N us_mst_mdt (
+        dnnodenumber:long (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '12'),
+        efffromdate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        efftodate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        fromnodenumber:long (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '12'),
+        fromnodetype:text (sourcetypeid = '12', sourcetypesize = '2'),
+        createdby:text (sourcetypeid = '12', sourcetypesize = '12'),
+        timestamp:long (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '15'),
+        tonodenumber:long (sourcetypeid = '2', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '12'),
+        tonodetype:text (sourcetypeid = '12', sourcetypesize = '2'),
+        edwupdatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        edwcreatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23')
+    )
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    CONSTRAINT 'PK__SAP__DeliveryNetworkLinks__DNNodeNumber_EffFromDate_FromNodeNumber_ToNodeNumber__' PRIMARY KEY ( 'dnnodenumber' , 'efffromdate' , 'fromnodenumber' , 'tonodenumber' )
+    CACHE OFF
+    BATCHSIZEINCACHE DEFAULT
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD deliverynetworklinks(
+        I18N us_mst_mdt
+        CONSTRAINTS (
+             ADD dnnodenumber (any) OPT ANY
+             ADD efffromdate (any) OPT ANY
+             ADD efftodate (any) OPT ANY
+             ADD fromnodenumber (any) OPT ANY
+             ADD fromnodetype (any) OPT ANY
+             ADD createdby (any) OPT ANY
+             ADD timestamp (any) OPT ANY
+             ADD tonodenumber (any) OPT ANY
+             ADD tonodetype (any) OPT ANY
+             ADD edwupdatedate (any) OPT ANY
+             ADD edwcreatedate (any) OPT ANY
+        )
+        OUTPUTLIST (createdby, dnnodenumber, edwcreatedate, edwupdatedate, efffromdate, efftodate, fromnodenumber, fromnodetype, timestamp, tonodenumber, tonodetype
+        )
+        WRAPPER (jdbc deliverynetworklinks)
+    )
+    SMART_ONLY;
+

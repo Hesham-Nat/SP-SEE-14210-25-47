@@ -1,0 +1,503 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC b_wellview_wv103calcunitsus_wvwellheader
+    FOLDER = '/02. base views/wellview'
+    DATASOURCENAME=ds_wellview
+    CATALOGNAME='${databases.eicore.folder.02.. base views.folder.wellview.views.jdbc.b_wellview_wv103calcunitsus_wvwellheader.CATALOGNAME}' 
+    SCHEMANAME='${databases.eicore.folder.02.. base views.folder.wellview.views.jdbc.b_wellview_wv103calcunitsus_wvwellheader.SCHEMANAME}' 
+    RELATIONNAME='WVWELLHEADER' 
+    OUTPUTSCHEMA (
+        idwell = 'IDWELL' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  NOT NULL SORTABLE,
+        agent = 'AGENT' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        area = 'AREA' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        basin = 'BASIN' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        basincode = 'BASINCODE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        casingruncalc = 'CASINGRUNCALC' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        com = 'COM' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        country = 'COUNTRY' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        county = 'COUNTY' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        currentprimaryfluiddescalc = 'CURRENTPRIMARYFLUIDDESCALC' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        currentwellstatus1 = 'CURRENTWELLSTATUS1' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        currentwellstatus1calc = 'CURRENTWELLSTATUS1CALC' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        currentwellstatus2 = 'CURRENTWELLSTATUS2' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        currentwellstatus2calc = 'CURRENTWELLSTATUS2CALC' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        currentwelltyp1calc = 'CURRENTWELLTYP1CALC' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        currentwelltyp2calc = 'CURRENTWELLTYP2CALC' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        directionstowell = 'DIRECTIONSTOWELL' :'java.lang.String' (OPT) (sourcetypesize='2000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        displaceunwrapcalc = 'DISPLACEUNWRAPCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        district = 'DISTRICT' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        division = 'DIVISION' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        divisioncode = 'DIVISIONCODE' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        dttmabandon = 'DTTMABANDON' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        dttmfirstprod = 'DTTMFIRSTPROD' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        dttmrr = 'DTTMRR' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        dttmspud = 'DTTMSPUD' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        dttmstatuscalc = 'DTTMSTATUSCALC' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        dttmwellclass = 'DTTMWELLCLASS' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        dttmwelllic = 'DTTMWELLLIC' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        durspudtotodaycalc = 'DURSPUDTOTODAYCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        elvcasflange = 'ELVCASFLANGE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        elvground = 'ELVGROUND' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        elvlat = 'ELVLAT' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        elvmudline = 'ELVMUDLINE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        elvorigkb = 'ELVORIGKB' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        elvtubhead = 'ELVTUBHEAD' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        environmentsensitive = 'ENVIRONMENTSENSITIVE' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        ewdist = 'EWDIST' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        ewflag = 'EWFLAG' :'java.lang.String' (OPT) (sourcetypesize='5', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        fieldcode = 'FIELDCODE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        fieldname = 'FIELDNAME' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        fieldoffice = 'FIELDOFFICE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        fieldofficecode = 'FIELDOFFICECODE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        govauthority = 'GOVAUTHORITY' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        hih2s = 'HIH2S' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        hisitp = 'HISITP' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        idrecelvhistory = 'IDRECELVHISTORY' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        idrecelvhistorytk = 'IDRECELVHISTORYTK' :'java.lang.String' (OPT) (sourcetypesize='26', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        idrecproblemcalc = 'IDRECPROBLEMCALC' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        idrecproblemcalctk = 'IDRECPROBLEMCALCTK' :'java.lang.String' (OPT) (sourcetypesize='26', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        idrecprodsettingcalc = 'IDRECPRODSETTINGCALC' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        idrecprodsettingcalctk = 'IDRECPRODSETTINGCALCTK' :'java.lang.String' (OPT) (sourcetypesize='26', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        kbtocascalc = 'KBTOCASCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        kbtogrdcalc = 'KBTOGRDCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        kbtomudcalc = 'KBTOMUDCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        kbtoothercalc = 'KBTOOTHERCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        kbtotubcalc = 'KBTOTUBCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        lastjobcalc = 'LASTJOBCALC' :'java.lang.String' (OPT) (sourcetypesize='200', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lastjobreportcalc = 'LASTJOBREPORTCALC' :'java.lang.String' (OPT) (sourcetypesize='200', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        latitude = 'LATITUDE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        latlongdatum = 'LATLONGDATUM' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        latlongsource = 'LATLONGSOURCE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        lease = 'LEASE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        leasecode = 'LEASECODE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        legalsurveyloc = 'LEGALSURVEYLOC' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        legalsurveysubtyp = 'LEGALSURVEYSUBTYP' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        legalsurveytyp = 'LEGALSURVEYTYP' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        localtimezone = 'LOCALTIMEZONE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        locationnote = 'LOCATIONNOTE' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        locationref = 'LOCATIONREF' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        locationsensitive = 'LOCATIONSENSITIVE' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        locationtyp = 'LOCATIONTYP' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        longitude = 'LONGITUDE' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        nsdist = 'NSDIST' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        nsflag = 'NSFLAG' :'java.lang.String' (OPT) (sourcetypesize='5', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        operated = 'OPERATED' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        operator = 'OPERATOR' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        operatorcode = 'OPERATORCODE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        othertocascalc = 'OTHERTOCASCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        othertogrdcalc = 'OTHERTOGRDCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        othertomudcalc = 'OTHERTOMUDCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        othertotubcalc = 'OTHERTOTUBCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        padcode = 'PADCODE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        padname = 'PADNAME' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        pbtdallcalc = 'PBTDALLCALC' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        platform = 'PLATFORM' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        primaryfluiddes = 'PRIMARYFLUIDDES' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        problemflag = 'PROBLEMFLAG' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        problemlast12monthcalc = 'PROBLEMLAST12MONTHCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        problemtotalcalc = 'PROBLEMTOTALCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        riskclass = 'RISKCLASS' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        slot = 'SLOT' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        stateprov = 'STATEPROV' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        surfacerights = 'SURFACERIGHTS' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        tdallcalc = 'TDALLCALC' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        tdcalc = 'TDCALC' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        tdtvdallcalc = 'TDTVDALLCALC' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        towndist = 'TOWNDIST' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        townflag = 'TOWNFLAG' :'java.lang.String' (OPT) (sourcetypesize='5', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        townname = 'TOWNNAME' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        townstateprov = 'TOWNSTATEPROV' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        userboolean1 = 'USERBOOLEAN1' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        userboolean2 = 'USERBOOLEAN2' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        userboolean3 = 'USERBOOLEAN3' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        userboolean4 = 'USERBOOLEAN4' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        userboolean5 = 'USERBOOLEAN5' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        userdttm1 = 'USERDTTM1' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        userdttm2 = 'USERDTTM2' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        userdttm3 = 'USERDTTM3' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        userdttm4 = 'USERDTTM4' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        userdttm5 = 'USERDTTM5' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        usernum1 = 'USERNUM1' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        usernum2 = 'USERNUM2' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        usernum3 = 'USERNUM3' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        usernum4 = 'USERNUM4' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        usernum5 = 'USERNUM5' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        usernum6 = 'USERNUM6' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        usertxt1 = 'USERTXT1' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        usertxt10 = 'USERTXT10' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        usertxt2 = 'USERTXT2' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        usertxt3 = 'USERTXT3' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        usertxt4 = 'USERTXT4' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        usertxt5 = 'USERTXT5' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        usertxt6 = 'USERTXT6' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        usertxt7 = 'USERTXT7' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        usertxt8 = 'USERTXT8' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        usertxt9 = 'USERTXT9' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        utmgridzone = 'UTMGRIDZONE' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        utmsource = 'UTMSOURCE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        utmx = 'UTMX' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        utmy = 'UTMY' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        waterdepth = 'WATERDEPTH' :'java.lang.Double' (OPT) (sourcetyperadix='2', sourcetypesize='53', sourcetypeid='8', sourcetypename='float')  SORTABLE,
+        waterdepthref = 'WATERDEPTHREF' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellborenocalc = 'WELLBORENOCALC' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        wellclass = 'WELLCLASS' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellconfig = 'WELLCONFIG' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellida = 'WELLIDA' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellidb = 'WELLIDB' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellidc = 'WELLIDC' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellidd = 'WELLIDD' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellide = 'WELLIDE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        welllicensee = 'WELLLICENSEE' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        welllicenseno = 'WELLLICENSENO' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        wellname = 'WELLNAME' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        welltyp1 = 'WELLTYP1' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        welltyp2 = 'WELLTYP2' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        syslockmeui = 'SYSLOCKMEUI' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        syslockchildrenui = 'SYSLOCKCHILDRENUI' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        syslockme = 'SYSLOCKME' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        syslockchildren = 'SYSLOCKCHILDREN' :'java.lang.Short' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='5', sourcetypeid='5', sourcetypename='smallint')  SORTABLE,
+        syslockdate = 'SYSLOCKDATE' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        sysmoddate = 'SYSMODDATE' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        sysmoduser = 'SYSMODUSER' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        syscreatedate = 'SYSCREATEDATE' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        syscreateuser = 'SYSCREATEUSER' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        systag = 'SYSTAG' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        sysmoddatedb = 'SYSMODDATEDB' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        sysmoduserdb = 'SYSMODUSERDB' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        syssecuritytyp = 'SYSSECURITYTYP' :'java.lang.String' (OPT) (sourcetypesize='50', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        syslockdatemaster = 'SYSLOCKDATEMASTER' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE
+    );
+
+CREATE OR REPLACE TABLE b_wellview_wv103calcunitsus_wvwellheader I18N us_mst_mdt (
+        idwell:text (sourcetypeid = '12', sourcetypesize = '32'),
+        agent:text (sourcetypeid = '12', sourcetypesize = '50'),
+        area:text (sourcetypeid = '12', sourcetypesize = '50'),
+        basin:text (sourcetypeid = '12', sourcetypesize = '100'),
+        basincode:text (sourcetypeid = '12', sourcetypesize = '50'),
+        casingruncalc:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        com:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        country:text (sourcetypeid = '12', sourcetypesize = '50'),
+        county:text (sourcetypeid = '12', sourcetypesize = '50'),
+        currentprimaryfluiddescalc:text (sourcetypeid = '12', sourcetypesize = '100'),
+        currentwellstatus1:text (sourcetypeid = '12', sourcetypesize = '50'),
+        currentwellstatus1calc:text (sourcetypeid = '12', sourcetypesize = '100'),
+        currentwellstatus2:text (sourcetypeid = '12', sourcetypesize = '50'),
+        currentwellstatus2calc:text (sourcetypeid = '12', sourcetypesize = '100'),
+        currentwelltyp1calc:text (sourcetypeid = '12', sourcetypesize = '100'),
+        currentwelltyp2calc:text (sourcetypeid = '12', sourcetypesize = '100'),
+        directionstowell:text (sourcetypeid = '12', sourcetypesize = '2000'),
+        displaceunwrapcalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        district:text (sourcetypeid = '12', sourcetypesize = '100'),
+        division:text (sourcetypeid = '12', sourcetypesize = '100'),
+        divisioncode:text (sourcetypeid = '12', sourcetypesize = '100'),
+        dttmabandon:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        dttmfirstprod:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        dttmrr:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        dttmspud:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        dttmstatuscalc:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        dttmwellclass:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        dttmwelllic:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        durspudtotodaycalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        elvcasflange:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        elvground:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        elvlat:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        elvmudline:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        elvorigkb:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        elvtubhead:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        environmentsensitive:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        ewdist:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        ewflag:text (sourcetypeid = '12', sourcetypesize = '5'),
+        fieldcode:text (sourcetypeid = '12', sourcetypesize = '50'),
+        fieldname:text (sourcetypeid = '12', sourcetypesize = '50'),
+        fieldoffice:text (sourcetypeid = '12', sourcetypesize = '50'),
+        fieldofficecode:text (sourcetypeid = '12', sourcetypesize = '50'),
+        govauthority:text (sourcetypeid = '12', sourcetypesize = '50'),
+        hih2s:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        hisitp:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        idrecelvhistory:text (sourcetypeid = '12', sourcetypesize = '32'),
+        idrecelvhistorytk:text (sourcetypeid = '12', sourcetypesize = '26'),
+        idrecproblemcalc:text (sourcetypeid = '12', sourcetypesize = '32'),
+        idrecproblemcalctk:text (sourcetypeid = '12', sourcetypesize = '26'),
+        idrecprodsettingcalc:text (sourcetypeid = '12', sourcetypesize = '32'),
+        idrecprodsettingcalctk:text (sourcetypeid = '12', sourcetypesize = '26'),
+        kbtocascalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        kbtogrdcalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        kbtomudcalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        kbtoothercalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        kbtotubcalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        lastjobcalc:text (sourcetypeid = '12', sourcetypesize = '200'),
+        lastjobreportcalc:text (sourcetypeid = '12', sourcetypesize = '200'),
+        latitude:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        latlongdatum:text (sourcetypeid = '12', sourcetypesize = '50'),
+        latlongsource:text (sourcetypeid = '12', sourcetypesize = '50'),
+        lease:text (sourcetypeid = '12', sourcetypesize = '50'),
+        leasecode:text (sourcetypeid = '12', sourcetypesize = '50'),
+        legalsurveyloc:text (sourcetypeid = '12', sourcetypesize = '100'),
+        legalsurveysubtyp:text (sourcetypeid = '12', sourcetypesize = '100'),
+        legalsurveytyp:text (sourcetypeid = '12', sourcetypesize = '100'),
+        localtimezone:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        locationnote:text (sourcetypeid = '12', sourcetypesize = '255'),
+        locationref:text (sourcetypeid = '12', sourcetypesize = '50'),
+        locationsensitive:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        locationtyp:text (sourcetypeid = '12', sourcetypesize = '100'),
+        longitude:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        nsdist:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        nsflag:text (sourcetypeid = '12', sourcetypesize = '5'),
+        operated:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        operator:text (sourcetypeid = '12', sourcetypesize = '50'),
+        operatorcode:text (sourcetypeid = '12', sourcetypesize = '50'),
+        othertocascalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        othertogrdcalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        othertomudcalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        othertotubcalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        padcode:text (sourcetypeid = '12', sourcetypesize = '50'),
+        padname:text (sourcetypeid = '12', sourcetypesize = '50'),
+        pbtdallcalc:text (sourcetypeid = '12', sourcetypesize = '255'),
+        platform:text (sourcetypeid = '12', sourcetypesize = '50'),
+        primaryfluiddes:text (sourcetypeid = '12', sourcetypesize = '100'),
+        problemflag:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        problemlast12monthcalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        problemtotalcalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        riskclass:text (sourcetypeid = '12', sourcetypesize = '50'),
+        slot:text (sourcetypeid = '12', sourcetypesize = '50'),
+        stateprov:text (sourcetypeid = '12', sourcetypesize = '50'),
+        surfacerights:text (sourcetypeid = '12', sourcetypesize = '50'),
+        tdallcalc:text (sourcetypeid = '12', sourcetypesize = '255'),
+        tdcalc:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        tdtvdallcalc:text (sourcetypeid = '12', sourcetypesize = '255'),
+        towndist:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        townflag:text (sourcetypeid = '12', sourcetypesize = '5'),
+        townname:text (sourcetypeid = '12', sourcetypesize = '50'),
+        townstateprov:text (sourcetypeid = '12', sourcetypesize = '50'),
+        userboolean1:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        userboolean2:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        userboolean3:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        userboolean4:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        userboolean5:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        userdttm1:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        userdttm2:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        userdttm3:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        userdttm4:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        userdttm5:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        usernum1:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        usernum2:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        usernum3:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        usernum4:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        usernum5:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        usernum6:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        usertxt1:text (sourcetypeid = '12', sourcetypesize = '100'),
+        usertxt10:text (sourcetypeid = '12', sourcetypesize = '100'),
+        usertxt2:text (sourcetypeid = '12', sourcetypesize = '100'),
+        usertxt3:text (sourcetypeid = '12', sourcetypesize = '100'),
+        usertxt4:text (sourcetypeid = '12', sourcetypesize = '100'),
+        usertxt5:text (sourcetypeid = '12', sourcetypesize = '100'),
+        usertxt6:text (sourcetypeid = '12', sourcetypesize = '100'),
+        usertxt7:text (sourcetypeid = '12', sourcetypesize = '100'),
+        usertxt8:text (sourcetypeid = '12', sourcetypesize = '100'),
+        usertxt9:text (sourcetypeid = '12', sourcetypesize = '100'),
+        utmgridzone:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        utmsource:text (sourcetypeid = '12', sourcetypesize = '50'),
+        utmx:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        utmy:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        waterdepth:double (sourcetypeid = '8', sourcetyperadix = '2', sourcetypesize = '53'),
+        waterdepthref:text (sourcetypeid = '12', sourcetypesize = '50'),
+        wellborenocalc:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        wellclass:text (sourcetypeid = '12', sourcetypesize = '50'),
+        wellconfig:text (sourcetypeid = '12', sourcetypesize = '50'),
+        wellida:text (sourcetypeid = '12', sourcetypesize = '50'),
+        wellidb:text (sourcetypeid = '12', sourcetypesize = '50'),
+        wellidc:text (sourcetypeid = '12', sourcetypesize = '50'),
+        wellidd:text (sourcetypeid = '12', sourcetypesize = '50'),
+        wellide:text (sourcetypeid = '12', sourcetypesize = '50'),
+        welllicensee:text (sourcetypeid = '12', sourcetypesize = '50'),
+        welllicenseno:text (sourcetypeid = '12', sourcetypesize = '50'),
+        wellname:text (sourcetypeid = '12', sourcetypesize = '100'),
+        welltyp1:text (sourcetypeid = '12', sourcetypesize = '100'),
+        welltyp2:text (sourcetypeid = '12', sourcetypesize = '100'),
+        syslockmeui:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        syslockchildrenui:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        syslockme:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        syslockchildren:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        syslockdate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        sysmoddate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        sysmoduser:text (sourcetypeid = '12', sourcetypesize = '50'),
+        syscreatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        syscreateuser:text (sourcetypeid = '12', sourcetypesize = '50'),
+        systag:text (sourcetypeid = '12', sourcetypesize = '255'),
+        sysmoddatedb:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        sysmoduserdb:text (sourcetypeid = '12', sourcetypesize = '50'),
+        syssecuritytyp:text (sourcetypeid = '12', sourcetypesize = '50'),
+        syslockdatemaster:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23')
+    )
+    FOLDER = '/02. base views/wellview'
+    CACHE OFF
+    BATCHSIZEINCACHE DEFAULT
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD b_wellview_wv103calcunitsus_wvwellheader(
+        I18N us_mst_mdt
+        CONSTRAINTS (
+             ADD idwell (any) OPT ANY
+             ADD agent (any) OPT ANY
+             ADD area (any) OPT ANY
+             ADD basin (any) OPT ANY
+             ADD basincode (any) OPT ANY
+             ADD casingruncalc (any) OPT ANY
+             ADD com (any) OPT ANY
+             ADD country (any) OPT ANY
+             ADD county (any) OPT ANY
+             ADD currentprimaryfluiddescalc (any) OPT ANY
+             ADD currentwellstatus1 (any) OPT ANY
+             ADD currentwellstatus1calc (any) OPT ANY
+             ADD currentwellstatus2 (any) OPT ANY
+             ADD currentwellstatus2calc (any) OPT ANY
+             ADD currentwelltyp1calc (any) OPT ANY
+             ADD currentwelltyp2calc (any) OPT ANY
+             ADD directionstowell (any) OPT ANY
+             ADD displaceunwrapcalc (any) OPT ANY
+             ADD district (any) OPT ANY
+             ADD division (any) OPT ANY
+             ADD divisioncode (any) OPT ANY
+             ADD dttmabandon (any) OPT ANY
+             ADD dttmfirstprod (any) OPT ANY
+             ADD dttmrr (any) OPT ANY
+             ADD dttmspud (any) OPT ANY
+             ADD dttmstatuscalc (any) OPT ANY
+             ADD dttmwellclass (any) OPT ANY
+             ADD dttmwelllic (any) OPT ANY
+             ADD durspudtotodaycalc (any) OPT ANY
+             ADD elvcasflange (any) OPT ANY
+             ADD elvground (any) OPT ANY
+             ADD elvlat (any) OPT ANY
+             ADD elvmudline (any) OPT ANY
+             ADD elvorigkb (any) OPT ANY
+             ADD elvtubhead (any) OPT ANY
+             ADD environmentsensitive (any) OPT ANY
+             ADD ewdist (any) OPT ANY
+             ADD ewflag (any) OPT ANY
+             ADD fieldcode (any) OPT ANY
+             ADD fieldname (any) OPT ANY
+             ADD fieldoffice (any) OPT ANY
+             ADD fieldofficecode (any) OPT ANY
+             ADD govauthority (any) OPT ANY
+             ADD hih2s (any) OPT ANY
+             ADD hisitp (any) OPT ANY
+             ADD idrecelvhistory (any) OPT ANY
+             ADD idrecelvhistorytk (any) OPT ANY
+             ADD idrecproblemcalc (any) OPT ANY
+             ADD idrecproblemcalctk (any) OPT ANY
+             ADD idrecprodsettingcalc (any) OPT ANY
+             ADD idrecprodsettingcalctk (any) OPT ANY
+             ADD kbtocascalc (any) OPT ANY
+             ADD kbtogrdcalc (any) OPT ANY
+             ADD kbtomudcalc (any) OPT ANY
+             ADD kbtoothercalc (any) OPT ANY
+             ADD kbtotubcalc (any) OPT ANY
+             ADD lastjobcalc (any) OPT ANY
+             ADD lastjobreportcalc (any) OPT ANY
+             ADD latitude (any) OPT ANY
+             ADD latlongdatum (any) OPT ANY
+             ADD latlongsource (any) OPT ANY
+             ADD lease (any) OPT ANY
+             ADD leasecode (any) OPT ANY
+             ADD legalsurveyloc (any) OPT ANY
+             ADD legalsurveysubtyp (any) OPT ANY
+             ADD legalsurveytyp (any) OPT ANY
+             ADD localtimezone (any) OPT ANY
+             ADD locationnote (any) OPT ANY
+             ADD locationref (any) OPT ANY
+             ADD locationsensitive (any) OPT ANY
+             ADD locationtyp (any) OPT ANY
+             ADD longitude (any) OPT ANY
+             ADD nsdist (any) OPT ANY
+             ADD nsflag (any) OPT ANY
+             ADD operated (any) OPT ANY
+             ADD operator (any) OPT ANY
+             ADD operatorcode (any) OPT ANY
+             ADD othertocascalc (any) OPT ANY
+             ADD othertogrdcalc (any) OPT ANY
+             ADD othertomudcalc (any) OPT ANY
+             ADD othertotubcalc (any) OPT ANY
+             ADD padcode (any) OPT ANY
+             ADD padname (any) OPT ANY
+             ADD pbtdallcalc (any) OPT ANY
+             ADD platform (any) OPT ANY
+             ADD primaryfluiddes (any) OPT ANY
+             ADD problemflag (any) OPT ANY
+             ADD problemlast12monthcalc (any) OPT ANY
+             ADD problemtotalcalc (any) OPT ANY
+             ADD riskclass (any) OPT ANY
+             ADD slot (any) OPT ANY
+             ADD stateprov (any) OPT ANY
+             ADD surfacerights (any) OPT ANY
+             ADD tdallcalc (any) OPT ANY
+             ADD tdcalc (any) OPT ANY
+             ADD tdtvdallcalc (any) OPT ANY
+             ADD towndist (any) OPT ANY
+             ADD townflag (any) OPT ANY
+             ADD townname (any) OPT ANY
+             ADD townstateprov (any) OPT ANY
+             ADD userboolean1 (any) OPT ANY
+             ADD userboolean2 (any) OPT ANY
+             ADD userboolean3 (any) OPT ANY
+             ADD userboolean4 (any) OPT ANY
+             ADD userboolean5 (any) OPT ANY
+             ADD userdttm1 (any) OPT ANY
+             ADD userdttm2 (any) OPT ANY
+             ADD userdttm3 (any) OPT ANY
+             ADD userdttm4 (any) OPT ANY
+             ADD userdttm5 (any) OPT ANY
+             ADD usernum1 (any) OPT ANY
+             ADD usernum2 (any) OPT ANY
+             ADD usernum3 (any) OPT ANY
+             ADD usernum4 (any) OPT ANY
+             ADD usernum5 (any) OPT ANY
+             ADD usernum6 (any) OPT ANY
+             ADD usertxt1 (any) OPT ANY
+             ADD usertxt10 (any) OPT ANY
+             ADD usertxt2 (any) OPT ANY
+             ADD usertxt3 (any) OPT ANY
+             ADD usertxt4 (any) OPT ANY
+             ADD usertxt5 (any) OPT ANY
+             ADD usertxt6 (any) OPT ANY
+             ADD usertxt7 (any) OPT ANY
+             ADD usertxt8 (any) OPT ANY
+             ADD usertxt9 (any) OPT ANY
+             ADD utmgridzone (any) OPT ANY
+             ADD utmsource (any) OPT ANY
+             ADD utmx (any) OPT ANY
+             ADD utmy (any) OPT ANY
+             ADD waterdepth (any) OPT ANY
+             ADD waterdepthref (any) OPT ANY
+             ADD wellborenocalc (any) OPT ANY
+             ADD wellclass (any) OPT ANY
+             ADD wellconfig (any) OPT ANY
+             ADD wellida (any) OPT ANY
+             ADD wellidb (any) OPT ANY
+             ADD wellidc (any) OPT ANY
+             ADD wellidd (any) OPT ANY
+             ADD wellide (any) OPT ANY
+             ADD welllicensee (any) OPT ANY
+             ADD welllicenseno (any) OPT ANY
+             ADD wellname (any) OPT ANY
+             ADD welltyp1 (any) OPT ANY
+             ADD welltyp2 (any) OPT ANY
+             ADD syslockmeui (any) OPT ANY
+             ADD syslockchildrenui (any) OPT ANY
+             ADD syslockme (any) OPT ANY
+             ADD syslockchildren (any) OPT ANY
+             ADD syslockdate (any) OPT ANY
+             ADD sysmoddate (any) OPT ANY
+             ADD sysmoduser (any) OPT ANY
+             ADD syscreatedate (any) OPT ANY
+             ADD syscreateuser (any) OPT ANY
+             ADD systag (any) OPT ANY
+             ADD sysmoddatedb (any) OPT ANY
+             ADD sysmoduserdb (any) OPT ANY
+             ADD syssecuritytyp (any) OPT ANY
+             ADD syslockdatemaster (any) OPT ANY
+        )
+        OUTPUTLIST (agent, area, basin, basincode, casingruncalc, com, country, county, currentprimaryfluiddescalc, currentwellstatus1, currentwellstatus1calc, currentwellstatus2, currentwellstatus2calc, currentwelltyp1calc, currentwelltyp2calc, directionstowell, displaceunwrapcalc, district, division, divisioncode, dttmabandon, dttmfirstprod, dttmrr, dttmspud, dttmstatuscalc, dttmwellclass, dttmwelllic, durspudtotodaycalc, elvcasflange, elvground, elvlat, elvmudline, elvorigkb, elvtubhead, environmentsensitive, ewdist, ewflag, fieldcode, fieldname, fieldoffice, fieldofficecode, govauthority, hih2s, hisitp, idrecelvhistory, idrecelvhistorytk, idrecproblemcalc, idrecproblemcalctk, idrecprodsettingcalc, idrecprodsettingcalctk, idwell, kbtocascalc, kbtogrdcalc, kbtomudcalc, kbtoothercalc, kbtotubcalc, lastjobcalc, lastjobreportcalc, latitude, latlongdatum, latlongsource, lease, leasecode, legalsurveyloc, legalsurveysubtyp, legalsurveytyp, localtimezone, locationnote, locationref, locationsensitive, locationtyp, longitude, nsdist, nsflag, operated, operator, operatorcode, othertocascalc, othertogrdcalc, othertomudcalc, othertotubcalc, padcode, padname, pbtdallcalc, platform, primaryfluiddes, problemflag, problemlast12monthcalc, problemtotalcalc, riskclass, slot, stateprov, surfacerights, syscreatedate, syscreateuser, syslockchildren, syslockchildrenui, syslockdate, syslockdatemaster, syslockme, syslockmeui, sysmoddate, sysmoddatedb, sysmoduser, sysmoduserdb, syssecuritytyp, systag, tdallcalc, tdcalc, tdtvdallcalc, towndist, townflag, townname, townstateprov, userboolean1, userboolean2, userboolean3, userboolean4, userboolean5, userdttm1, userdttm2, userdttm3, userdttm4, userdttm5, usernum1, usernum2, usernum3, usernum4, usernum5, usernum6, usertxt1, usertxt10, usertxt2, usertxt3, usertxt4, usertxt5, usertxt6, usertxt7, usertxt8, usertxt9, utmgridzone, utmsource, utmx, utmy, waterdepth, waterdepthref, wellborenocalc, wellclass, wellconfig, wellida, wellidb, wellidc, wellidd, wellide, welllicensee, welllicenseno, wellname, welltyp1, welltyp2
+        )
+        WRAPPER (jdbc b_wellview_wv103calcunitsus_wvwellheader)
+    )
+    SMART_ONLY;
+

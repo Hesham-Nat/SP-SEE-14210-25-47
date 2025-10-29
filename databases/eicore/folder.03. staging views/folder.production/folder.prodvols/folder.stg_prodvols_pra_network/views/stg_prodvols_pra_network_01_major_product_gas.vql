@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW stg_prodvols_pra_network_01_major_product_gas FOLDER = '/03. staging views/production/prodvols/stg_prodvols_pra_network' AS SELECT DISTINCT stg_sap_pra_delivery_network_calc_method.dn_number AS dn_number, 'YES' AS major_product_gas FROM stg_sap_pra_delivery_network_calc_method WHERE (eff_from_date <= current_date() AND eff_to_date > current_date() AND major_product_code = 2);
+
+ALTER VIEW stg_prodvols_pra_network_01_major_product_gas
+ LAYOUT (stg_sap_pra_delivery_network_calc_method = [20, 20, 200, 105]);
+

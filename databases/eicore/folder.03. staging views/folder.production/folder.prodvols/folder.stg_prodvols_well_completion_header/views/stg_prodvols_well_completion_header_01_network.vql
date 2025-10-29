@@ -1,0 +1,11 @@
+﻿CREATE OR REPLACE VIEW stg_prodvols_well_completion_header_01_network FOLDER = '/03. staging views/production/prodvols/stg_prodvols_well_completion_header' DESCRIPTION = 'An intermediate view to determine the PRA Networks (one oil / one gas) to which each Well Completion is linked
+
+Source:  PRA'  (
+    pra_network_name_gas (description = 'The Gas Delivery Network to which a Well is linked within PRA'),
+    pra_network_name_oil (description = 'The Oil Delivery Network to which a Well is linked within PRA')
+ )
+ AS SELECT stg_edw_sap_pra_delivery_network_node_well_completion.well_id AS well_id, min(case WHEN (stg_prodvols_pra_network_99_final.major_product_gas = 'YES') THEN stg_prodvols_pra_network_99_final.dn_name ELSE NULL END) AS pra_network_name_gas, min(case WHEN (stg_prodvols_pra_network_99_final.major_product_oil = 'YES') THEN stg_prodvols_pra_network_99_final.dn_name ELSE NULL END) AS pra_network_name_oil, stg_edw_sap_pra_delivery_network_node_well_completion.well_completion AS well_completion FROM ((stg_sap_pra_delivery_network_node_well_completion AS stg_edw_sap_pra_delivery_network_node_well_completion INNER JOIN stg_sap_pra_delivery_network_links AS stg_edw_sap_pra_delivery_network_links ON (stg_edw_sap_pra_delivery_network_node_well_completion.dn_node_number = stg_edw_sap_pra_delivery_network_links.from_node_number AND stg_edw_sap_pra_delivery_network_links.eff_from_date <= current_date() AND stg_edw_sap_pra_delivery_network_links.eff_to_date > current_date()) ) INNER JOIN stg_sap_pra_delivery_network_node AS stg_edw_sap_pra_delivery_network_node ON stg_edw_sap_pra_delivery_network_links.dn_node_number = stg_edw_sap_pra_delivery_network_node.dn_node_number ) INNER JOIN stg_prodvols_pra_network_99_final AS stg_prodvols_pra_network_99_final ON stg_prodvols_pra_network_99_final.dn_number = stg_edw_sap_pra_delivery_network_node.dn_number  GROUP BY stg_edw_sap_pra_delivery_network_node_well_completion.well_id, stg_edw_sap_pra_delivery_network_node_well_completion.well_completion;
+
+ALTER VIEW stg_prodvols_well_completion_header_01_network
+ LAYOUT (stg_sap_pra_delivery_network_node_well_completion = [0, 49, 200, 126], stg_sap_pra_delivery_network_links = [250, 0, 200, 225], stg_sap_pra_delivery_network_node = [500, 187, 200, 106], stg_prodvols_pra_network_99_final = [250, 254, 200, 225]);
+

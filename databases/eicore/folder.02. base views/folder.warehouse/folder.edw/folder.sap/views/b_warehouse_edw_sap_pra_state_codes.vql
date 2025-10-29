@@ -1,0 +1,51 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC statecodes
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    DATASOURCENAME=ds_warehouse
+    CATALOGNAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.statecodes.CATALOGNAME}' 
+    SCHEMANAME='${databases.eicore.folder.02.. base views.folder.warehouse.folder.edw.folder.sap.views.jdbc.statecodes.SCHEMANAME}' 
+    RELATIONNAME='StateCodes' 
+    OUTPUTSCHEMA (
+        stateid = 'StateID' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='3')  NOT NULL SORTABLE,
+        countryid = 'CountryID' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='2')  NOT NULL SORTABLE,
+        statedescription = 'StateDescription' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='50')  SORTABLE,
+        postalid = 'PostalID' :'java.lang.String' (OPT) (sourcetypename='varchar', sourcetypeid='12', sourcetypesize='3')  SORTABLE,
+        versionid = 'VersionID' :'java.lang.Short' (OPT) (sourcetyperadix='10', sourcetypename='smallint', sourcetypeid='5', sourcetypedecimals='0', sourcetypesize='5')  SORTABLE,
+        lastupdatedate = 'LastUpdateDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  SORTABLE,
+        edwupdatedate = 'EDWUpdateDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE,
+        edwcreatedate = 'EDWCreateDate' :'java.sql.Timestamp' (OPT) (sourcetypename='datetime', sourcetypeid='93', sourcetypedecimals='3', sourcetypesize='23')  NOT NULL SORTABLE
+    )
+    CONSTRAINT 'PK__SAP__StateCodes__StateID__CountryID' PRIMARY KEY ( 'StateID' , 'CountryID' )
+    INDEX 'PK__SAP__StateCodes__StateID__CountryID' CLUSTER UNIQUE PRIMARY ( 'StateID' , 'CountryID' );
+
+CREATE OR REPLACE TABLE b_warehouse_edw_sap_pra_state_codes I18N us_mst_mdt (
+        stateid:text (sourcetypeid = '12', sourcetypesize = '3'),
+        countryid:text (sourcetypeid = '12', sourcetypesize = '2'),
+        statedescription:text (sourcetypeid = '12', sourcetypesize = '50'),
+        postalid:text (sourcetypeid = '12', sourcetypesize = '3'),
+        versionid:int (sourcetypeid = '5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '5'),
+        lastupdatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        edwupdatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        edwcreatedate:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23')
+    )
+    FOLDER = '/02. base views/warehouse/edw/sap'
+    CONSTRAINT 'PK__SAP__StateCodes__StateID__CountryID' PRIMARY KEY ( 'stateid' , 'countryid' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD statecodes(
+        I18N us_mst_mdt
+        CONSTRAINTS (
+             ADD stateid (any) OPT ANY
+             ADD countryid (any) OPT ANY
+             ADD statedescription (any) OPT ANY
+             ADD postalid (any) OPT ANY
+             ADD versionid (any) OPT ANY
+             ADD lastupdatedate (any) OPT ANY
+             ADD edwupdatedate (any) OPT ANY
+             ADD edwcreatedate (any) OPT ANY
+        )
+        OUTPUTLIST (countryid, edwcreatedate, edwupdatedate, lastupdatedate, postalid, statedescription, stateid, versionid
+        )
+        WRAPPER (jdbc statecodes)
+    );
+

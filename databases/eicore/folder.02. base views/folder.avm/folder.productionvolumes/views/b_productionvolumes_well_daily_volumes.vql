@@ -1,0 +1,450 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC b_productionvolumes_well_daily_volumes
+    FOLDER = '/02. base views/avm/productionvolumes'
+    DATASOURCENAME=ds_avm
+    CATALOGNAME='${databases.eicore.folder.02.. base views.folder.avm.folder.productionvolumes.views.jdbc.b_productionvolumes_well_daily_volumes.CATALOGNAME}' 
+    SCHEMANAME='${databases.eicore.folder.02.. base views.folder.avm.folder.productionvolumes.views.jdbc.b_productionvolumes_well_daily_volumes.SCHEMANAME}' 
+    RELATIONNAME='well_daily_volumes' 
+    OUTPUTSCHEMA (
+        item_id = 'item_id' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='1', sourcetypename='char')  NOT NULL SORTABLE,
+        prod_dt = 'prod_dt' :'java.time.LocalDate' (OPT) (sourcetypedecimals='0', sourcetypesize='10', sourcetypeid='91', sourcetypename='date')  NOT NULL SORTABLE,
+        prod_month_start_dt = 'prod_month_start_dt' :'java.time.LocalDate' (OPT) (sourcetypedecimals='0', sourcetypesize='10', sourcetypeid='91', sourcetypename='date')  SORTABLE,
+        prod_month_end_dt = 'prod_month_end_dt' :'java.time.LocalDate' (OPT) (sourcetypedecimals='0', sourcetypesize='10', sourcetypeid='91', sourcetypename='date')  SORTABLE,
+        choke = 'choke' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='4', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        downtime_cd_1 = 'downtime_cd_1' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        downtime_cd_2 = 'downtime_cd_2' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        downtime_cd_3 = 'downtime_cd_3' :'java.lang.String' (OPT) (sourcetypesize='100', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        downtime_comments = 'downtime_comments' :'java.lang.String' (OPT) (sourcetypesize='1000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        downtime_down_hrs = 'downtime_down_hrs' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='9', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        downtime_up_hrs = 'downtime_up_hrs' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='9', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        fdc_id_completion = 'fdc_id_completion' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        fdc_id_meter_gas = 'fdc_id_meter_gas' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        fdc_id_meter_oil = 'fdc_id_meter_oil' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        fdc_id_meter_wtr = 'fdc_id_meter_wtr' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        fluid_level_ft = 'fluid_level_ft' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        inv_oil_close_bbl = 'inv_oil_close_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        inv_oil_open_bbl = 'inv_oil_open_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        inv_wtr_close_bbl = 'inv_wtr_close_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        inv_wtr_open_bbl = 'inv_wtr_open_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        lift_type = 'lift_type' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        operated_flag = 'operated_flag' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        plunger_arrivals = 'plunger_arrivals' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        plunger_open_time = 'plunger_open_time' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_base = 'pressure_base' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_base_factor = 'pressure_base_factor' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='15', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_casing_psia = 'pressure_casing_psia' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_casing_psig = 'pressure_casing_psig' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_casing_internal_psia = 'pressure_casing_internal_psia' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_casing_internal_psig = 'pressure_casing_internal_psig' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_casing_surface_psia = 'pressure_casing_surface_psia' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_casing_surface_psig = 'pressure_casing_surface_psig' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_flowing_psia = 'pressure_flowing_psia' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_flowing_psig = 'pressure_flowing_psig' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_pump_intake_psia = 'pressure_pump_intake_psia' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_pump_intake_psig = 'pressure_pump_intake_psig' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_separator_psia = 'pressure_separator_psia' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_separator_psig = 'pressure_separator_psig' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_treater_psia = 'pressure_treater_psia' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_treater_psig = 'pressure_treater_psig' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_tubing_psia = 'pressure_tubing_psia' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pressure_tubing_psig = 'pressure_tubing_psig' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='3', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        production_days = 'production_days' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        pump_depth_ft = 'pump_depth_ft' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        pump_frequency_hz = 'pump_frequency_hz' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        stat_days_of_any_prod = 'stat_days_of_any_prod' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        stat_days_of_gas_prod = 'stat_days_of_gas_prod' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        stat_days_of_gas_or_oil_prod = 'stat_days_of_gas_or_oil_prod' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        stat_days_of_liq_prod = 'stat_days_of_liq_prod' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        stat_days_of_oil_prod = 'stat_days_of_oil_prod' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        stat_days_of_wtr_prod = 'stat_days_of_wtr_prod' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        stat_days_since_last_test = 'stat_days_since_last_test' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        stat_has_vol_any_prod = 'stat_has_vol_any_prod' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='3', sourcetypeid='-6', sourcetypename='tinyint')  SORTABLE,
+        stat_has_vol_gas_prod = 'stat_has_vol_gas_prod' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='3', sourcetypeid='-6', sourcetypename='tinyint')  SORTABLE,
+        stat_has_vol_gas_or_oil_prod = 'stat_has_vol_gas_or_oil_prod' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='3', sourcetypeid='-6', sourcetypename='tinyint')  SORTABLE,
+        stat_has_vol_liq_prod = 'stat_has_vol_liq_prod' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='3', sourcetypeid='-6', sourcetypename='tinyint')  SORTABLE,
+        stat_has_vol_oil_prod = 'stat_has_vol_oil_prod' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='3', sourcetypeid='-6', sourcetypename='tinyint')  SORTABLE,
+        stat_has_vol_wtr_prod = 'stat_has_vol_wtr_prod' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='3', sourcetypeid='-6', sourcetypename='tinyint')  SORTABLE,
+        stat_ratio_gas_oil = 'stat_ratio_gas_oil' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        stat_ratio_wtr_oil = 'stat_ratio_wtr_oil' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        temperature_separator_f = 'temperature_separator_f' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        temperature_treater_f = 'temperature_treater_f' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        theor_method_gas = 'theor_method_gas' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        theor_method_oil = 'theor_method_oil' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        theor_method_wtr = 'theor_method_wtr' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        vol_gas_flare_mcf = 'vol_gas_flare_mcf' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_flash_mcf = 'vol_gas_flash_mcf' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_fuel_mcf = 'vol_gas_fuel_mcf' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_inj_mcf = 'vol_gas_inj_mcf' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_prod_boe = 'vol_gas_prod_boe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_prod_mcf = 'vol_gas_prod_mcf' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_sales_boe = 'vol_gas_sales_boe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_sales_mcf = 'vol_gas_sales_mcf' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_test_rate_boe = 'vol_gas_test_rate_boe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_test_rate_mcf = 'vol_gas_test_rate_mcf' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_theor_boe = 'vol_gas_theor_boe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_theor_mcf = 'vol_gas_theor_mcf' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_total_usage_mcf = 'vol_gas_total_usage_mcf' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_vent_mcf = 'vol_gas_vent_mcf' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_wh_boe = 'vol_gas_wh_boe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_wh_mcf = 'vol_gas_wh_mcf' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_wh_meter_boe = 'vol_gas_wh_meter_boe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_gas_wh_meter_mcf = 'vol_gas_wh_meter_mcf' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_liq_prod_bbl = 'vol_liq_prod_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_oil_prod_bbl = 'vol_oil_prod_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_oil_prod_mcfe = 'vol_oil_prod_mcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_oil_sales_bbl = 'vol_oil_sales_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_oil_sales_mcfe = 'vol_oil_sales_mcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_oil_skim_bbl = 'vol_oil_skim_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_oil_test_rate_bbl = 'vol_oil_test_rate_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_oil_test_rate_mcfe = 'vol_oil_test_rate_mcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_oil_theor_bbl = 'vol_oil_theor_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_oil_theor_mcfe = 'vol_oil_theor_mcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_oil_wh_bbl = 'vol_oil_wh_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_oil_wh_mcfe = 'vol_oil_wh_mcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_oil_wh_meter_bbl = 'vol_oil_wh_meter_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_oil_wh_meter_mcfe = 'vol_oil_wh_meter_mcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_wtr_inj_bbl = 'vol_wtr_inj_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_wtr_prod_bbl = 'vol_wtr_prod_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_wtr_test_rate_bbl = 'vol_wtr_test_rate_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_wtr_theor_bbl = 'vol_wtr_theor_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_wtr_wh_bbl = 'vol_wtr_wh_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_wtr_wh_meter_bbl = 'vol_wtr_wh_meter_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        well_completion_ekey = 'well_completion_ekey' :'java.lang.String' (OPT) (sourcetypesize='12', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        well_completion_status = 'well_completion_status' :'java.lang.String' (OPT) (sourcetypesize='32', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        well_read_comments = 'well_read_comments' :'java.lang.String' (OPT) (sourcetypesize='1000', sourcetypeid='12', sourcetypename='varchar')  SORTABLE,
+        system_update_date_well_completion_header_dt_eff = 'system_update_date_well_completion_header_dt_eff' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        system_update_date_well_daily_reads = 'system_update_date_well_daily_reads' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        system_update_date_well_daily_downtime = 'system_update_date_well_daily_downtime' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        system_update_date_well_daily_totals = 'system_update_date_well_daily_totals' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        system_update_date_well_tests_dt_eff = 'system_update_date_well_tests_dt_eff' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        system_update_date_meter_daily_volumes = 'system_update_date_meter_daily_volumes' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  SORTABLE,
+        vol_equiv_prod_boe = 'vol_equiv_prod_boe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_prod_mcfe = 'vol_equiv_prod_mcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_prod_mmcfe = 'vol_equiv_prod_mmcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_sales_boe = 'vol_equiv_sales_boe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_sales_mcfe = 'vol_equiv_sales_mcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_sales_mmcfe = 'vol_equiv_sales_mmcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_theor_boe = 'vol_equiv_theor_boe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_theor_mcfe = 'vol_equiv_theor_mcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_theor_mmcfe = 'vol_equiv_theor_mmcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_wh_boe = 'vol_equiv_wh_boe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_wh_mcfe = 'vol_equiv_wh_mcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_wh_meter_boe = 'vol_equiv_wh_meter_boe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_wh_meter_mcfe = 'vol_equiv_wh_meter_mcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_wh_meter_mmcfe = 'vol_equiv_wh_meter_mmcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_equiv_wh_mmcfe = 'vol_equiv_wh_mmcfe' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        stat_days_of_any_prod_reverse = 'stat_days_of_any_prod_reverse' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        stat_days_of_gas_or_oil_prod_reverse = 'stat_days_of_gas_or_oil_prod_reverse' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        stat_days_of_gas_prod_reverse = 'stat_days_of_gas_prod_reverse' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        stat_days_of_liq_prod_reverse = 'stat_days_of_liq_prod_reverse' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        stat_days_of_oil_prod_reverse = 'stat_days_of_oil_prod_reverse' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        stat_days_of_wtr_prod_reverse = 'stat_days_of_wtr_prod_reverse' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        data_format = 'data_format' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='-9', sourcetypename='nvarchar')  SORTABLE,
+        data_source = 'data_source' :'java.lang.String' (OPT) (sourcetypesize='255', sourcetypeid='-9', sourcetypename='nvarchar')  SORTABLE,
+        stat_has_24hr_downtime_when_producing = 'stat_has_24hr_downtime_when_producing' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        stat_need_24hr_downtime = 'stat_need_24hr_downtime' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        vol_var_gas_prod_vs_theor_mcf = 'vol_var_gas_prod_vs_theor_mcf' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_var_oil_prod_vs_theor_bbl = 'vol_var_oil_prod_vs_theor_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        vol_var_wtr_prod_vs_theor_bbl = 'vol_var_wtr_prod_vs_theor_bbl' :'java.math.BigDecimal' (OPT) (sourcetypedecimals='2', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='3', sourcetypename='decimal')  SORTABLE,
+        record_create_date = 'record_create_date' :'java.time.LocalDateTime' (OPT) (sourcetypedecimals='3', sourcetypesize='23', sourcetypeid='93', sourcetypename='datetime')  NOT NULL SORTABLE
+    )
+    CONSTRAINT 'PK__well_daily_volumes__item_id__prod_dt' PRIMARY KEY ( 'item_id' , 'prod_dt' )
+    INDEX 'PK__well_daily_volumes__item_id__prod_dt' CLUSTER UNIQUE PRIMARY ( 'item_id' , 'prod_dt' );
+
+CREATE OR REPLACE TABLE b_productionvolumes_well_daily_volumes I18N us_mst_mdt (
+        item_id:text (sourcetypeid = '1', sourcetypesize = '32'),
+        prod_dt:localdate (sourcetypeid = '91', sourcetypedecimals = '0', sourcetypesize = '10'),
+        prod_month_start_dt:localdate (sourcetypeid = '91', sourcetypedecimals = '0', sourcetypesize = '10'),
+        prod_month_end_dt:localdate (sourcetypeid = '91', sourcetypedecimals = '0', sourcetypesize = '10'),
+        choke:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '4', sourcetypesize = '19'),
+        downtime_cd_1:text (sourcetypeid = '12', sourcetypesize = '100'),
+        downtime_cd_2:text (sourcetypeid = '12', sourcetypesize = '100'),
+        downtime_cd_3:text (sourcetypeid = '12', sourcetypesize = '100'),
+        downtime_comments:text (sourcetypeid = '12', sourcetypesize = '1000'),
+        downtime_down_hrs:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '9'),
+        downtime_up_hrs:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '9'),
+        fdc_id_completion:text (sourcetypeid = '12', sourcetypesize = '32'),
+        fdc_id_meter_gas:text (sourcetypeid = '12', sourcetypesize = '32'),
+        fdc_id_meter_oil:text (sourcetypeid = '12', sourcetypesize = '32'),
+        fdc_id_meter_wtr:text (sourcetypeid = '12', sourcetypesize = '32'),
+        fluid_level_ft:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        inv_oil_close_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        inv_oil_open_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        inv_wtr_close_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        inv_wtr_open_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        lift_type:text (sourcetypeid = '12', sourcetypesize = '32'),
+        operated_flag:text (sourcetypeid = '12', sourcetypesize = '32'),
+        plunger_arrivals:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        plunger_open_time:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        pressure_base:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_base_factor:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '15', sourcetypesize = '19'),
+        pressure_casing_psia:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_casing_psig:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_casing_internal_psia:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_casing_internal_psig:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_casing_surface_psia:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_casing_surface_psig:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_flowing_psia:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_flowing_psig:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_pump_intake_psia:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_pump_intake_psig:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_separator_psia:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_separator_psig:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_treater_psia:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_treater_psig:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_tubing_psia:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        pressure_tubing_psig:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '3', sourcetypesize = '19'),
+        production_days:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        pump_depth_ft:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        pump_frequency_hz:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        stat_days_of_any_prod:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        stat_days_of_gas_prod:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        stat_days_of_gas_or_oil_prod:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        stat_days_of_liq_prod:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        stat_days_of_oil_prod:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        stat_days_of_wtr_prod:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        stat_days_since_last_test:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        stat_has_vol_any_prod:int (sourcetypeid = '-6', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '3'),
+        stat_has_vol_gas_prod:int (sourcetypeid = '-6', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '3'),
+        stat_has_vol_gas_or_oil_prod:int (sourcetypeid = '-6', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '3'),
+        stat_has_vol_liq_prod:int (sourcetypeid = '-6', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '3'),
+        stat_has_vol_oil_prod:int (sourcetypeid = '-6', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '3'),
+        stat_has_vol_wtr_prod:int (sourcetypeid = '-6', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '3'),
+        stat_ratio_gas_oil:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        stat_ratio_wtr_oil:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        temperature_separator_f:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        temperature_treater_f:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        theor_method_gas:text (sourcetypeid = '12', sourcetypesize = '32'),
+        theor_method_oil:text (sourcetypeid = '12', sourcetypesize = '32'),
+        theor_method_wtr:text (sourcetypeid = '12', sourcetypesize = '32'),
+        vol_gas_flare_mcf:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_flash_mcf:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_fuel_mcf:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_inj_mcf:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_prod_boe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_prod_mcf:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_sales_boe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_sales_mcf:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_test_rate_boe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_test_rate_mcf:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_theor_boe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_theor_mcf:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_total_usage_mcf:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_vent_mcf:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_wh_boe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_wh_mcf:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_wh_meter_boe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_gas_wh_meter_mcf:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_liq_prod_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_oil_prod_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_oil_prod_mcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_oil_sales_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_oil_sales_mcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_oil_skim_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_oil_test_rate_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_oil_test_rate_mcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_oil_theor_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_oil_theor_mcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_oil_wh_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_oil_wh_mcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_oil_wh_meter_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_oil_wh_meter_mcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_wtr_inj_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_wtr_prod_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_wtr_test_rate_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_wtr_theor_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_wtr_wh_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_wtr_wh_meter_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        well_completion_ekey:text (sourcetypeid = '12', sourcetypesize = '12'),
+        well_completion_status:text (sourcetypeid = '12', sourcetypesize = '32'),
+        well_read_comments:text (sourcetypeid = '12', sourcetypesize = '1000'),
+        system_update_date_well_completion_header_dt_eff:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        system_update_date_well_daily_reads:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        system_update_date_well_daily_downtime:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        system_update_date_well_daily_totals:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        system_update_date_well_tests_dt_eff:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        system_update_date_meter_daily_volumes:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23'),
+        vol_equiv_prod_boe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_prod_mcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_prod_mmcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_sales_boe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_sales_mcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_sales_mmcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_theor_boe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_theor_mcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_theor_mmcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_wh_boe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_wh_mcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_wh_meter_boe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_wh_meter_mcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_wh_meter_mmcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_equiv_wh_mmcfe:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        stat_days_of_any_prod_reverse:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        stat_days_of_gas_or_oil_prod_reverse:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        stat_days_of_gas_prod_reverse:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        stat_days_of_liq_prod_reverse:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        stat_days_of_oil_prod_reverse:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        stat_days_of_wtr_prod_reverse:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        data_format:text (sourcetypeid = '-9', sourcetypesize = '255'),
+        data_source:text (sourcetypeid = '-9', sourcetypesize = '255'),
+        stat_has_24hr_downtime_when_producing:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        stat_need_24hr_downtime:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        vol_var_gas_prod_vs_theor_mcf:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_var_oil_prod_vs_theor_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        vol_var_wtr_prod_vs_theor_bbl:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '2', sourcetypesize = '19'),
+        record_create_date:timestamp (sourcetypeid = '93', sourcetypedecimals = '3', sourcetypesize = '23')
+    )
+    FOLDER = '/02. base views/avm/productionvolumes'
+    PRIMARY KEY ( 'item_id' , 'prod_dt' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD b_productionvolumes_well_daily_volumes(
+        I18N us_mst_mdt
+        CONSTRAINTS (
+             ADD item_id (any) OPT ANY
+             ADD prod_dt (any) OPT ANY
+             ADD prod_month_start_dt (any) OPT ANY
+             ADD prod_month_end_dt (any) OPT ANY
+             ADD choke (any) OPT ANY
+             ADD downtime_cd_1 (any) OPT ANY
+             ADD downtime_cd_2 (any) OPT ANY
+             ADD downtime_cd_3 (any) OPT ANY
+             ADD downtime_comments (any) OPT ANY
+             ADD downtime_down_hrs (any) OPT ANY
+             ADD downtime_up_hrs (any) OPT ANY
+             ADD fdc_id_completion (any) OPT ANY
+             ADD fdc_id_meter_gas (any) OPT ANY
+             ADD fdc_id_meter_oil (any) OPT ANY
+             ADD fdc_id_meter_wtr (any) OPT ANY
+             ADD fluid_level_ft (any) OPT ANY
+             ADD inv_oil_close_bbl (any) OPT ANY
+             ADD inv_oil_open_bbl (any) OPT ANY
+             ADD inv_wtr_close_bbl (any) OPT ANY
+             ADD inv_wtr_open_bbl (any) OPT ANY
+             ADD lift_type (any) OPT ANY
+             ADD operated_flag (any) OPT ANY
+             ADD plunger_arrivals (any) OPT ANY
+             ADD plunger_open_time (any) OPT ANY
+             ADD pressure_base (any) OPT ANY
+             ADD pressure_base_factor (any) OPT ANY
+             ADD pressure_casing_psia (any) OPT ANY
+             ADD pressure_casing_psig (any) OPT ANY
+             ADD pressure_casing_internal_psia (any) OPT ANY
+             ADD pressure_casing_internal_psig (any) OPT ANY
+             ADD pressure_casing_surface_psia (any) OPT ANY
+             ADD pressure_casing_surface_psig (any) OPT ANY
+             ADD pressure_flowing_psia (any) OPT ANY
+             ADD pressure_flowing_psig (any) OPT ANY
+             ADD pressure_pump_intake_psia (any) OPT ANY
+             ADD pressure_pump_intake_psig (any) OPT ANY
+             ADD pressure_separator_psia (any) OPT ANY
+             ADD pressure_separator_psig (any) OPT ANY
+             ADD pressure_treater_psia (any) OPT ANY
+             ADD pressure_treater_psig (any) OPT ANY
+             ADD pressure_tubing_psia (any) OPT ANY
+             ADD pressure_tubing_psig (any) OPT ANY
+             ADD production_days (any) OPT ANY
+             ADD pump_depth_ft (any) OPT ANY
+             ADD pump_frequency_hz (any) OPT ANY
+             ADD stat_days_of_any_prod (any) OPT ANY
+             ADD stat_days_of_gas_prod (any) OPT ANY
+             ADD stat_days_of_gas_or_oil_prod (any) OPT ANY
+             ADD stat_days_of_liq_prod (any) OPT ANY
+             ADD stat_days_of_oil_prod (any) OPT ANY
+             ADD stat_days_of_wtr_prod (any) OPT ANY
+             ADD stat_days_since_last_test (any) OPT ANY
+             ADD stat_has_vol_any_prod (any) OPT ANY
+             ADD stat_has_vol_gas_prod (any) OPT ANY
+             ADD stat_has_vol_gas_or_oil_prod (any) OPT ANY
+             ADD stat_has_vol_liq_prod (any) OPT ANY
+             ADD stat_has_vol_oil_prod (any) OPT ANY
+             ADD stat_has_vol_wtr_prod (any) OPT ANY
+             ADD stat_ratio_gas_oil (any) OPT ANY
+             ADD stat_ratio_wtr_oil (any) OPT ANY
+             ADD temperature_separator_f (any) OPT ANY
+             ADD temperature_treater_f (any) OPT ANY
+             ADD theor_method_gas (any) OPT ANY
+             ADD theor_method_oil (any) OPT ANY
+             ADD theor_method_wtr (any) OPT ANY
+             ADD vol_gas_flare_mcf (any) OPT ANY
+             ADD vol_gas_flash_mcf (any) OPT ANY
+             ADD vol_gas_fuel_mcf (any) OPT ANY
+             ADD vol_gas_inj_mcf (any) OPT ANY
+             ADD vol_gas_prod_boe (any) OPT ANY
+             ADD vol_gas_prod_mcf (any) OPT ANY
+             ADD vol_gas_sales_boe (any) OPT ANY
+             ADD vol_gas_sales_mcf (any) OPT ANY
+             ADD vol_gas_test_rate_boe (any) OPT ANY
+             ADD vol_gas_test_rate_mcf (any) OPT ANY
+             ADD vol_gas_theor_boe (any) OPT ANY
+             ADD vol_gas_theor_mcf (any) OPT ANY
+             ADD vol_gas_total_usage_mcf (any) OPT ANY
+             ADD vol_gas_vent_mcf (any) OPT ANY
+             ADD vol_gas_wh_boe (any) OPT ANY
+             ADD vol_gas_wh_mcf (any) OPT ANY
+             ADD vol_gas_wh_meter_boe (any) OPT ANY
+             ADD vol_gas_wh_meter_mcf (any) OPT ANY
+             ADD vol_liq_prod_bbl (any) OPT ANY
+             ADD vol_oil_prod_bbl (any) OPT ANY
+             ADD vol_oil_prod_mcfe (any) OPT ANY
+             ADD vol_oil_sales_bbl (any) OPT ANY
+             ADD vol_oil_sales_mcfe (any) OPT ANY
+             ADD vol_oil_skim_bbl (any) OPT ANY
+             ADD vol_oil_test_rate_bbl (any) OPT ANY
+             ADD vol_oil_test_rate_mcfe (any) OPT ANY
+             ADD vol_oil_theor_bbl (any) OPT ANY
+             ADD vol_oil_theor_mcfe (any) OPT ANY
+             ADD vol_oil_wh_bbl (any) OPT ANY
+             ADD vol_oil_wh_mcfe (any) OPT ANY
+             ADD vol_oil_wh_meter_bbl (any) OPT ANY
+             ADD vol_oil_wh_meter_mcfe (any) OPT ANY
+             ADD vol_wtr_inj_bbl (any) OPT ANY
+             ADD vol_wtr_prod_bbl (any) OPT ANY
+             ADD vol_wtr_test_rate_bbl (any) OPT ANY
+             ADD vol_wtr_theor_bbl (any) OPT ANY
+             ADD vol_wtr_wh_bbl (any) OPT ANY
+             ADD vol_wtr_wh_meter_bbl (any) OPT ANY
+             ADD well_completion_ekey (any) OPT ANY
+             ADD well_completion_status (any) OPT ANY
+             ADD well_read_comments (any) OPT ANY
+             ADD system_update_date_well_completion_header_dt_eff (any) OPT ANY
+             ADD system_update_date_well_daily_reads (any) OPT ANY
+             ADD system_update_date_well_daily_downtime (any) OPT ANY
+             ADD system_update_date_well_daily_totals (any) OPT ANY
+             ADD system_update_date_well_tests_dt_eff (any) OPT ANY
+             ADD system_update_date_meter_daily_volumes (any) OPT ANY
+             ADD vol_equiv_prod_boe (any) OPT ANY
+             ADD vol_equiv_prod_mcfe (any) OPT ANY
+             ADD vol_equiv_prod_mmcfe (any) OPT ANY
+             ADD vol_equiv_sales_boe (any) OPT ANY
+             ADD vol_equiv_sales_mcfe (any) OPT ANY
+             ADD vol_equiv_sales_mmcfe (any) OPT ANY
+             ADD vol_equiv_theor_boe (any) OPT ANY
+             ADD vol_equiv_theor_mcfe (any) OPT ANY
+             ADD vol_equiv_theor_mmcfe (any) OPT ANY
+             ADD vol_equiv_wh_boe (any) OPT ANY
+             ADD vol_equiv_wh_mcfe (any) OPT ANY
+             ADD vol_equiv_wh_meter_boe (any) OPT ANY
+             ADD vol_equiv_wh_meter_mcfe (any) OPT ANY
+             ADD vol_equiv_wh_meter_mmcfe (any) OPT ANY
+             ADD vol_equiv_wh_mmcfe (any) OPT ANY
+             ADD stat_days_of_any_prod_reverse (any) OPT ANY
+             ADD stat_days_of_gas_or_oil_prod_reverse (any) OPT ANY
+             ADD stat_days_of_gas_prod_reverse (any) OPT ANY
+             ADD stat_days_of_liq_prod_reverse (any) OPT ANY
+             ADD stat_days_of_oil_prod_reverse (any) OPT ANY
+             ADD stat_days_of_wtr_prod_reverse (any) OPT ANY
+             ADD data_format (any) OPT ANY
+             ADD data_source (any) OPT ANY
+             ADD stat_has_24hr_downtime_when_producing (any) OPT ANY
+             ADD stat_need_24hr_downtime (any) OPT ANY
+             ADD vol_var_gas_prod_vs_theor_mcf (any) OPT ANY
+             ADD vol_var_oil_prod_vs_theor_bbl (any) OPT ANY
+             ADD vol_var_wtr_prod_vs_theor_bbl (any) OPT ANY
+             ADD record_create_date (any) OPT ANY
+        )
+        OUTPUTLIST (choke, data_format, data_source, downtime_cd_1, downtime_cd_2, downtime_cd_3, downtime_comments, downtime_down_hrs, downtime_up_hrs, fdc_id_completion, fdc_id_meter_gas, fdc_id_meter_oil, fdc_id_meter_wtr, fluid_level_ft, inv_oil_close_bbl, inv_oil_open_bbl, inv_wtr_close_bbl, inv_wtr_open_bbl, item_id, lift_type, operated_flag, plunger_arrivals, plunger_open_time, pressure_base, pressure_base_factor, pressure_casing_internal_psia, pressure_casing_internal_psig, pressure_casing_psia, pressure_casing_psig, pressure_casing_surface_psia, pressure_casing_surface_psig, pressure_flowing_psia, pressure_flowing_psig, pressure_pump_intake_psia, pressure_pump_intake_psig, pressure_separator_psia, pressure_separator_psig, pressure_treater_psia, pressure_treater_psig, pressure_tubing_psia, pressure_tubing_psig, prod_dt, prod_month_end_dt, prod_month_start_dt, production_days, pump_depth_ft, pump_frequency_hz, record_create_date, stat_days_of_any_prod, stat_days_of_any_prod_reverse, stat_days_of_gas_or_oil_prod, stat_days_of_gas_or_oil_prod_reverse, stat_days_of_gas_prod, stat_days_of_gas_prod_reverse, stat_days_of_liq_prod, stat_days_of_liq_prod_reverse, stat_days_of_oil_prod, stat_days_of_oil_prod_reverse, stat_days_of_wtr_prod, stat_days_of_wtr_prod_reverse, stat_days_since_last_test, stat_has_24hr_downtime_when_producing, stat_has_vol_any_prod, stat_has_vol_gas_or_oil_prod, stat_has_vol_gas_prod, stat_has_vol_liq_prod, stat_has_vol_oil_prod, stat_has_vol_wtr_prod, stat_need_24hr_downtime, stat_ratio_gas_oil, stat_ratio_wtr_oil, system_update_date_meter_daily_volumes, system_update_date_well_completion_header_dt_eff, system_update_date_well_daily_downtime, system_update_date_well_daily_reads, system_update_date_well_daily_totals, system_update_date_well_tests_dt_eff, temperature_separator_f, temperature_treater_f, theor_method_gas, theor_method_oil, theor_method_wtr, vol_equiv_prod_boe, vol_equiv_prod_mcfe, vol_equiv_prod_mmcfe, vol_equiv_sales_boe, vol_equiv_sales_mcfe, vol_equiv_sales_mmcfe, vol_equiv_theor_boe, vol_equiv_theor_mcfe, vol_equiv_theor_mmcfe, vol_equiv_wh_boe, vol_equiv_wh_mcfe, vol_equiv_wh_meter_boe, vol_equiv_wh_meter_mcfe, vol_equiv_wh_meter_mmcfe, vol_equiv_wh_mmcfe, vol_gas_flare_mcf, vol_gas_flash_mcf, vol_gas_fuel_mcf, vol_gas_inj_mcf, vol_gas_prod_boe, vol_gas_prod_mcf, vol_gas_sales_boe, vol_gas_sales_mcf, vol_gas_test_rate_boe, vol_gas_test_rate_mcf, vol_gas_theor_boe, vol_gas_theor_mcf, vol_gas_total_usage_mcf, vol_gas_vent_mcf, vol_gas_wh_boe, vol_gas_wh_mcf, vol_gas_wh_meter_boe, vol_gas_wh_meter_mcf, vol_liq_prod_bbl, vol_oil_prod_bbl, vol_oil_prod_mcfe, vol_oil_sales_bbl, vol_oil_sales_mcfe, vol_oil_skim_bbl, vol_oil_test_rate_bbl, vol_oil_test_rate_mcfe, vol_oil_theor_bbl, vol_oil_theor_mcfe, vol_oil_wh_bbl, vol_oil_wh_mcfe, vol_oil_wh_meter_bbl, vol_oil_wh_meter_mcfe, vol_var_gas_prod_vs_theor_mcf, vol_var_oil_prod_vs_theor_bbl, vol_var_wtr_prod_vs_theor_bbl, vol_wtr_inj_bbl, vol_wtr_prod_bbl, vol_wtr_test_rate_bbl, vol_wtr_theor_bbl, vol_wtr_wh_bbl, vol_wtr_wh_meter_bbl, well_completion_ekey, well_completion_status, well_read_comments
+        )
+        WRAPPER (jdbc b_productionvolumes_well_daily_volumes)
+    );
+

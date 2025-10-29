@@ -1,0 +1,12 @@
+﻿*/databases/eicore/folder.03. staging views/03. staging views.vql
+*/databases/eicore/folder.03. staging views/folder.sap/sap.vql
+1/databases/eicore/folder.03. staging views/folder.sap/folder.sql/sql.vql
+*/databases/eicore/folder.02. base views/02. base views.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/warehouse.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/edw.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.sap/sap.vql
+*/databases/eicore/folder.01. connections/01. connections.vql
+*/databases/eicore/folder.01. connections/folder.sql/sql.vql
+*/databases/eicore/folder.01. connections/folder.sql/datasources/jdbc/ds_warehouse.vql
+1/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.sap/views/b_warehouse_edw_sap_pra_delivery_network_calc_method.vql
+*/databases/eicore/folder.02. base views/folder.warehouse/folder.edw/folder.sap/views/b_warehouse_edw_sap_pra_delivery_network_calc_method.vql
